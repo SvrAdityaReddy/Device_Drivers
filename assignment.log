@@ -3355,3 +3355,269 @@ alias symbol:[01;31m[Klirc[m[K_dev_fop_close [01;31m[Klirc[m[K_dev
 exit
 
 Script done on Sun 05 Nov 2017 08:21:27 UTC
+Script started on Mon 06 Nov 2017 04:56:06 UTC
+]0;pi@raspberrypi: ~/Device_Drivers[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers $[00m cd lirc_rpi/
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m cd lirc_rpi/[4Pgit pushcommit -m "Updated Readme and addeed log file which involved looking at various other modules based on lirc and basse driver file lirc_dev.c"[A[A]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m [C[C[C[C[C[Cnfig --global user.name "SvrAdityaReddy"[K
+[K[A[C[C[C[C[C[C[C[C[C[A]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m [C[C[C[C[C[Cmmit -m "Updated Readme and added log file which involved looking at various other modules based on lirc and basse driver file lirc_dev.c"[A[A]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m [C[C[C[Cpush[K
+[K
+[K[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd lirc_rpi/[Kmake 
+make -C /lib/modules/4.9.45-v7+/build M=/home/pi/Device_Drivers/lirc_rpi modules
+make[1]: Entering directory '/home/pi/linux'
+  CC [M]  /home/pi/Device_Drivers/lirc_rpi/lirc_rpi.o
+In file included from [01m[K./include/linux/thread_info.h:11:0[m[K,
+                 from [01m[K./include/asm-generic/preempt.h:4[m[K,
+                 from [01m[K./arch/arm/include/generated/asm/preempt.h:1[m[K,
+                 from [01m[K./include/linux/preempt.h:59[m[K,
+                 from [01m[K./include/linux/spinlock.h:50[m[K,
+                 from [01m[K./include/linux/seqlock.h:35[m[K,
+                 from [01m[K./include/linux/time.h:5[m[K,
+                 from [01m[K./include/linux/stat.h:18[m[K,
+                 from [01m[K./include/linux/module.h:10[m[K,
+                 from [01m[K/home/pi/Device_Drivers/lirc_rpi/lirc_rpi.c:1[m[K:
+[01m[K./include/linux/bug.h:37:45:[m[K [01;31m[Kerror: [m[Knegative width in bit-field ‘[01m[K<anonymous>[m[K’
+ #define BUILD_BUG_ON_ZERO(e) (sizeof(struct [01;31m[K{[m[K int:-!!(e); }))
+                                             [01;31m[K^[m[K
+[01m[K./include/linux/kernel.h:852:3:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KBUILD_BUG_ON_ZERO[m[K’
+   [01;36m[KBUILD_BUG_ON_ZERO[m[K((((perms) >> 6) & 2) < (((perms) >> 3) & 2)) + \
+   [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K./include/linux/moduleparam.h:225:6:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KVERIFY_OCTAL_PERMISSIONS[m[K’
+      [01;36m[KVERIFY_OCTAL_PERMISSIONS[m[K(perm), level, flags, { arg } }
+      [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K./include/linux/moduleparam.h:167:2:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[K__module_param_call[m[K’
+  [01;36m[K__module_param_call[m[K(MODULE_PARAM_PREFIX, name, ops, arg, perm, -1, 0)
+  [01;36m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K./include/linux/moduleparam.h:147:2:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[Kmodule_param_cb[m[K’
+  [01;36m[Kmodule_param_cb[m[K(name, &param_ops_##type, &value, perm);     \
+  [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K./include/linux/moduleparam.h:126:2:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[Kmodule_param_named[m[K’
+  [01;36m[Kmodule_param_named[m[K(name, name, type, perm)
+  [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/pi/Device_Drivers/lirc_rpi/lirc_rpi.c:9:1:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[Kmodule_param[m[K’
+ [01;36m[Kmodule_param[m[K(gpio_in, int, 18);
+ [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K./include/linux/bug.h:37:45:[m[K [01;31m[Kerror: [m[Knegative width in bit-field ‘[01m[K<anonymous>[m[K’
+ #define BUILD_BUG_ON_ZERO(e) (sizeof(struct [01;31m[K{[m[K int:-!!(e); }))
+                                             [01;31m[K^[m[K
+[01m[K./include/linux/kernel.h:854:3:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KBUILD_BUG_ON_ZERO[m[K’
+   [01;36m[KBUILD_BUG_ON_ZERO[m[K((perms) & 2) +     \
+   [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K./include/linux/moduleparam.h:225:6:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KVERIFY_OCTAL_PERMISSIONS[m[K’
+      [01;36m[KVERIFY_OCTAL_PERMISSIONS[m[K(perm), level, flags, { arg } }
+      [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K./include/linux/moduleparam.h:167:2:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[K__module_param_call[m[K’
+  [01;36m[K__module_param_call[m[K(MODULE_PARAM_PREFIX, name, ops, arg, perm, -1, 0)
+  [01;36m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K./include/linux/moduleparam.h:147:2:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[Kmodule_param_cb[m[K’
+  [01;36m[Kmodule_param_cb[m[K(name, &param_ops_##type, &value, perm);     \
+  [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K./include/linux/moduleparam.h:126:2:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[Kmodule_param_named[m[K’
+  [01;36m[Kmodule_param_named[m[K(name, name, type, perm)
+  [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/pi/Device_Drivers/lirc_rpi/lirc_rpi.c:9:1:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[Kmodule_param[m[K’
+ [01;36m[Kmodule_param[m[K(gpio_in, int, 18);
+ [01;36m[K^~~~~~~~~~~~[m[K
+scripts/Makefile.build:299: recipe for target '/home/pi/Device_Drivers/lirc_rpi/lirc_rpi.o' failed
+make[2]: *** [/home/pi/Device_Drivers/lirc_rpi/lirc_rpi.o] Error 1
+Makefile:1493: recipe for target '_module_/home/pi/Device_Drivers/lirc_rpi' failed
+make[1]: *** [_module_/home/pi/Device_Drivers/lirc_rpi] Error 2
+make[1]: Leaving directory '/home/pi/linux'
+Makefile:5: recipe for target 'default' failed
+make: *** [default] Error 2
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m vim R[K[K[K[K[Kmake [Kmake cd lirc_rpi/[4Pgit pushcd lirc_rpi/[7Pmake [Kvim lirc_rpi.c
+[?1000h[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;24r[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[24;1H"lirc_rpi.c" 25L, 499C[>c[27m[23m[m[H[2J[1;1H[38;5;81m#include [m[95m<linux/module.h>[m
+
+[96m// Default gpio input pin[m
+[38;5;121mstatic[m [38;5;121mint[m gpio_in=[95m18[m;
+
+[96m// Default gpio output pin[m
+[38;5;121mstatic[m [38;5;121mint[m gpio_out=[95m17[m;
+
+module_param(gpio_in, [38;5;121mint[m, [95m18[m);
+module_param(gpio_out, [38;5;121mint[m, [95m0[m);
+MODULE_PARM_DESC(gpio_in, [95m"GPIO INPUT PIN"[m);
+MODULE_PARM_DESC(gpio_out, [95m"GPIO OUTPUT PIN"[m);
+
+[38;5;121mstatic[m [38;5;121mint[m __init lirc_rpi_init([38;5;121mvoid[m) {[15;9Hpr_info([95m"HI[m[38;5;224m\n[m[95m"[m);[16;9H[93mreturn[m [95m0[m;
+}
+
+[38;5;121mstatic[m [38;5;121mvoid[m __exit lirc_rpi_exit([38;5;121mvoid[m) {[20;9Hpr_info([95m"Hi[m[38;5;224m\n[m[95m"[m);
+}
+
+module_init(lirc_rpi_init);[24;63H15,17-24      Top"lirc_rpi.c" 25L, 499C[40C                 [15;24H[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?12l[?25h[?25l[24;53H~@k[15;24H[24;53H   [16;17H[24;63H16,10-17      Top[16;17H[?12l[?25h[?25l[24;53H~@k[16;17H[24;53H   [17;1H[14;39H[46m{
+
+
+}[m[24;64H7,1    [17;1H[?12l[?25h[?25l[24;53H~@k[17;1H[24;53H   [18;1H[14;39H{
+
+
+}[24;64H8,0-1[18;1H[?12l[?25h[?25l[24;53H~@k[18;1H[24;53H   [18;24H[1;23r[23;1H
+[1;24r[23;1Hmodule_exit(lirc_rpi_exit);[24;1H[K[24;63H19,24[9C50%[18;24H[?12l[?25h[?25l[24;53H~@k[18;24H[24;53H   [17;1H[24;64H8,0-1[17;1H[?12l[?25h[?25l[24;53H~@k[17;1H[24;53H   [16;1H[13;39H[46m{
+
+
+}[m[24;64H7,1  [16;1H[?12l[?25h[?25l[24;53H~@k[16;1H[24;53H   [15;17H[13;39H{
+
+
+}[24;64H6,10-17[15;17H[?12l[?25h[?25l[24;53H~@k[15;17H[24;53H   [14;24H[24;64H5,17-24[14;24H[?12l[?25h[?25l[24;53H~@k[14;24H[24;53H   [13;24H[24;64H4,24   [13;24H[?12l[?25h[?25l[24;53H~@k[13;24H[24;53H   [12;1H[24;64H3,0-1[12;1H[?12l[?25h[?25l[24;53H~@k[12;1H[24;53H   [11;24H[24;64H2,24 [11;24H[?12l[?25h[?25l[24;53H~@k[11;24H[24;53H   [10;24H[24;64H1[10;24H[?12l[?25h[?25l[24;53H~@k[10;24H[24;53H   [9;24H[24;64H0[9;24H[?12l[?25h[?25l[24;53H~@k[9;24H[24;53H   [8;24H[24;63H9,24 [8;24H[?12l[?25h[?25l[24;53H~@k[8;24H[24;53H   [7;1H[24;63H8,0-1[7;1H[?12l[?25h[?25l[24;53H~@k[7;1H[24;53H   [6;23H[24;63H7,23 [6;23H[?12l[?25h[?25l[24;53H~@k[6;23H[24;53H   [7;1H[24;63H8,0-1[7;1H[?12l[?25h[?25l[24;53H~@k[7;1H[24;53H   [8;24H[24;63H9,24 [8;24H[?12l[?25h[?25l[24;53H~@k[8;24H[24;53H   [8;25H[24;66H5[8;25H[?12l[?25h[?25l[24;53H~@k[8;25H[24;53H   [8;26H[24;66H6[8;26H[?12l[?25h[?25l[24;53H~@k[8;26H[24;53H   [8;27H[24;66H7[8;27H[?12l[?25h[?25l[24;53H~@k[8;27H[24;53H   [8;28H[24;66H8[8;28H[?12l[?25h[?25l[24;53H~@k[8;28H[24;53H   [8;29H[24;66H9[8;29H[?12l[?25h[?25l[24;53H~@k[8;29H[24;53H   [8;30H[8;13H[46m([16C)[m[24;65H30[8;30H[?12l[?25h[?25l[24;53H~@k[8;30H[24;53H   [8;31H[8;13H([16C)[24;66H1[8;31H[?12l[?25h[?25l[24;53H~@k[8;31H[24;53H   [8;30H[8;13H[46m([16C)[m[24;66H0[8;30H[?12l[?25h[?25l[24;53Hi[8;30H[24;53H [8;30H[24;1H[1m-- INSERT --[m[24;63H[K[24;63H9,30[10C50%[8;30H[?12l[?25h[?25l)[46m;[m[8;31H[K[8;29H[46m)[m;[24;65H29[8;29H[?12l[?25h[?25l)[46m;[m[8;30H[K[8;28H[46m)[m;[24;66H8[8;28H[?12l[?25h[?25l[95m[46m0[m);[95m0[m[46m)[m[24;66H9[8;29H[?12l[?25h[24;1H[K[8;28H[?25l[24;53H^[[8;28H[24;53H  [8;29H[8;13H([15C)[24;63H9,28[10C50%[8;28H[?12l[?25h[?25l[24;53H:[8;28H[24;53H[K[24;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h[?25l[?1006l[?1002l"lirc_rpi.c" 25L, 498C written
+[?1l>[?12l[?25h[?1049l]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m vim lirc_rpi.c[9Pmake cd lirc_rpi/[7Pmake clean
+make -C /lib/modules/4.9.45-v7+/build M=/home/pi/Device_Drivers/lirc_rpi clean
+make[1]: Entering directory '/home/pi/linux'
+  CLEAN   /home/pi/Device_Drivers/lirc_rpi/.tmp_versions
+  CLEAN   /home/pi/Device_Drivers/lirc_rpi/Module.symvers
+make[1]: Leaving directory '/home/pi/linux'
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m make lirc_rpio[K.ko
+make -C /lib/modules/4.9.45-v7+/build M=/home/pi/Device_Drivers/lirc_rpi lirc_rpi.ko
+make[1]: Entering directory '/home/pi/linux'
+  CC [M]  /home/pi/Device_Drivers/lirc_rpi/lirc_rpi.o
+  MODPOST 1 modules
+  CC      /home/pi/Device_Drivers/lirc_rpi/lirc_rpi.mod.o
+  LD [M]  /home/pi/Device_Drivers/lirc_rpi/lirc_rpi.ko
+make[1]: Leaving directory '/home/pi/linux'
+rm lirc_rpi.mod.[co]
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m d[Kd[Kmodinfo lirc_rpi.ko
+filename:       /home/pi/Device_Drivers/lirc_rpi/lirc_rpi.ko
+license:        GPL
+srcversion:     8DAC3CA475E733BD279DE34
+depends:        
+vermagic:       4.9.45-v7+ SMP mod_unload modversions ARMv7 p2v8 
+parm:           gpio_in:GPIO INPUT PIN (int)
+parm:           gpio_out:GPIO OUTPUT PIN (int)
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m mod[K[K[Ksudo insmod lirc_rpi.ko
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m dmesg | tail -f1
+tail: option used in invalid context -- 1
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m dmesg | tail -f1[K
+[   59.413585] smsc95xx 1-1.1:1.0 enxb827ebd7cd2a: link down
+[   60.975277] smsc95xx 1-1.1:1.0 enxb827ebd7cd2a: link up, 100Mbps, full-duplex, lpa 0xCDE1
+[   92.644782] Bluetooth: Core ver 2.22
+[   92.645234] NET: Registered protocol family 31
+[   92.645250] Bluetooth: HCI device and connection manager initialized
+[   92.645284] Bluetooth: HCI socket layer initialized
+[   92.645308] Bluetooth: L2CAP socket layer initialized
+[   92.645372] Bluetooth: SCO socket layer initialized
+[ 1986.557481] lirc_rpi: loading out-of-tree module taints kernel.
+[ 1986.558124] HI
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m dmesg | tail -f[K[K[K
+[   59.413585] smsc95xx 1-1.1:1.0 enxb827ebd7cd2a: link down
+[   60.975277] smsc95xx 1-1.1:1.0 enxb827ebd7cd2a: link up, 100Mbps, full-duplex, lpa 0xCDE1
+[   92.644782] Bluetooth: Core ver 2.22
+[   92.645234] NET: Registered protocol family 31
+[   92.645250] Bluetooth: HCI device and connection manager initialized
+[   92.645284] Bluetooth: HCI socket layer initialized
+[   92.645308] Bluetooth: L2CAP socket layer initialized
+[   92.645372] Bluetooth: SCO socket layer initialized
+[ 1986.557481] lirc_rpi: loading out-of-tree module taints kernel.
+[ 1986.558124] HI
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m sudo rmmod lirc_rpi
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m sudo rmmod lirc_rpi[7Pdmesg | tail
+[   60.975277] smsc95xx 1-1.1:1.0 enxb827ebd7cd2a: link up, 100Mbps, full-duplex, lpa 0xCDE1
+[   92.644782] Bluetooth: Core ver 2.22
+[   92.645234] NET: Registered protocol family 31
+[   92.645250] Bluetooth: HCI device and connection manager initialized
+[   92.645284] Bluetooth: HCI socket layer initialized
+[   92.645308] Bluetooth: L2CAP socket layer initialized
+[   92.645372] Bluetooth: SCO socket layer initialized
+[ 1986.557481] lirc_rpi: loading out-of-tree module taints kernel.
+[ 1986.558124] HI
+[ 2020.133737] Hi
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m cd ..
+]0;pi@raspberrypi: ~/Device_Drivers[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers $[00m vim README.md 
+[?1000h[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;24r[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[24;1H"README.md" 4L, 280C[>c[27m[23m[m[H[2J[1;1H[38;5;224m#[m[38;5;225m Device[m[97m[101m_[m[38;5;225mDrivers[m
+Looked at lirc user utiliy available [1m[96m<[m[93mbr[m[1m[96m>[m
+Looking at lirc[97m[101m_[mdev.c located in /linux/drivers/media/rc which is a base driver  [4;1H[1m[96m<[m[93mbr[m[1m[96m>[m
+We need to use this base driver file lirc[97m[101m_[mdev.c to modify driver to receive/sendd[6;1H ir signals through gpio pins using gpio subsystem [1m[96m<[m[93mbr[m[1m[96m>[m
+[94m~                                                                               [8;1H~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H4,135[9CAll"README.md" 4L, 280C[42C     [9C   [6;55H[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[1m[96m[46m<[m[93mb[m[1C[1m[96m[46m>[?12l[?25h[?25l[m[24;53Hi[6;55H[24;53H [6;55H[24;1H[1m-- INSERT --[m[24;13H[K[24;63H4,135[9CAll[6;55H[?12l[?25h[?25l[4;1H[1m[96m[46m<[m[93mb[m[1C[1m[96m[46m>[m[6;52H[1m[96m<[m[93mb[m[1C[1m[96m>[m[24;63H3,85 [4;5H[?12l[?25h[?25l[2;38H[1m[96m[46m<[m[93mb[m[1C[1m[96m[46m>[m
+
+[1m[96m<[m[93mb[m[1C[1m[96m>[m[24;63H2,42[2;42H[?12l[?25h[?25l[1m[96m<[m[93mb[m[1C[1m[96m>[m
+
+[1m[96m[46m<[m[93mb[m[1C[1m[96m[46m>[m[24;63H3,85[4;5H[?12l[?25h[?25l[1m[96m<[m[93mb[m[1C[1m[96m>[m[6;52H[1m[96m[46m<[m[93mb[m[1C[1m[96m[46m>[m[24;63H4,135[6;55H[?12l[?25h[?25l[24;67H6[6;56H[?12l[?25h[?25l[7;1H[K[6;52H[1m[96m<[m[93mb[m[1C[1m[96m>[m[24;63H5,1  [7;1H[?12l[?25h[?25lS[24;65H2[7;2H[?12l[?25h[?25lt[24;65H3[7;3H[?12l[?25h[?25la[24;65H4[7;4H[?12l[?25h[?25lr[24;65H5[7;5H[?12l[?25h[?25lt[24;65H6[7;6H[?12l[?25h[?25le[24;65H7[7;7H[?12l[?25h[?25ld[24;65H8[7;8H[?12l[?25h[?25l[24;65H9[7;9H[?12l[?25h[?25lw[24;65H10[7;10H[?12l[?25h[?25lr[24;66H1[7;11H[?12l[?25h[?25li[24;66H2[7;12H[?12l[?25h[?25lt[24;66H3[7;13H[?12l[?25h[?25li[24;66H4[7;14H[?12l[?25h[?25ln[24;66H5[7;15H[?12l[?25h[?25lg[24;66H6[7;16H[?12l[?25h[?25l[24;66H7[7;17H[?12l[?25h[?25lc[24;66H8[7;18H[?12l[?25h[?25lo[24;66H9[7;19H[?12l[?25h[?25ld[24;65H20[7;20H[?12l[?25h[?25le[24;66H1[7;21H[?12l[?25h[?25l[24;66H2[7;22H[?12l[?25h[?25lb[24;66H3[7;23H[?12l[?25h[?25ly[24;66H4[7;24H[?12l[?25h[?25l[24;66H5[7;25H[?12l[?25h[?25ll[24;66H6[7;26H[?12l[?25h[?25lo[24;66H7[7;27H[?12l[?25h[?25lo[24;66H8[7;28H[?12l[?25h[?25lk[24;66H9[7;29H[?12l[?25h[?25li[24;65H30[7;30H[?12l[?25h[?25ln[24;66H1[7;31H[?12l[?25h[?25lg[24;66H2[7;32H[?12l[?25h[?25l[24;66H3[7;33H[?12l[?25h[?25la[24;66H4[7;34H[?12l[?25h[?25lt[24;66H5[7;35H[?12l[?25h[?25l[24;66H6[7;36H[?12l[?25h[?25ld[24;66H7[7;37H[?12l[?25h[?25le[24;66H8[7;38H[?12l[?25h[?25le[24;66H9[7;39H[?12l[?25h[?25lp[24;65H40[7;40H[?12l[?25h[?25la[24;66H1[7;41H[?12l[?25h[?25l.[24;66H2[7;42H[?12l[?25h[?25lc[24;66H3[7;43H[?12l[?25h[?25l[7;42H[K[24;66H2[7;42H[?12l[?25h[?25l[7;41H[K[24;66H1[7;41H[?12l[?25h[?25l[24;66H2[7;42H[?12l[?25h[?25lm[24;66H3[7;43H[?12l[?25h[?25lo[24;66H4[7;44H[?12l[?25h[?25ld[24;66H5[7;45H[?12l[?25h[?25lu[24;66H6[7;46H[?12l[?25h[?25ll[24;66H7[7;47H[?12l[?25h[?25le[24;66H8[7;48H[?12l[?25h[?25l[24;66H7[7;47H[?12l[?25h[?25l[24;66H6[7;46H[?12l[?25h[?25l[24;66H5[7;45H[?12l[?25h[?25l[24;66H4[7;44H[?12l[?25h[?25l[24;66H3[7;43H[?12l[?25h[?25l[24;66H2[7;42H[?12l[?25h[?25l[24;66H1[7;41H[?12l[?25h[?25l[24;66H0[7;40H[?12l[?25h[?25l[24;65H39[7;39H[?12l[?25h[?25l[24;66H8[7;38H[?12l[?25h[?25l[24;66H7[7;37H[?12l[?25h[?25l[24;66H6[7;36H[?12l[?25h[?25l[24;66H5[7;35H[?12l[?25h[?25l[24;66H4[7;34H[?12l[?25h[?25l[24;66H3[7;33H[?12l[?25h[?25l[24;66H2[7;32H[?12l[?25h[?25l[24;66H1[7;31H[?12l[?25h[?25l[24;66H0[7;30H[?12l[?25h[?25l[24;65H29[7;29H[?12l[?25h[?25l[24;66H8[7;28H[?12l[?25h[?25l[24;66H7[7;27H[?12l[?25h[?25l[24;66H6[7;26H[?12l[?25h[?25l[24;66H5[7;25H[?12l[?25h[?25l[24;66H4[7;24H[?12l[?25h[?25l[24;66H3[7;23H[?12l[?25h[?25l[24;66H2[7;22H[?12l[?25h[?25l[24;66H1[7;21H[?12l[?25h[?25l[24;66H0[7;20H[?12l[?25h[?25l[24;65H19[7;19H[?12l[?25h[?25l[24;66H8[7;18H[?12l[?25h[?25l[24;66H7[7;17H[?12l[?25h[?25l[24;66H6[7;16H[?12l[?25h[?25l[24;66H7[7;17H[?12l[?25h[?25ldcode by looking at deepa module[24;66H8[7;18H[?12l[?25h[?25lrcode by looking at deepa module[24;66H9[7;19H[?12l[?25h[?25licode by looking at deepa module[24;65H20[7;20H[?12l[?25h[?25lvcode by looking at deepa module[24;66H1[7;21H[?12l[?25h[?25lecode by looking at deepa module[24;66H2[7;22H[?12l[?25h[?25lrcode by looking at deepa module[24;66H3[7;23H[?12l[?25h[?25l code by looking at deepa module[24;66H4[7;24H[?12l[?25h[?25l[24;66H5[7;25H[?12l[?25h[?25l[24;66H6[7;26H[?12l[?25h[?25l[24;66H7[7;27H[?12l[?25h[?25l[24;66H8[7;28H[?12l[?25h[?25l[24;66H9[7;29H[?12l[?25h[?25l[24;65H30[7;30H[?12l[?25h[?25l[24;66H1[7;31H[?12l[?25h[?25l[24;66H2[7;32H[?12l[?25h[?25l[24;66H3[7;33H[?12l[?25h[?25l[24;66H4[7;34H[?12l[?25h[?25l[24;66H5[7;35H[?12l[?25h[?25l[24;66H6[7;36H[?12l[?25h[?25l[24;66H7[7;37H[?12l[?25h[?25l[24;66H8[7;38H[?12l[?25h[?25l[24;66H9[7;39H[?12l[?25h[?25l[24;65H40[7;40H[?12l[?25h[?25l[24;66H1[7;41H[?12l[?25h[?25l[24;66H2[7;42H[?12l[?25h[?25l[24;66H3[7;43H[?12l[?25h[?25l[24;66H4[7;44H[?12l[?25h[?25l[24;66H5[7;45H[?12l[?25h[?25l[24;66H6[7;46H[?12l[?25h[?25l[24;66H7[7;47H[?12l[?25h[?25l[24;66H8[7;48H[?12l[?25h[?25l[24;66H9[7;49H[?12l[?25h[?25l[24;65H50[7;50H[?12l[?25h[?25l[24;66H1[7;51H[?12l[?25h[?25l[24;66H2[7;52H[?12l[?25h[?25l[24;66H3[7;53H[?12l[?25h[?25l[24;66H4[7;54H[?12l[?25h[?25l[24;66H5[7;55H[?12l[?25h[?25l[8;1H[K[24;63H6,1 [8;1H[?12l[?25h[?25l[94m~                                                                               [m[24;63H5,55[7;55H[?12l[?25h[?25l<[24;66H6[7;56H[?12l[?25h[?25l[1m[96m<[m[93mb[m[24;66H7[7;57H[?12l[?25h[?25l[93mr[m[24;66H8[7;58H[?12l[?25h[?25l[1m[96m>[m[1m[96m[46m<[m[93mb[m[1C[1m[96m[46m>[m[24;66H9[7;59H[?12l[?25h[?25l[8;1H[K[7;55H[1m[96m<[m[93mb[m[1C[1m[96m>[m[24;63H6,1 [8;1H[?12l[?25h[?25lW[24;65H2[8;2H[?12l[?25h[?25lh[24;65H3[8;3H[?12l[?25h[?25ly[24;65H4[8;4H[?12l[?25h[?25l[24;65H5[8;5H[?12l[?25h[?25ls[24;65H6[8;6H[?12l[?25h[?25le[24;65H7[8;7H[?12l[?25h[?25lc[24;65H8[8;8H[?12l[?25h[?25lo[24;65H9[8;9H[?12l[?25h[?25ln[24;65H10[8;10H[?12l[?25h[?25lf[24;66H1[8;11H[?12l[?25h[?25l[24;66H2[8;12H[?12l[?25h[?25l[24;66H1[8;11H[?12l[?25h[?25ld[24;66H2[8;12H[?12l[?25h[?25l[8;11H[K[24;66H1[8;11H[?12l[?25h[?25l[8;10H[K[24;66H0[8;10H[?12l[?25h[?25ld[24;66H1[8;11H[?12l[?25h[?25l[24;66H2[8;12H[?12l[?25h[?25lp[24;66H3[8;13H[?12l[?25h[?25la[24;66H4[8;14H[?12l[?25h[?25lr[24;66H5[8;15H[?12l[?25h[?25la[24;66H6[8;16H[?12l[?25h[?25lm[24;66H7[8;17H[?12l[?25h[?25l[8;16H[K[24;66H6[8;16H[?12l[?25h[?25l[8;15H[K[24;66H5[8;15H[?12l[?25h[?25l[8;14H[K[24;66H4[8;14H[?12l[?25h[?25l[8;13H[K[24;66H3[8;13H[?12l[?25h[?25l[8;12H[K[24;66H2[8;12H[?12l[?25h[?25l[24;66H1[8;11H[?12l[?25h[?25l[8;10H[K[24;66H0[8;10H[?12l[?25h[?25l[8;9H[K[24;65H9 [8;9H[?12l[?25h[?25l[8;8H[K[24;65H8[8;8H[?12l[?25h[?25l[8;7H[K[24;65H7[8;7H[?12l[?25h[?25l[8;6H[K[24;65H6[8;6H[?12l[?25h[?25l[8;5H[K[24;65H5[8;5H[?12l[?25h[?25l[24;65H4[8;4H[?12l[?25h[?25l[24;65H5[8;5H[?12l[?25h[?25lt[24;65H6[8;6H[?12l[?25h[?25lh[24;65H7[8;7H[?12l[?25h[?25li[24;65H8[8;8H[?12l[?25h[?25lr[24;65H9[8;9H[?12l[?25h[?25ld[24;65H10[8;10H[?12l[?25h[?25l[24;66H1[8;11H[?12l[?25h[?25lp[24;66H2[8;12H[?12l[?25h[?25la[24;66H3[8;13H[?12l[?25h[?25lr[24;66H4[8;14H[?12l[?25h[?25la[24;66H5[8;15H[?12l[?25h[?25lm[24;66H6[8;16H[?12l[?25h[?25le[24;66H7[8;17H[?12l[?25h[?25lt[24;66H8[8;18H[?12l[?25h[?25le[24;66H9[8;19H[?12l[?25h[?25lr[24;65H20[8;20H[?12l[?25h[?25l[24;66H1[8;21H[?12l[?25h[?25lh[24;66H2[8;22H[?12l[?25h[?25la[24;66H3[8;23H[?12l[?25h[?25ls[24;66H4[8;24H[?12l[?25h[?25l[24;66H5[8;25H[?12l[?25h[?25lt[24;66H6[8;26H[?12l[?25h[?25lo[24;66H7[8;27H[?12l[?25h[?25l[24;66H8[8;28H[?12l[?25h[?25lb[24;66H9[8;29H[?12l[?25h[?25le[24;65H30[8;30H[?12l[?25h[?25l[24;66H1[8;31H[?12l[?25h[?25l0[24;66H2[8;32H[?12l[?25h[?25l[24;66H3[8;33H[?12l[?25h[?25li[24;66H4[8;34H[?12l[?25h[?25ln[24;66H5[8;35H[?12l[?25h[?25l[24;66H6[8;36H[?12l[?25h[?25lm[24;66H7[8;37H[?12l[?25h[?25lo[24;66H8[8;38H[?12l[?25h[?25ld[24;66H9[8;39H[?12l[?25h[?25lu[24;65H40[8;40H[?12l[?25h[?25le[24;66H1[8;41H[?12l[?25h[?25l[3m_[23m[24;66H2[8;42H[?12l[?25h[?25l[97m[101m_[mp[24;66H3[8;43H[?12l[?25h[?25la[24;66H4[8;44H[?12l[?25h[?25lr[24;66H5[8;45H[?12l[?25h[?25la[24;66H6[8;46H[?12l[?25h[?25lm[24;66H7[8;47H[?12l[?25h[?25l[24;66H6[8;46H[?12l[?25h[?25l[24;66H5[8;45H[?12l[?25h[?25l[24;66H4[8;44H[?12l[?25h[?25l[24;66H3[8;43H[?12l[?25h[?25l[24;66H2[8;42H[?12l[?25h[?25l[24;66H1[8;41H[?12l[?25h[?25l[24;66H0[8;40H[?12l[?25h[?25l[24;65H39[8;39H[?12l[?25h[?25l[24;65H40[8;40H[?12l[?25h[?25lle[97m[101m_[mparam[24;66H1[8;41H[?12l[?25h[?25l[24;66H2[8;42H[?12l[?25h[?25l[24;66H3[8;43H[?12l[?25h[?25l[24;66H4[8;44H[?12l[?25h[?25l[24;66H5[8;45H[?12l[?25h[?25l[24;66H6[8;46H[?12l[?25h[?25l[24;66H7[8;47H[?12l[?25h[?25l[24;66H8[8;48H[?12l[?25h[?25l[24;66H7[8;47H[?12l[?25h[?25l[24;66H6[8;46H[?12l[?25h[?25l[24;66H5[8;45H[?12l[?25h[?25l[24;66H4[8;44H[?12l[?25h[?25l[24;66H3[8;43H[?12l[?25h[?25l[24;66H4[8;44H[?12l[?25h[?25l[24;66H5[8;45H[?12l[?25h[?25l[24;66H6[8;46H[?12l[?25h[?25l[24;66H7[8;47H[?12l[?25h[?25l[24;66H8[8;48H[?12l[?25h[?25l[24;66H7[8;47H[?12l[?25h[?25l[24;66H6[8;46H[?12l[?25h[?25l[24;66H5[8;45H[?12l[?25h[?25l[24;66H4[8;44H[?12l[?25h[?25l[24;66H3[8;43H[?12l[?25h[?25l[24;66H2[8;42H[?12l[?25h[?25l[24;66H1[8;41H[?12l[?25h[?25l[24;66H0[8;40H[?12l[?25h[?25l[24;65H39[8;39H[?12l[?25h[?25l[24;66H8[8;38H[?12l[?25h[?25l[24;66H7[8;37H[?12l[?25h[?25l[24;66H6[8;36H[?12l[?25h[?25l[24;66H5[8;35H[?12l[?25h[?25l[24;66H4[8;34H[?12l[?25h[?25l[24;66H3[8;33H[?12l[?25h[?25l[24;66H2[8;32H[?12l[?25h[?25l[24;66H1[8;31H[?12l[?25h[?25l[24;66H0[8;30H[?12l[?25h[?25l[24;66H1[8;31H[?12l[?25h[?25l[24;66H2[8;32H[?12l[?25h[?25l[24;66H3[8;33H[?12l[?25h[?25l[24;66H2[8;32H[?12l[?25h[?25l[24;66H1[8;31H[?12l[?25h[?25l[24;66H0[8;30H[?12l[?25h[?25l[24;65H29[8;29H[?12l[?25h[?25l[24;66H8[8;28H[?12l[?25h[?25l[24;66H7[8;27H[?12l[?25h[?25l[24;66H6[8;26H[?12l[?25h[?25l[24;66H5[8;25H[?12l[?25h[?25l[24;66H4[8;24H[?12l[?25h[?25l[24;66H3[8;23H[?12l[?25h[?25l[24;66H2[8;22H[?12l[?25h[?25l[24;66H1[8;21H[?12l[?25h[?25l[24;66H0[8;20H[?12l[?25h[?25l[24;65H19[8;19H[?12l[?25h[?25l[24;66H8[8;18H[?12l[?25h[?25l[24;66H7[8;17H[?12l[?25h[?25l[24;66H6[8;16H[?12l[?25h[?25l[24;66H5[8;15H[?12l[?25h[?25l[24;66H4[8;14H[?12l[?25h[?25l[24;66H3[8;13H[?12l[?25h[?25l[24;66H2[8;12H[?12l[?25h[?25l[24;66H1[8;11H[?12l[?25h[?25l[24;66H0[8;10H[?12l[?25h[?25l[24;65H9 [8;9H[?12l[?25h[?25l[24;65H8[8;8H[?12l[?25h[?25l[24;65H7[8;7H[?12l[?25h[?25l[24;65H6[8;6H[?12l[?25h[?25l[24;65H5[8;5H[?12l[?25h[?25l[24;65H4[8;4H[?12l[?25h[?25l third parameter has to be 0 in module[97m[101m_[mparam[8;47H[K[24;65H3[8;3H[?12l[?25h[?25la third parameter has to be 0 in module[97m[101m_[mparam[24;65H4[8;4H[?12l[?25h[?25lt third parameter has to be 0 in module[97m[101m_[mparam[24;65H5[8;5H[?12l[?25h[?25l  third parameter has to be 0 in module[97m[101m_[mparam[24;65H6[8;6H[?12l[?25h[?25li third parameter has to be 0 in module[97m[101m_[mparam[24;65H7[8;7H[?12l[?25h[?25ls third parameter has to be 0 in module[97m[101m_[mparam[24;65H8[8;8H[?12l[?25h[?25l[24;65H9[8;9H[?12l[?25h[?25l[24;65H10[8;10H[?12l[?25h[?25l[24;66H1[8;11H[?12l[?25h[?25l[24;66H2[8;12H[?12l[?25h[?25l[24;66H3[8;13H[?12l[?25h[?25l[24;66H4[8;14H[?12l[?25h[?25l[24;66H5[8;15H[?12l[?25h[?25l[24;66H6[8;16H[?12l[?25h[?25l[24;66H7[8;17H[?12l[?25h[?25l[24;66H8[8;18H[?12l[?25h[?25l[24;66H9[8;19H[?12l[?25h[?25l[24;65H20[8;20H[?12l[?25h[?25l[24;66H1[8;21H[?12l[?25h[?25l[24;66H2[8;22H[?12l[?25h[?25l[24;66H3[8;23H[?12l[?25h[?25l[24;66H4[8;24H[?12l[?25h[?25l[24;66H5[8;25H[?12l[?25h[?25l[24;66H6[8;26H[?12l[?25h[?25l[24;66H7[8;27H[?12l[?25h[?25l[24;66H8[8;28H[?12l[?25h[?25l[24;66H9[8;29H[?12l[?25h[?25l[24;65H30[8;30H[?12l[?25h[?25l[24;66H1[8;31H[?12l[?25h[?25l[24;66H2[8;32H[?12l[?25h[?25l[24;66H3[8;33H[?12l[?25h[?25l[24;66H4[8;34H[?12l[?25h[?25l[24;66H5[8;35H[?12l[?25h[?25l[24;66H6[8;36H[?12l[?25h[?25l[24;66H7[8;37H[?12l[?25h[?25l[24;66H6[8;36H[?12l[?25h[?25l[24;66H7[8;37H[?12l[?25h[?25lin module[97m[101m_[mparam[8;51H[K[24;66H6[8;36H[?12l[?25h[?25lin module[97m[101m_[mparam[8;50H[K[24;66H5[8;35H[?12l[?25h[?25lin module[97m[101m_[mparam[8;49H[K[24;66H4[8;34H[?12l[?25h[?25lin module[97m[101m_[mparam[8;48H[K[24;66H3[8;33H[?12l[?25h[?25lin module[97m[101m_[mparam[8;47H[K[24;66H2[8;32H[?12l[?25h[?25lin module[97m[101m_[mparam[8;46H[K[24;66H1[8;31H[?12l[?25h[?25lin module[97m[101m_[mparam[8;45H[K[24;66H0[8;30H[?12l[?25h[?25lin module[97m[101m_[mparam[8;44H[K[24;65H29[8;29H[?12l[?25h[?25lin module[97m[101m_[mparam[8;43H[K[24;66H8[8;28H[?12l[?25h[?25lin module[97m[101m_[mparam[8;42H[K[24;66H7[8;27H[?12l[?25h[?25lin module[97m[101m_[mparam[8;41H[K[24;66H6[8;26H[?12l[?25h[?25lin module[97m[101m_[mparam[8;40H[K[24;66H5[8;25H[?12l[?25h[?25lin module[97m[101m_[mparam[8;39H[K[24;66H4[8;24H[?12l[?25h[?25l in module[97m[101m_[mparam[24;66H5[8;25H[?12l[?25h[?25l[24;66H6[8;26H[?12l[?25h[?25l[24;66H7[8;27H[?12l[?25h[?25l[24;66H8[8;28H[?12l[?25h[?25l[24;66H9[8;29H[?12l[?25h[?25l[24;65H30[8;30H[?12l[?25h[?25l[24;66H1[8;31H[?12l[?25h[?25l[24;66H2[8;32H[?12l[?25h[?25l[24;66H3[8;33H[?12l[?25h[?25l[24;66H4[8;34H[?12l[?25h[?25l[24;66H5[8;35H[?12l[?25h[?25l[24;66H6[8;36H[?12l[?25h[?25l[24;66H7[8;37H[?12l[?25h[?25l[24;66H8[8;38H[?12l[?25h[?25l[24;66H9[8;39H[?12l[?25h[?25l[24;65H40[8;40H[?12l[?25h[?25l[24;66H1[8;41H[?12l[?25h[?25lt[24;66H2[8;42H[?12l[?25h[?25lo[24;66H3[8;43H[?12l[?25h[?25l[8;42H[K[24;66H2[8;42H[?12l[?25h[?25l[8;41H[K[24;66H1[8;41H[?12l[?25h[?25l[24;66H0[8;40H[?12l[?25h[?25l.[24;66H1[8;41H[?12l[?25h[?25l[24;66H2[8;42H[?12l[?25h[?25lI[24;66H3[8;43H[?12l[?25h[?25lt[24;66H4[8;44H[?12l[?25h[?25l[24;66H5[8;45H[?12l[?25h[?25li[24;66H6[8;46H[?12l[?25h[?25ls[24;66H7[8;47H[?12l[?25h[?25l[24;66H8[8;48H[?12l[?25h[?25lt[24;66H9[8;49H[?12l[?25h[?25lo[24;65H50[8;50H[?12l[?25h[?25l[24;66H1[8;51H[?12l[?25h[?25ls[24;66H2[8;52H[?12l[?25h[?25le[24;66H3[8;53H[?12l[?25h[?25lt[24;66H4[8;54H[?12l[?25h[?25l[24;66H5[8;55H[?12l[?25h[?25lp[24;66H6[8;56H[?12l[?25h[?25le[24;66H7[8;57H[?12l[?25h[?25lr[24;66H8[8;58H[?12l[?25h[?25lm[24;66H9[8;59H[?12l[?25h[?25li[24;65H60[8;60H[?12l[?25h[?25ls[24;66H1[8;61H[?12l[?25h[?25ls[24;66H2[8;62H[?12l[?25h[?25li[24;66H3[8;63H[?12l[?25h[?25lo[24;66H4[8;64H[?12l[?25h[?25ln[24;66H5[8;65H[?12l[?25h[?25ls[24;66H6[8;66H[?12l[?25h[?25l[24;66H7[8;67H[?12l[?25h[?25l[24;66H6[8;66H[?12l[?25h[?25l.[24;66H7[8;67H[?12l[?25h[?25l[24;66H8[8;68H[?12l[?25h[?25lI[24;66H9[8;69H[?12l[?25h[?25lf[24;65H70[8;70H[?12l[?25h[?25l[24;66H1[8;71H[?12l[?25h[?25li[24;66H2[8;72H[?12l[?25h[?25lt[24;66H3[8;73H[?12l[?25h[?25l[24;66H4[8;74H[?12l[?25h[?25li[24;66H5[8;75H[?12l[?25h[?25ls[24;66H6[8;76H[?12l[?25h[?25l[24;66H7[8;77H[?12l[?25h[?25lz[24;66H8[8;78H[?12l[?25h[?25le[24;66H9[8;79H[?12l[?25h[?25lo[24;65H80[8;80H[?12l[?25h[?25l[8;79H[K[24;65H79[8;79H[?12l[?25h[?25lr[24;65H80[8;80H[?12l[?25h[?25lo[24;66H1[9;1H[?12l[?25h[?25l [9;2H[K[24;66H2[9;2H[?12l[?25h[?25lt[24;66H3[9;3H[?12l[?25h[?25lh[24;66H4[9;4H[?12l[?25h[?25le[24;66H5[9;5H[?12l[?25h[?25ln[24;66H6[9;6H[?12l[?25h[?25l[24;66H7[9;7H[?12l[?25h[?25ln[24;66H8[9;8H[?12l[?25h[?25lo[24;66H9[9;9H[?12l[?25h[?25lf[24;65H90[9;10H[?12l[?25h[?25l[9;9H[K[24;65H89[9;9H[?12l[?25h[?25l[24;65H90[9;10H[?12l[?25h[?25ls[24;66H1[9;11H[?12l[?25h[?25ly[24;66H2[9;12H[?12l[?25h[?25ls[24;66H3[9;13H[?12l[?25h[?25lf[24;66H4[9;14H[?12l[?25h[?25ls[24;66H5[9;15H[?12l[?25h[?25l[24;66H6[9;16H[?12l[?25h[?25le[24;66H7[9;17H[?12l[?25h[?25ln[24;66H8[9;18H[?12l[?25h[?25lt[24;66H9[9;19H[?12l[?25h[?25lr[24;65H100[9;20H[?12l[?25h[?25ly[24;67H1[9;21H[?12l[?25h[?25l[24;67H2[9;22H[?12l[?25h[?25li[24;67H3[9;23H[?12l[?25h[?25ls[24;67H4[9;24H[?12l[?25h[?25l[24;67H5[9;25H[?12l[?25h[?25lm[24;67H6[9;26H[?12l[?25h[?25la[24;67H7[9;27H[?12l[?25h[?25ld[24;67H8[9;28H[?12l[?25h[?25le[24;67H9[9;29H[?12l[?25h[?25l[24;66H10[9;30H[?12l[?25h[?25l[24;66H09[9;29H[?12l[?25h[?25l.[24;66H10[9;30H[?12l[?25h[?25l[24;67H1[9;31H[?12l[?25h[?25lI[24;67H2[9;32H[?12l[?25h[?25lt[24;67H3[9;33H[?12l[?25h[?25l[24;67H4[9;34H[?12l[?25h[?25l[24;67H3[9;33H[?12l[?25h[?25l[9;32H[K[24;67H2[9;32H[?12l[?25h[?25ln[24;67H3[9;33H[?12l[?25h[?25l[24;67H4[9;34H[?12l[?25h[?25lo[24;67H5[9;35H[?12l[?25h[?25lr[24;67H6[9;36H[?12l[?25h[?25ld[24;67H7[9;37H[?12l[?25h[?25le[24;67H8[9;38H[?12l[?25h[?25lr[24;67H9[9;39H[?12l[?25h[?25l[24;66H20[9;40H[?12l[?25h[?25lt[24;67H1[9;41H[?12l[?25h[?25lo[24;67H2[9;42H[?12l[?25h[?25l[24;67H3[9;43H[?12l[?25h[?25lm[24;67H4[9;44H[?12l[?25h[?25la[24;67H5[9;45H[?12l[?25h[?25lk[24;67H6[9;46H[?12l[?25h[?25le[24;67H7[9;47H[?12l[?25h[?25l[24;67H8[9;48H[?12l[?25h[?25ls[24;67H9[9;49H[?12l[?25h[?25ly[24;66H30[9;50H[?12l[?25h[?25ls[24;67H1[9;51H[?12l[?25h[?25lf[24;67H2[9;52H[?12l[?25h[?25ls[24;67H3[9;53H[?12l[?25h[?25l[24;67H4[9;54H[?12l[?25h[?25le[24;67H5[9;55H[?12l[?25h[?25ln[24;67H6[9;56H[?12l[?25h[?25lt[24;67H7[9;57H[?12l[?25h[?25lr[24;67H8[9;58H[?12l[?25h[?25ly[24;67H9[9;59H[?12l[?25h[?25l[24;66H40[9;60H[?12l[?25h[?25lS[97m[101m_[mIRUGO|S[97m[101m_[mIWUSR[24;66H55[9;75H[?12l[?25h[?25l[24;67H4[9;74H[?12l[?25h[?25l[24;67H3[9;73H[?12l[?25h[?25l[24;67H2[9;72H[?12l[?25h[?25l[24;67H1[9;71H[?12l[?25h[?25l[24;67H2[9;72H[?12l[?25h[?25l[24;67H3[9;73H[?12l[?25h[?25l[24;67H4[9;74H[?12l[?25h[?25l[24;67H5[9;75H[?12l[?25h[?25l[24;67H4[9;74H[?12l[?25h[?25l[24;67H3[9;73H[?12l[?25h[?25l[24;67H2[9;72H[?12l[?25h[?25l[24;67H1[9;71H[?12l[?25h[?25l[24;67H0[9;70H[?12l[?25h[?25l[24;66H49[9;69H[?12l[?25h[?25l[24;67H8[9;68H[?12l[?25h[?25l[24;67H7[9;67H[?12l[?25h[?25l[24;67H6[9;66H[?12l[?25h[?25l[24;67H5[9;65H[?12l[?25h[?25l[24;67H4[9;64H[?12l[?25h[?25l[24;67H3[9;63H[?12l[?25h[?25l[24;67H4[9;64H[?12l[?25h[?25l[24;67H5[9;65H[?12l[?25h[?25l[24;67H6[9;66H[?12l[?25h[?25l[24;67H7[9;67H[?12l[?25h[?25l[24;67H8[9;68H[?12l[?25h[?25l[24;67H9[9;69H[?12l[?25h[?25l[24;66H50[9;70H[?12l[?25h[?25l[24;67H1[9;71H[?12l[?25h[?25l[24;67H2[9;72H[?12l[?25h[?25l[24;67H3[9;73H[?12l[?25h[?25l[24;67H4[9;74H[?12l[?25h[?25l[24;67H5[9;75H[?12l[?25h[?25l[24;67H6[9;76H[?12l[?25h[?25lt[24;67H7[9;77H[?12l[?25h[?25lh[24;67H8[9;78H[?12l[?25h[?25li[24;67H9[9;79H[?12l[?25h[?25ls[24;66H60[9;80H[?12l[?25h[?25lt[24;67H1[10;1H[?12l[?25h[?25l [10;2H[K[24;67H2[10;2H[?12l[?25h[?25l[94m~                                                                               [m[24;67H1[10;1H[?12l[?25h[?25l[9;80H[K[24;67H0[9;80H[?12l[?25h[?25l[9;79H[K[24;66H59[9;79H[?12l[?25h[?25ls[24;66H60[9;80H[?12l[?25h[?25l[24;66H59[9;79H[?12l[?25h[?25l[24;67H8[9;78H[?12l[?25h[?25l[24;67H7[9;77H[?12l[?25h[?25l[24;67H6[9;76H[?12l[?25h[?25l[24;67H5[9;75H[?12l[?25h[?25l[24;67H4[9;74H[?12l[?25h[?25l[24;67H3[9;73H[?12l[?25h[?25l[24;67H2[9;72H[?12l[?25h[?25l[24;67H1[9;71H[?12l[?25h[?25l[24;67H0[9;70H[?12l[?25h[?25l[24;66H49[9;69H[?12l[?25h[?25l[24;67H8[9;68H[?12l[?25h[?25l[24;67H7[9;67H[?12l[?25h[?25l[24;67H6[9;66H[?12l[?25h[?25l[24;67H5[9;65H[?12l[?25h[?25l[24;67H4[9;64H[?12l[?25h[?25l[24;67H3[9;63H[?12l[?25h[?25l[24;67H2[9;62H[?12l[?25h[?25l[24;67H1[9;61H[?12l[?25h[?25l[24;67H0[9;60H[?12l[?25h[?25lwS[97m[101m_[mIRUGO|S[97m[101m_[mIWUSR this[24;67H1[9;61H[?12l[?25h[?25leS[97m[101m_[mIRUGO|S[97m[101m_[mIWUSR thii[10;1Hs[10;2H[K[24;67H2[9;62H[?12l[?25h[?25l S[97m[101m_[mIRUGO|S[97m[101m_[mIWUSR thh[10;1His[24;67H3[9;63H[?12l[?25h[?25lmS[97m[101m_[mIRUGO|S[97m[101m_[mIWUSR tt[10;1Hhis[24;67H4[9;64H[?12l[?25h[?25laS[97m[101m_[mIRUGO|S[97m[101m_[mIWUSR  [10;1Hthis[24;67H5[9;65H[?12l[?25h[?25lyS[97m[101m_[mIRUGO|S[97m[101m_[mIWUSRR[10;1H this[24;67H6[9;66H[?12l[?25h[?25l S[97m[101m_[mIRUGO|S[97m[101m_[mIWUSS[10;1HR this[24;67H7[9;67H[?12l[?25h[?25luS[97m[101m_[mIRUGO|S[97m[101m_[mIWUU[10;1HSR this[24;67H8[9;68H[?12l[?25h[?25lsS[97m[101m_[mIRUGO|S[97m[101m_[mIWW[10;1HUSR this[24;67H9[9;69H[?12l[?25h[?25leS[97m[101m_[mIRUGO|S[97m[101m_[mII[10;1HWUSR this[24;66H50[9;70H[?12l[?25h[?25l S[97m[101m_[mIRUGO|S[97m[101m__[m[10;1HIWUSR this[24;67H1[9;71H[?12l[?25h[?25l[24;67H2[9;72H[?12l[?25h[?25l[24;67H3[9;73H[?12l[?25h[?25l[24;67H4[9;74H[?12l[?25h[?25l[24;67H5[9;75H[?12l[?25h[?25l[24;67H6[9;76H[?12l[?25h[?25l[24;67H7[9;77H[?12l[?25h[?25l[24;67H8[9;78H[?12l[?25h[?25l[24;67H9[9;79H[?12l[?25h[?25l[24;66H60[9;80H[?12l[?25h[?25l[24;67H1[10;1H[?12l[?25h[?25l[24;67H2[10;2H[?12l[?25h[?25l[24;67H3[10;3H[?12l[?25h[?25l[24;67H4[10;4H[?12l[?25h[?25l[24;67H5[10;5H[?12l[?25h[?25l[24;67H6[10;6H[?12l[?25h[?25l[24;67H7[10;7H[?12l[?25h[?25l[24;67H8[10;8H[?12l[?25h[?25l[24;67H9[10;9H[?12l[?25h[?25l[24;66H70[10;10H[?12l[?25h[?25l[24;67H1[10;11H[?12l[?25h[?25l[24;67H0[10;10H[?12l[?25h[?25l[24;66H69[10;9H[?12l[?25h[?25l[24;67H8[10;8H[?12l[?25h[?25l[24;67H7[10;7H[?12l[?25h[?25l[24;67H6[10;6H[?12l[?25h[?25l  this[24;67H7[10;7H[?12l[?25h[?25la this[24;67H8[10;8H[?12l[?25h[?25ls this[24;67H9[10;9H[?12l[?25h[?25l  this[24;66H70[10;10H[?12l[?25h[?25lt this[24;67H1[10;11H[?12l[?25h[?25lh this[24;67H2[10;12H[?12l[?25h[?25li this[24;67H3[10;13H[?12l[?25h[?25lr this[24;67H4[10;14H[?12l[?25h[?25ld this[24;67H5[10;15H[?12l[?25h[?25l  this[24;67H6[10;16H[?12l[?25h[?25lp this[24;67H7[10;17H[?12l[?25h[?25la this[24;67H8[10;18H[?12l[?25h[?25lr this[24;67H9[10;19H[?12l[?25h[?25la this[24;66H80[10;20H[?12l[?25h[?25lm this[24;67H1[10;21H[?12l[?25h[?25le this[24;67H2[10;22H[?12l[?25h[?25lt this[24;67H3[10;23H[?12l[?25h[?25le this[24;67H4[10;24H[?12l[?25h[?25lr this[24;67H5[10;25H[?12l[?25h[?25l, this[24;67H6[10;26H[?12l[?25h[?25l[24;67H7[10;27H[?12l[?25h[?25l[24;67H8[10;28H[?12l[?25h[?25l[24;67H9[10;29H[?12l[?25h[?25l[24;66H90[10;30H[?12l[?25h[?25l[24;67H1[10;31H[?12l[?25h[?25l[24;67H2[10;32H[?12l[?25h[?25la[24;67H3[10;33H[?12l[?25h[?25ll[24;67H4[10;34H[?12l[?25h[?25ll[24;67H5[10;35H[?12l[?25h[?25lo[24;67H6[10;36H[?12l[?25h[?25lw[24;67H7[10;37H[?12l[?25h[?25ls[24;67H8[10;38H[?12l[?25h[?25l[24;67H9[10;39H[?12l[?25h[?25la[24;65H200[10;40H[?12l[?25h[?25ln[24;67H1[10;41H[?12l[?25h[?25ly[24;67H2[10;42H[?12l[?25h[?25l[24;67H3[10;43H[?12l[?25h[?25lo[24;67H4[10;44H[?12l[?25h[?25ln[24;67H5[10;45H[?12l[?25h[?25le[24;67H6[10;46H[?12l[?25h[?25l[24;67H7[10;47H[?12l[?25h[?25lt[24;67H8[10;48H[?12l[?25h[?25lo[24;67H9[10;49H[?12l[?25h[?25l[24;66H10[10;50H[?12l[?25h[?25lr[24;67H1[10;51H[?12l[?25h[?25le[24;67H2[10;52H[?12l[?25h[?25la[24;67H3[10;53H[?12l[?25h[?25ld[24;67H4[10;54H[?12l[?25h[?25l[24;67H5[10;55H[?12l[?25h[?25lb[24;67H6[10;56H[?12l[?25h[?25lu[24;67H7[10;57H[?12l[?25h[?25lt[24;67H8[10;58H[?12l[?25h[?25l[24;67H9[10;59H[?12l[?25h[?25lo[24;66H20[10;60H[?12l[?25h[?25ln[24;67H1[10;61H[?12l[?25h[?25ll[24;67H2[10;62H[?12l[?25h[?25ly[24;67H3[10;63H[?12l[?25h[?25l[24;67H4[10;64H[?12l[?25h[?25ls[24;67H5[10;65H[?12l[?25h[?25lu[24;67H6[10;66H[?12l[?25h[?25ld[24;67H7[10;67H[?12l[?25h[?25lo[24;67H8[10;68H[?12l[?25h[?25l[24;67H9[10;69H[?12l[?25h[?25lt[24;66H30[10;70H[?12l[?25h[?25lo[24;67H1[10;71H[?12l[?25h[?25l[24;67H2[10;72H[?12l[?25h[?25lw[24;67H3[10;73H[?12l[?25h[?25lr[24;67H4[10;74H[?12l[?25h[?25li[24;67H5[10;75H[?12l[?25h[?25lt[24;67H6[10;76H[?12l[?25h[?25le[24;67H7[10;77H[?12l[?25h[?25l<[24;67H8[10;78H[?12l[?25h[?25l[1m[96m<[m[93mb[m[24;67H9[10;79H[?12l[?25h[?25l[93mr[m[24;66H40[10;80H[?12l[?25h[?25l[1m[96m>[m[10;77H[1m[96m[46m<[m[93mb[m[1C[1m[96m[46m>[m[24;67H1[11;1H[?12l[?25h[24;1H[K[10;80H[?25l[24;53H^[[10;80H[24;53H  [11;1H[24;63H6,240[9CAll[10;80H[?12l[?25h[?25l[24;53H:[10;80H[24;53H[K[24;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h[?25l[?1006l[?1002l"README.md" 6L, 580C written
+[?1l>[?12l[?25h[?1049l]0;pi@raspberrypi: ~/Device_Drivers[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers $[00m cd lirc_rpi/
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m cd lirc_rpi/vim README.md [9Pcd ..dmesg | tailsudo rmmod lirc_rpi[7Pdmesg | tail -f1sudo insmod lirc_rpi.ko
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m ls /sys/module/lirc_rpi/
+coresize  initsize   [0m[01;34mnotes[0m   [01;34msections[0m    taint
+[01;34mholders[0m   initstate  refcnt  srcversion  uevent
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m ls /sys/module/lirc_rpi/[1Psudo insmod lirc_rpi.ko[11Pcd lirc_rpi/vim README.md [9Pcd ..dmesg | tailsudo rmmod lirc_rpi[7Pdmesg | tailsudo rmmod lirc_rpi
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m vim lirc_rpi.c
+[?1000h[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;24r[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[24;1H"lirc_rpi.c" 25L, 498C[>c[27m[23m[m[H[2J[1;1H[38;5;81m#include [m[95m<linux/module.h>[m
+
+[96m// Default gpio input pin[m
+[38;5;121mstatic[m [38;5;121mint[m gpio_in=[95m18[m;
+
+[96m// Default gpio output pin[m
+[38;5;121mstatic[m [38;5;121mint[m gpio_out=[95m17[m;
+
+module_param(gpio_in, [38;5;121mint[m, [95m0[m);
+module_param(gpio_out, [38;5;121mint[m, [95m0[m);
+MODULE_PARM_DESC(gpio_in, [95m"GPIO INPUT PIN"[m);
+MODULE_PARM_DESC(gpio_out, [95m"GPIO OUTPUT PIN"[m);
+
+[38;5;121mstatic[m [38;5;121mint[m __init lirc_rpi_init([38;5;121mvoid[m) {[15;9Hpr_info([95m"HI[m[38;5;224m\n[m[95m"[m);[16;9H[93mreturn[m [95m0[m;
+}
+
+[38;5;121mstatic[m [38;5;121mvoid[m __exit lirc_rpi_exit([38;5;121mvoid[m) {[20;9Hpr_info([95m"Hi[m[38;5;224m\n[m[95m"[m);
+}
+
+module_init(lirc_rpi_init);[24;63H9,28[10CTop"lirc_rpi.c" 25L, 498C[40C    [10C   [9;28H[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?12l[?25h[?25l[24;53Hi[9;28H[24;53H [9;28H[24;1H[1m-- INSERT --[m[24;14H[K[24;63H9,28[10CTop[9;28H[?12l[?25h[?25l[9;13H[46m([15C)[m[24;66H9[9;29H[?12l[?25h[?25l)[46m;[m[9;30H[K[9;28H[46m)[m;[24;66H8[9;28H[?12l[?25h[?25l[46mS[m_IRUGO|S_IWUSR);[9;28HS[14C[46m)[m[24;65H43[9;43H[?12l[?25h[?25l[9;13H([29C)[24;63H10,32[10;32H[?12l[?25h[?25l[10;13H[46m([16C)[m[24;67H1[10;31H[?12l[?25h[?25l[24;67H0[10;30H[?12l[?25h[?25l)[46m;[m[10;31H[K[10;29H[46m)[m;[24;66H29[10;29H[?12l[?25h[?25l[46mS[m_IRUGO|S_IWUSR);[10;29HS[14C[46m)[m[24;66H44[10;44H[?12l[?25h[24;1H[K[10;43H[?25l[24;53H^[[10;43H[24;53H  [10;44H[10;13H([30C)[24;63H10,43[9CTop[10;43H[?12l[?25h[?25l[24;53H:[10;43H[24;53H[K[24;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h[?25l[?1006l[?1002l"lirc_rpi.c" 25L, 526C written
+[?1l>[?12l[?25h[?1049l]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m vim lirc_rpi.csudo rmmod lirc_rpi[5Pvim lirc_rpi.c[Kmake clean
+make -C /lib/modules/4.9.45-v7+/build M=/home/pi/Device_Drivers/lirc_rpi clean
+make[1]: Entering directory '/home/pi/linux'
+  CLEAN   /home/pi/Device_Drivers/lirc_rpi/.tmp_versions
+  CLEAN   /home/pi/Device_Drivers/lirc_rpi/Module.symvers
+make[1]: Leaving directory '/home/pi/linux'
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m make
+make -C /lib/modules/4.9.45-v7+/build M=/home/pi/Device_Drivers/lirc_rpi modules
+make[1]: Entering directory '/home/pi/linux'
+  CC [M]  /home/pi/Device_Drivers/lirc_rpi/lirc_rpi.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/pi/Device_Drivers/lirc_rpi/lirc_rpi.mod.o
+  LD [M]  /home/pi/Device_Drivers/lirc_rpi/lirc_rpi.ko
+make[1]: Leaving directory '/home/pi/linux'
+rm .mod.[co]
+rm: cannot remove '.mod.[co]': No such file or directory
+Makefile:5: recipe for target 'default' failed
+make: [default] Error 1 (ignored)
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m mk[Kake lirc_rpi.ko
+make: 'lirc_rpi.ko' is up to date.
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m make clean
+make -C /lib/modules/4.9.45-v7+/build M=/home/pi/Device_Drivers/lirc_rpi clean
+make[1]: Entering directory '/home/pi/linux'
+  CLEAN   /home/pi/Device_Drivers/lirc_rpi/.tmp_versions
+  CLEAN   /home/pi/Device_Drivers/lirc_rpi/Module.symvers
+make[1]: Leaving directory '/home/pi/linux'
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m make cleanlirc_rpi.ko
+make -C /lib/modules/4.9.45-v7+/build M=/home/pi/Device_Drivers/lirc_rpi lirc_rpi.ko
+make[1]: Entering directory '/home/pi/linux'
+  CC [M]  /home/pi/Device_Drivers/lirc_rpi/lirc_rpi.o
+  MODPOST 1 modules
+  CC      /home/pi/Device_Drivers/lirc_rpi/lirc_rpi.mod.o
+  LD [M]  /home/pi/Device_Drivers/lirc_rpi/lirc_rpi.ko
+make[1]: Leaving directory '/home/pi/linux'
+rm lirc_rpi.mod.[co]
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m ls
+Kbuild  lirc_rpi.c  lirc_rpi.ko  lirc_rpi.o  Makefile  Module.symvers
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m lsmake lirc_rpi.ko[6Pcleanlirc_rpi.ko[K cleanvim lirc_rpi.csudo rmmod lirc_rpils /sys/module/lirc_rpi/[1Psudo insmod lirc_rpi.ko
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m sudo insmod lirc_rpi.kols[Kmake lirc_rpi.ko[6Pcleanlirc_rpi.ko[K cleanvim lirc_rpi.csudo rmmod lirc_rpils /sys/module/lirc_rpi/
+coresize  initsize   [0m[01;34mnotes[0m       refcnt    srcversion  uevent
+[01;34mholders[0m   initstate  [01;34mparameters[0m  [01;34msections[0m  taint
+]0;pi@raspberrypi: ~/Device_Drivers/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/lirc_rpi $[00m cd par[K[K[K[K[K[Kcd /sys/module/lirc_rpi/
+]0;pi@raspberrypi: /sys/module/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m/sys/module/lirc_rpi $[00m ls
+coresize  initsize   [0m[01;34mnotes[0m       refcnt    srcversion  uevent
+[01;34mholders[0m   initstate  [01;34mparameters[0m  [01;34msections[0m  taint
+]0;pi@raspberrypi: /sys/module/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m/sys/module/lirc_rpi $[00m cd parameters/
+]0;pi@raspberrypi: /sys/module/lirc_rpi/parameters[01;32mpi@raspberrypi[00m:[01;34m/sys/module/lirc_rpi/parameters $[00m ls
+gpio_in  gpio_out
+]0;pi@raspberrypi: /sys/module/lirc_rpi/parameters[01;32mpi@raspberrypi[00m:[01;34m/sys/module/lirc_rpi/parameters $[00m cat gpio_
+cat: gpio_: No such file or directory
+]0;pi@raspberrypi: /sys/module/lirc_rpi/parameters[01;32mpi@raspberrypi[00m:[01;34m/sys/module/lirc_rpi/parameters $[00m cat gpio_in 
+18
+]0;pi@raspberrypi: /sys/module/lirc_rpi/parameters[01;32mpi@raspberrypi[00m:[01;34m/sys/module/lirc_rpi/parameters $[00m cat gpio_in [1P [1P o t [1P u t 
+17
+]0;pi@raspberrypi: /sys/module/lirc_rpi/parameters[01;32mpi@raspberrypi[00m:[01;34m/sys/module/lirc_rpi/parameters $[00m echo 8 > gpio_in 
+bash: gpio_in: Permission denied
+]0;pi@raspberrypi: /sys/module/lirc_rpi/parameters[01;32mpi@raspberrypi[00m:[01;34m/sys/module/lirc_rpi/parameters $[00m cd-
+bash: cd-: command not found
+]0;pi@raspberrypi: /sys/module/lirc_rpi/parameters[01;32mpi@raspberrypi[00m:[01;34m/sys/module/lirc_rpi/parameters $[00m cd- [1@ 
+/sys/module/lirc_rpi
+]0;pi@raspberrypi: /sys/module/lirc_rpi[01;32mpi@raspberrypi[00m:[01;34m/sys/module/lirc_rpi $[00m cd /D[Khome/pi/Device_Drivers/
+]0;pi@raspberrypi: ~/Device_Drivers[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers $[00m exit
+exit
+
+Script done on Mon 06 Nov 2017 05:09:18 UTC
