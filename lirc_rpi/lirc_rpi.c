@@ -23,5 +23,4 @@ static void __exit lirc_rpi_exit(void) {
 module_init(lirc_rpi_init);
 module_exit(lirc_rpi_exit);
 MODULE_DESCRIPTION("LIRC IR Transceiver driver module");
-MODULE_AUTHOR("Svr Aditya Reddy");
 MODULE_LICENSE("GPL");
