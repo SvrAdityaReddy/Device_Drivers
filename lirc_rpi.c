@@ -40,6 +40,7 @@
 #include <media/lirc.h>
 #include <media/lirc_dev.h>
 #include <linux/gpio.h>
+#include <linux/device.h>
 #include <linux/of_platform.h>
 #include <linux/platform_data/bcm2708.h>
 
@@ -85,7 +86,9 @@ static int auto_sense = 1;
 static long send_pulse(unsigned long length);
 static void send_space(long length);
 static void lirc_rpi_exit(void);
-
+//static inline int __must_check device_add_group(struct device *dev, const struct attribute_group *grp);
+//int __must_check
+ int __must_check device_add_groups(struct device *dev, const struct attribute_group **groups);
 static struct platform_device *lirc_rpi_dev;
 static struct timeval lasttv = { 0, 0 };
 static struct lirc_buffer rbuf;
@@ -97,6 +100,54 @@ static unsigned int duty_cycle = 50;
 static unsigned long period;
 static unsigned long pulse_width;
 static unsigned long space_width;
+
+/* Creating sysfs attributes */
+
+#define to_lirc_rpi_dev_data(p)	((struct lirc_rpi_dev_data *)((p)->platform_data))
+
+struct lirc_rpi_dev_data {
+	char *code;
+};
+
+static ssize_t get_code(struct device *dev, struct device_attribute *attr, char *resp)
+{
+	struct lirc_rpi_dev_data *pdev = to_lirc_rpi_dev_data(dev);
+
+	return snprintf(resp, 40, "%s\n", pdev->code);
+}
+
+static ssize_t set_code(struct device *dev, struct device_attribute *attr, const char *newval, size_t valsize)
+{
+	struct lirc_rpi_dev_data *pdev = to_lirc_rpi_dev_data(dev);
+	char newcode[10];
+	if (sscanf(newval, "%7s", newcode) != 1)
+		return -EINVAL;
+	dev_alert(dev, "changing code from %s to %s ...\n", pdev->code, newcode);
+	pdev->code=newcode;
+	return valsize;
+}
+
+static DEVICE_ATTR(code, S_IRUGO|S_IWUSR, get_code, set_code);
+
+static struct attribute *lirc_rpi_dev_attrs[] = {
+		&dev_attr_code.attr,
+				NULL
+};
+
+static struct attribute_group lirc_rpi_dev_basic_attributes = {
+		.attrs = lirc_rpi_dev_attrs,
+};
+
+static const struct attribute_group *lirc_rpi_dev_all_attributes[] = {
+	 	&lirc_rpi_dev_basic_attributes,
+		 	NULL
+};
+
+/*static struct lirc_rpi_dev_data lirc_rpidata={
+	.code="receive"
+};*/
+
+/* sysfs attributes created */
 
 static void safe_udelay(unsigned long usecs)
 {
@@ -583,7 +634,18 @@ static const struct of_device_id lirc_rpi_of_match[] = {
 };
 MODULE_DEVICE_TABLE(of, lirc_rpi_of_match);
 
+static int lirc_rpi_driver_probe(struct platform_device *pdev)
+{
+	printk(KERN_INFO LIRC_DRIVER_NAME "probe function called!\n");
+	//int result=devm_device_add_group(&pdev->dev, &lirc_rpi_dev_basic_attributes);
+	//device_add_group(&pdev->dev, &lirc_rpi_dev_basic_attributes);
+	int result;
+	result=device_add_groups(&pdev->dev, lirc_rpi_dev_all_attributes);
+	return result;
+}
+
 static struct platform_driver lirc_rpi_driver = {
+	.probe=lirc_rpi_driver_probe,
 	.driver = {
 		.name   = LIRC_DRIVER_NAME,
 		.owner  = THIS_MODULE,
@@ -614,11 +676,15 @@ static int __init lirc_rpi_init(void)
 	if (node) {
 		/* DT-enabled */
 		lirc_rpi_dev = of_find_device_by_node(node);
+		//lirc_rpi_dev->dev.groups = lirc_rpi_dev_all_attributes;
+		//lirc_rpi_dev->dev.platform_data=&lirc_rpidata;
 		WARN_ON(lirc_rpi_dev->dev.of_node != node);
 		of_node_put(node);
 	}
 	else {
 		lirc_rpi_dev = platform_device_alloc(LIRC_DRIVER_NAME, 0);
+		//lirc_rpi_dev->dev.groups = lirc_rpi_dev_all_attributes;
+		//lirc_rpi_dev->dev.platform_data=&lirc_rpidata;
 		if (!lirc_rpi_dev) {
 			result = -ENOMEM;
 			goto exit_driver_unregister;
