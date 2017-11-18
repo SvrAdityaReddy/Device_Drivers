@@ -40,7 +40,7 @@
 #include <media/lirc.h>
 #include <media/lirc_dev.h>
 #include <linux/gpio.h>
-#include <linux/device.h>
+//#include <linux/device.h>
 #include <linux/of_platform.h>
 #include <linux/platform_data/bcm2708.h>
 
@@ -88,7 +88,7 @@ static void send_space(long length);
 static void lirc_rpi_exit(void);
 //static inline int __must_check device_add_group(struct device *dev, const struct attribute_group *grp);
 //int __must_check
- int __must_check device_add_groups(struct device *dev, const struct attribute_group **groups);
+//int __must_check device_add_groups(struct device *dev, const struct attribute_group **groups);
 static struct platform_device *lirc_rpi_dev;
 static struct timeval lasttv = { 0, 0 };
 static struct lirc_buffer rbuf;
@@ -103,28 +103,54 @@ static unsigned long space_width;
 
 /* Creating sysfs attributes */
 
-#define to_lirc_rpi_dev_data(p)	((struct lirc_rpi_dev_data *)((p)->platform_data))
+//#define to_lirc_rpi_dev_data(p)	((struct lirc_rpi_dev_data *)((p)->platform_data))
 
 struct lirc_rpi_dev_data {
-	char *code;
+	struct device *dev;
+	//char *code;
+	char code[1024];
 };
 
 static ssize_t get_code(struct device *dev, struct device_attribute *attr, char *resp)
 {
-	struct lirc_rpi_dev_data *pdev = to_lirc_rpi_dev_data(dev);
+	struct lirc_rpi_dev_data *mydrv = dev_get_drvdata(dev);
+	int len;
+	printk(KERN_INFO LIRC_DRIVER_NAME ": get_code function called!\n");
 
-	return snprintf(resp, 40, "%s\n", pdev->code);
+    len = sprintf(resp, "%s\n", mydrv ->code);
+    if (len <= 0)
+        dev_err(dev, "mydrv: Invalid sprintf len: %d\n", len);
+
+    return len;
+	//return snprintf(resp, 40, "%s\n", pdev->code);
 }
 
 static ssize_t set_code(struct device *dev, struct device_attribute *attr, const char *newval, size_t valsize)
 {
-	struct lirc_rpi_dev_data *pdev = to_lirc_rpi_dev_data(dev);
-	char newcode[10];
-	if (sscanf(newval, "%7s", newcode) != 1)
+	//struct lirc_rpi_dev_data *pdev = to_lirc_rpi_dev_data(dev);
+	/*char newcode[10];
+	if (sscanf(newval, "%10s", newcode) != 1)
 		return -EINVAL;
 	dev_alert(dev, "changing code from %s to %s ...\n", pdev->code, newcode);
 	pdev->code=newcode;
+	return valsize;*/
+	struct lirc_rpi_dev_data *mydrv = dev_get_drvdata(dev);
+	//kstrtol(newval, 10, &mydrv->code);
+	//char newcode[1024];
+	printk(KERN_INFO LIRC_DRIVER_NAME ": set_code function called!\n");
+	strncpy(mydrv->code, newval, valsize-1);
+	dev_alert(dev, "changing code from %s to %s ...\n", mydrv->code, newval);
+	//mydrv->code=newcode;
 	return valsize;
+	/*char newcode[10];
+	int val;
+	if (sscanf(newval, "%10s", newcode) != 1)
+		return -EINVAL;
+	dev_alert(dev, "changing code from %s to %s ...\n", mydrv->code, newcode);	
+	mydrv->code=newcode;
+	//dev_alert(dev, "changing code from %s to %s ...\n", pdev->code, newval);
+    //kstrtol(newval, 10, &mydrv->code);
+    return valsize;*/
 }
 
 static DEVICE_ATTR(code, S_IRUGO|S_IWUSR, get_code, set_code);
@@ -138,10 +164,10 @@ static struct attribute_group lirc_rpi_dev_basic_attributes = {
 		.attrs = lirc_rpi_dev_attrs,
 };
 
-static const struct attribute_group *lirc_rpi_dev_all_attributes[] = {
+/*static const struct attribute_group *lirc_rpi_dev_all_attributes[] = {
 	 	&lirc_rpi_dev_basic_attributes,
 		 	NULL
-};
+};*/
 
 /*static struct lirc_rpi_dev_data lirc_rpidata={
 	.code="receive"
@@ -636,16 +662,33 @@ MODULE_DEVICE_TABLE(of, lirc_rpi_of_match);
 
 static int lirc_rpi_driver_probe(struct platform_device *pdev)
 {
-	printk(KERN_INFO LIRC_DRIVER_NAME "probe function called!\n");
 	//int result=devm_device_add_group(&pdev->dev, &lirc_rpi_dev_basic_attributes);
 	//device_add_group(&pdev->dev, &lirc_rpi_dev_basic_attributes);
+	struct lirc_rpi_dev_data *mydrv;
 	int result;
-	result=device_add_groups(&pdev->dev, lirc_rpi_dev_all_attributes);
-	return result;
+	printk(KERN_INFO LIRC_DRIVER_NAME ": probe function called!\n");
+	//mydrv->code;
+    mydrv = devm_kzalloc(&pdev->dev, sizeof(*mydrv), GFP_KERNEL);
+    mydrv->dev = &pdev->dev;
+    platform_set_drvdata(pdev, mydrv);
+	//result=device_add_groups(&pdev->dev, lirc_rpi_dev_all_attributes);
+	result = sysfs_create_group(&pdev->dev.kobj, &lirc_rpi_dev_basic_attributes);
+    if (result) {
+        dev_err(&pdev->dev, "sysfs creation failed\n");
+        return result;
+    }
+	return 0;
+}
+
+static int lirc_rpi_driver_remove(struct platform_device *pdev)
+{
+    sysfs_remove_group(&pdev->dev.kobj, &lirc_rpi_dev_basic_attributes);
+    return 0;
 }
 
 static struct platform_driver lirc_rpi_driver = {
 	.probe=lirc_rpi_driver_probe,
+	.remove=lirc_rpi_driver_remove,
 	.driver = {
 		.name   = LIRC_DRIVER_NAME,
 		.owner  = THIS_MODULE,
