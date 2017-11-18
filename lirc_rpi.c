@@ -40,7 +40,6 @@
 #include <media/lirc.h>
 #include <media/lirc_dev.h>
 #include <linux/gpio.h>
-//#include <linux/device.h>
 #include <linux/of_platform.h>
 #include <linux/platform_data/bcm2708.h>
 
@@ -78,6 +77,11 @@ static bool softcarrier = 1;
 /* 0 = do not invert output, 1 = invert output */
 static bool invert = 0;
 
+/*static unsigned long one_pulse=599;
+static unsigned long one_space=1657;
+static unsigned long zero_pulse=599;
+static unsigned long zero_space=535;*/
+
 struct gpio_chip *gpiochip;
 static int irq_num;
 static int auto_sense = 1;
@@ -109,6 +113,7 @@ struct lirc_rpi_dev_data {
 	struct device *dev;
 	//char *code;
 	char code[1024];
+	int send;
 };
 
 static ssize_t get_code(struct device *dev, struct device_attribute *attr, char *resp)
@@ -127,36 +132,181 @@ static ssize_t get_code(struct device *dev, struct device_attribute *attr, char 
 
 static ssize_t set_code(struct device *dev, struct device_attribute *attr, const char *newval, size_t valsize)
 {
-	//struct lirc_rpi_dev_data *pdev = to_lirc_rpi_dev_data(dev);
-	/*char newcode[10];
-	if (sscanf(newval, "%10s", newcode) != 1)
-		return -EINVAL;
-	dev_alert(dev, "changing code from %s to %s ...\n", pdev->code, newcode);
-	pdev->code=newcode;
-	return valsize;*/
 	struct lirc_rpi_dev_data *mydrv = dev_get_drvdata(dev);
-	//kstrtol(newval, 10, &mydrv->code);
-	//char newcode[1024];
+	int i=0,j=0;
 	printk(KERN_INFO LIRC_DRIVER_NAME ": set_code function called!\n");
-	strncpy(mydrv->code, newval, valsize-1);
 	dev_alert(dev, "changing code from %s to %s ...\n", mydrv->code, newval);
-	//mydrv->code=newcode;
-	return valsize;
-	/*char newcode[10];
-	int val;
-	if (sscanf(newval, "%10s", newcode) != 1)
-		return -EINVAL;
-	dev_alert(dev, "changing code from %s to %s ...\n", mydrv->code, newcode);	
-	mydrv->code=newcode;
-	//dev_alert(dev, "changing code from %s to %s ...\n", pdev->code, newval);
-    //kstrtol(newval, 10, &mydrv->code);
+	strncpy(mydrv->code, newval, valsize-1);
+	long delta = 0;
+	/*unsigned long l[67]={9069,    4457,     581,     549,     583,     549,
+              582,    1650,     584,     547,     585,     547,
+              585,     548,     584,     548,     590,    1671,
+              582,     548,    584,     548,     583,    1651,
+              582,     549,     610,    1652,     616,    1616,
+              584,    1676,     583,    1681,     610,     495,
+              637,     495,     611,    1658,     602,     523,
+              609,     522,     584,     548,     583,     549,
+              583,     548,     613,    1647,     583,    1649,
+              585,     550,     610,    1651,     610,    1625,
+              610,    1650,     611,    1632,     603,    1625,
+              612};*/
+     unsigned long l[67]={9055,    4479,     588,     545,     588,     544,
+              587,    1671,     590,     542,     591,     542,
+              591,     544,     589,     551,     582,    1668,
+              591,     543,     590,     543,     590,    1670,
+              614,     518,     590,    1676,     610,    1643,
+              590,    1669,     591,    1672,     614,    1646,
+              616,    1645,     615,     519,     615,    1644,
+              615,     519,     616,     517,     616,     516,
+              590,     544,     596,     536,     590,     542,
+              592,    1668,     590,     544,     589,    1670,
+              616,    1644,     622,    1636,     617,    1646,
+              617,};         
+     unsigned int flags;
+     spin_lock_irqsave(&lock, flags);
+     for (i = 0; i < 67; i++) {
+		if (i%2)
+			send_space(l[i] - delta);
+		else
+			delta = send_pulse(l[i]);
+	}
+	gpiochip->set(gpiochip, gpio_out_pin, invert);
+
+	spin_unlock_irqrestore(&lock, flags);
+
+	//header       9055  4479
+	/*send_pulse(9055);
+	send_space(4479);
+	char hex[8]="212FD02F";
+	for(i=0;i<8;i++) {
+		dev_alert(dev, "hexcode from %c \n", hex[i]);
+		if(hex[i]=='1') {
+			char arr[4]={'0','0','0','1'};
+			for(j=0;j<4;j++) {
+				if(arr[j]=='1') {
+					send_pulse(one_pulse);
+					udelay(12);
+					send_space(one_space);
+					udelay(12);
+					//send_pulse(one_pulse);
+				}
+				else {
+					send_pulse(zero_pulse);
+					udelay(12);
+					send_space(zero_space);
+					udelay(12);
+					//send_pulse(zero_pulse);
+				}
+			}
+		}
+		if(hex[i]=='0') {
+			char arr[4]={'0','0','0','0'};
+			for(j=0;j<4;j++) {
+				if(arr[j]=='1') {
+					send_pulse(one_pulse);
+					udelay(12);
+					send_space(one_space);
+					udelay(12);
+					//send_pulse(one_pulse);
+				}
+				else {
+					send_pulse(zero_pulse);
+udelay(12);
+					send_space(zero_space);
+			udelay(12);
+					//send_pulse(zero_pulse);
+				}
+			}
+		}
+		if(hex[i]=='2') {
+			char arr[4]={'0','0','1','0'};
+			for(j=0;j<4;j++) {
+				if(arr[j]=='1') {
+					send_pulse(one_pulse);
+					udelay(12);
+					send_space(one_space);
+					udelay(12);
+					//send_pulse(one_pulse);
+				}
+				else {
+					send_pulse(zero_pulse);
+					udelay(12);
+					send_space(zero_space);
+					//send_pulse(zero_pulse);
+					udelay(12);
+				}
+			}
+		}
+		if(hex[i]=='F') {
+			char arr[4]={'1','1','1','1'};
+			for(j=0;j<4;j++) {
+				if(arr[j]=='1') {
+					send_pulse(one_pulse);
+					udelay(12);
+					send_space(one_space);
+					//send_pulse(one_pulse);
+					udelay(12);
+				}
+				else {
+					send_pulse(zero_pulse);
+					udelay(12);
+					send_space(zero_space);
+					udelay(12);
+					//send_pulse(zero_pulse);
+				}
+			}
+		}
+		if(hex[i]=='D') {
+			char arr[4]={'1','1','0','1'};
+			for(j=0;j<4;j++) {
+				if(arr[j]=='1') {
+					send_pulse(one_pulse);
+					udelay(12);
+					send_space(one_space);
+					udelay(12);
+					//send_pulse(one_pulse);
+				}
+				else {
+					send_pulse(zero_pulse);
+					udelay(12);
+					send_space(zero_space);
+					udelay(12);
+					//send_pulse(zero_pulse);
+				}
+			}
+		}
+	}
+	//ptrail        617
+	send_pulse(617);
     return valsize;*/
 }
 
+static ssize_t get_send(struct device *dev, struct device_attribute *attr, char *resp)
+{
+	struct lirc_rpi_dev_data *mydrv = dev_get_drvdata(dev);
+	printk(KERN_INFO LIRC_DRIVER_NAME ": get_send function called!\n");
+	return snprintf(resp, 8, "%d\n", mydrv->send);
+}
+static ssize_t set_send(struct device *dev, struct device_attribute *attr, const char *newval, size_t valsize)
+{
+	struct lirc_rpi_dev_data *mydrv = dev_get_drvdata(dev);
+	int newinterval;
+	if (sscanf(newval, "%d", &newinterval) != 1)
+		return -EINVAL;
+	dev_alert(dev, "send attribute change from %d to %d?\n", mydrv->send, newinterval);
+	if (1) {
+		mydrv->send = newinterval;
+		return 0;
+	}
+	return -EINVAL;
+}
+
 static DEVICE_ATTR(code, S_IRUGO|S_IWUSR, get_code, set_code);
+static DEVICE_ATTR(send, S_IRUGO|S_IWUSR, get_send, set_send);
 
 static struct attribute *lirc_rpi_dev_attrs[] = {
 		&dev_attr_code.attr,
+		&dev_attr_send.attr,
 				NULL
 };
 
