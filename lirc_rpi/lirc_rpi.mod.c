@@ -87,4 +87,4 @@ __attribute__((section(".modinfo"))) =
 MODULE_ALIAS("of:N*T*Crpi,lirc-rpi");
 MODULE_ALIAS("of:N*T*Crpi,lirc-rpiC*");
 
-MODULE_INFO(srcversion, "788835F1FAA39B41E3C5AEF");
+MODULE_INFO(srcversion, "405FB8653A540FAAC39EA0C");

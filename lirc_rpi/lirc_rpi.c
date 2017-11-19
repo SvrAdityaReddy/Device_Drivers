@@ -133,11 +133,11 @@ static ssize_t get_code(struct device *dev, struct device_attribute *attr, char 
 static ssize_t set_code(struct device *dev, struct device_attribute *attr, const char *newval, size_t valsize)
 {
 	struct lirc_rpi_dev_data *mydrv = dev_get_drvdata(dev);
-	int i=0,j=0;
+	int i=0;
+	long delta = 0;
 	printk(KERN_INFO LIRC_DRIVER_NAME ": set_code function called!\n");
 	dev_alert(dev, "changing code from %s to %s ...\n", mydrv->code, newval);
 	strncpy(mydrv->code, newval, valsize-1);
-	long delta = 0;
 	/*unsigned long l[67]={9069,    4457,     581,     549,     583,     549,
               582,    1650,     584,     547,     585,     547,
               585,     548,     584,     548,     590,    1671,
@@ -163,7 +163,7 @@ static ssize_t set_code(struct device *dev, struct device_attribute *attr, const
               616,    1644,     622,    1636,     617,    1646,
               617,};         
      unsigned int flags;
-     spin_lock_irqsave(&lock, flags);
+    spin_lock_irqsave(&lock, flags);
      for (i = 0; i < 67; i++) {
 		if (i%2)
 			send_space(l[i] - delta);
@@ -277,8 +277,8 @@ udelay(12);
 		}
 	}
 	//ptrail        617
-	send_pulse(617);
-    return valsize;*/
+	send_pulse(617);*/
+    return valsize;
 }
 
 static ssize_t get_send(struct device *dev, struct device_attribute *attr, char *resp)
@@ -294,11 +294,12 @@ static ssize_t set_send(struct device *dev, struct device_attribute *attr, const
 	if (sscanf(newval, "%d", &newinterval) != 1)
 		return -EINVAL;
 	dev_alert(dev, "send attribute change from %d to %d?\n", mydrv->send, newinterval);
-	if (1) {
+	mydrv->send = newinterval;
+	/*if (1) {
 		mydrv->send = newinterval;
 		return 0;
-	}
-	return -EINVAL;
+	}*/
+	return 0;
 }
 
 static DEVICE_ATTR(code, S_IRUGO|S_IWUSR, get_code, set_code);

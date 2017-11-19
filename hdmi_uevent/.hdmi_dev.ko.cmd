@@ -1,0 +1,1 @@
+cmd_/home/pi/Device_Drivers/hdmi_uevent/hdmi_dev.ko := ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /home/pi/Device_Drivers/hdmi_uevent/hdmi_dev.ko /home/pi/Device_Drivers/hdmi_uevent/hdmi_dev.o /home/pi/Device_Drivers/hdmi_uevent/hdmi_dev.mod.o ;  true
