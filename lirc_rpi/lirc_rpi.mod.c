@@ -51,8 +51,8 @@ __attribute__((section("__versions"))) = {
 	{ 0xf20dabd8, __VMLINUX_SYMBOL_STR(free_irq) },
 	{ 0x3ce4ca6f, __VMLINUX_SYMBOL_STR(disable_irq) },
 	{ 0xbc477a2, __VMLINUX_SYMBOL_STR(irq_set_irq_type) },
+	{ 0x20c55ae0, __VMLINUX_SYMBOL_STR(sscanf) },
 	{ 0x9d669763, __VMLINUX_SYMBOL_STR(memcpy) },
-	{ 0x328a05f1, __VMLINUX_SYMBOL_STR(strncpy) },
 	{ 0x37a0cba, __VMLINUX_SYMBOL_STR(kfree) },
 	{ 0xe2e8065e, __VMLINUX_SYMBOL_STR(memdup_user) },
 	{ 0x94eea794, __VMLINUX_SYMBOL_STR(getnstimeofday64) },
@@ -66,9 +66,9 @@ __attribute__((section("__versions"))) = {
 	{ 0xa4d5e9f0, __VMLINUX_SYMBOL_STR(devm_kmalloc) },
 	{ 0x7724387b, __VMLINUX_SYMBOL_STR(dev_err) },
 	{ 0x91715312, __VMLINUX_SYMBOL_STR(sprintf) },
-	{ 0xb81960ca, __VMLINUX_SYMBOL_STR(snprintf) },
+	{ 0x328a05f1, __VMLINUX_SYMBOL_STR(strncpy) },
 	{ 0xf13bab8f, __VMLINUX_SYMBOL_STR(dev_alert) },
-	{ 0x20c55ae0, __VMLINUX_SYMBOL_STR(sscanf) },
+	{ 0xb81960ca, __VMLINUX_SYMBOL_STR(snprintf) },
 	{ 0xb1ea493e, __VMLINUX_SYMBOL_STR(sysfs_remove_group) },
 	{ 0x8e865d3c, __VMLINUX_SYMBOL_STR(arm_delay_ops) },
 	{ 0xa528b72c, __VMLINUX_SYMBOL_STR(lirc_dev_fop_ioctl) },
@@ -87,4 +87,4 @@ __attribute__((section(".modinfo"))) =
 MODULE_ALIAS("of:N*T*Crpi,lirc-rpi");
 MODULE_ALIAS("of:N*T*Crpi,lirc-rpiC*");
 
-MODULE_INFO(srcversion, "405FB8653A540FAAC39EA0C");
+MODULE_INFO(srcversion, "CB068BF23B033720DAD2069");
