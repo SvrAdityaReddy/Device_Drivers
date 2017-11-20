@@ -3,7 +3,7 @@
 #
 ifneq ($(KERNELRELEASE),)
 
-obj-m := hdmi_uevent.o
+obj-m := hdmi-rpi.o
 
 else
 KDIR  := /lib/modules/$(shell uname -r)/build

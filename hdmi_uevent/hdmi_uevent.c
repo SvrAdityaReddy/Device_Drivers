@@ -60,47 +60,47 @@ static int __init module_start(void)
 	error = misc_register(&hdmi_dev);
 	if (error)
 		pr_err("error %d\n", error);
-	
+
 	if(!gpio_is_valid(hdmi_gpio)){
 		printk(KERN_INFO "hdmi hotplug gpio invalid");
 		return -ENODEV;
 	}
+	struct device *dev = hdmi_dev.this_device;
 	gpio_request(hdmi_gpio,"sysfs");
 	gpio_direction_input(hdmi_gpio);
 	gpio_export(hdmi_gpio,false);
 	irqNumber = gpio_to_irq(hdmi_gpio);
 	error = request_irq(irqNumber,(irq_handler_t)hdmigpio_irq_handler,IRQF_TRIGGER_RISING,"hdmi_gpio_handler",NULL);
-while(1){
-	hdmi_gpio_val = gpio_get_value(hdmi_gpio);
-	while(hdmi_gpio_val){
+//	while(1){
 		hdmi_gpio_val = gpio_get_value(hdmi_gpio);
-		msleep(1000);	
-	}
-	while(!hdmi_gpio_val){
-		hdmi_gpio_val = gpio_get_value(hdmi_gpio);
-		msleep(1000);	
-	}
-	printk(KERN_INFO "hotplug removed and value = %d\n",hdmi_gpio_val);
+		while(hdmi_gpio_val){
+			hdmi_gpio_val = gpio_get_value(hdmi_gpio);
+			msleep(1000);	
+		}
+		while(!hdmi_gpio_val){
+			hdmi_gpio_val = gpio_get_value(hdmi_gpio);
+			msleep(1000);	
+		}
+		printk(KERN_INFO "hotplug removed and value = %d\n",hdmi_gpio_val);
 #if 0
-	error = device_create_file(dev,&dev_attr_read);
-	if (error){
-		put_device(dev);
-		pr_err("No Read device attribute Added%d\n", error);
-	}
-	error = device_create_file(dev,&dev_attr_change);
-	if (error){
-		put_device(dev);
-		pr_err("No Change device attribute Added%d\n", error);
-	}
+		error = device_create_file(dev,&dev_attr_read);
+		if (error){
+			put_device(dev);
+			pr_err("No Read device attribute Added%d\n", error);
+		}
+		error = device_create_file(dev,&dev_attr_change);
+		if (error){
+			put_device(dev);
+			pr_err("No Change device attribute Added%d\n", error);
+		}
 #endif
-	struct device *dev = hdmi_dev.this_device;
-	error = kobject_uevent_env(&dev->kobj,KOBJ_CHANGE,envp);
-	if (error){
-		kobject_put(&dev->kobj);
-		pr_err("No kobject_uevent %d\n", error);
-	}
-	msleep(1000);
-}
+		error = kobject_uevent_env(&dev->kobj,KOBJ_CHANGE,envp);
+		if (error){
+			kobject_put(&dev->kobj);
+			pr_err("No kobject_uevent %d\n", error);
+		}
+		msleep(1000);
+//	}
 	return error;
 }
 
