@@ -1,5 +1,4 @@
 #!/bin/sh
-echo 0x212FD02F > /sys/devices/platform/lirc_rpi/code
-echo 0x212FD02F > /sys/devices/platform/lirc_rpi/code
-echo 0x212FD02F > /sys/devices/platform/lirc_rpi/code
-echo 0x212FD02F > /sys/devices/platform/lirc_rpi/code
+echo 1 > /sys/devices/platform/lirc_rpi/send
+sleep 2
+echo 1 > /sys/devices/platform/lirc_rpi/send
