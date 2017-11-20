@@ -1,8 +1,8 @@
-cmd_/home/pi/Device_Drivers/lirc_rpi/lirc_rpi.mod.o := gcc -Wp,-MD,/home/pi/Device_Drivers/lirc_rpi/.lirc_rpi.mod.o.d  -nostdinc -isystem /usr/lib/gcc/arm-linux-gnueabihf/6/include -I./arch/arm/include -I./arch/arm/include/generated/uapi -I./arch/arm/include/generated  -I./include -I./arch/arm/include/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -D__KERNEL__ -mlittle-endian -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -std=gnu89 -fno-PIE -fno-dwarf2-cfi-asm -fno-omit-frame-pointer -mapcs -mno-sched-prolog -fno-ipa-sra -mabi=aapcs-linux -mno-thumb-interwork -mfpu=vfp -funwind-tables -marm -D__LINUX_ARM_ARCH__=7 -march=armv7-a -msoft-float -Uarm -fno-delete-null-pointer-checks -Wno-frame-address -O2 --param=allow-store-data-races=0 -DCC_HAVE_ASM_GOTO -Wframe-larger-than=1024 -fno-stack-protector -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -pg -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -Werror=implicit-int -Werror=strict-prototypes -Werror=date-time -Werror=incompatible-pointer-types  -DKBUILD_BASENAME='"lirc_rpi.mod"'  -DKBUILD_MODNAME='"lirc_rpi"' -DMODULE  -c -o /home/pi/Device_Drivers/lirc_rpi/lirc_rpi.mod.o /home/pi/Device_Drivers/lirc_rpi/lirc_rpi.mod.c
+cmd_/home/pi/Device_Drivers/hdmi_uevent/hdmi_uevent.mod.o := gcc -Wp,-MD,/home/pi/Device_Drivers/hdmi_uevent/.hdmi_uevent.mod.o.d  -nostdinc -isystem /usr/lib/gcc/arm-linux-gnueabihf/6/include -I./arch/arm/include -I./arch/arm/include/generated/uapi -I./arch/arm/include/generated  -I./include -I./arch/arm/include/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/kconfig.h -D__KERNEL__ -mlittle-endian -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -std=gnu89 -fno-PIE -fno-dwarf2-cfi-asm -fno-omit-frame-pointer -mapcs -mno-sched-prolog -fno-ipa-sra -mabi=aapcs-linux -mno-thumb-interwork -mfpu=vfp -funwind-tables -marm -D__LINUX_ARM_ARCH__=7 -march=armv7-a -msoft-float -Uarm -fno-delete-null-pointer-checks -Wno-frame-address -O2 --param=allow-store-data-races=0 -DCC_HAVE_ASM_GOTO -Wframe-larger-than=1024 -fno-stack-protector -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-var-tracking-assignments -pg -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -Werror=implicit-int -Werror=strict-prototypes -Werror=date-time -Werror=incompatible-pointer-types  -DKBUILD_BASENAME='"hdmi_uevent.mod"'  -DKBUILD_MODNAME='"hdmi_uevent"' -DMODULE  -c -o /home/pi/Device_Drivers/hdmi_uevent/hdmi_uevent.mod.o /home/pi/Device_Drivers/hdmi_uevent/hdmi_uevent.mod.c
 
-source_/home/pi/Device_Drivers/lirc_rpi/lirc_rpi.mod.o := /home/pi/Device_Drivers/lirc_rpi/lirc_rpi.mod.c
+source_/home/pi/Device_Drivers/hdmi_uevent/hdmi_uevent.mod.o := /home/pi/Device_Drivers/hdmi_uevent/hdmi_uevent.mod.c
 
-deps_/home/pi/Device_Drivers/lirc_rpi/lirc_rpi.mod.o := \
+deps_/home/pi/Device_Drivers/hdmi_uevent/hdmi_uevent.mod.o := \
     $(wildcard include/config/module/unload.h) \
   include/linux/module.h \
     $(wildcard include/config/modules.h) \
@@ -448,6 +448,6 @@ deps_/home/pi/Device_Drivers/lirc_rpi/lirc_rpi.mod.o := \
   include/linux/vermagic.h \
   include/generated/utsrelease.h \
 
-/home/pi/Device_Drivers/lirc_rpi/lirc_rpi.mod.o: $(deps_/home/pi/Device_Drivers/lirc_rpi/lirc_rpi.mod.o)
+/home/pi/Device_Drivers/hdmi_uevent/hdmi_uevent.mod.o: $(deps_/home/pi/Device_Drivers/hdmi_uevent/hdmi_uevent.mod.o)
 
-$(deps_/home/pi/Device_Drivers/lirc_rpi/lirc_rpi.mod.o):
+$(deps_/home/pi/Device_Drivers/hdmi_uevent/hdmi_uevent.mod.o):

@@ -91,6 +91,7 @@ static long send_pulse(unsigned long length);
 static void send_space(long length);
 static void lirc_rpi_exit(void);
 static void send_raw_codes(void);
+static void send_hex_code(char *val); 
 static struct platform_device *lirc_rpi_dev;
 static struct timeval lasttv = { 0, 0 };
 static struct lirc_buffer rbuf;
@@ -154,6 +155,7 @@ static ssize_t set_send(struct device *dev, struct device_attribute *attr, const
 	if(mydrv->send==1) {
 		printk(KERN_INFO LIRC_DRIVER_NAME ": send_raw_codes function called!\n");
 		send_raw_codes();
+		//send_hex_code(mydrv->code);
 	}	
 	return valsize;
 }
@@ -182,6 +184,10 @@ static struct attribute_group lirc_rpi_dev_basic_attributes = {
 
 /* sysfs attributes created */
 
+/* Functions to send hex codes and raw codes
+ * send_hex_code()
+ * send_raw_codes() 
+*/
 static void send_raw_codes() {
 	int i=0;
 	long delta = 0;
@@ -196,7 +202,28 @@ static void send_raw_codes() {
               590,     544,     596,     536,     590,     542,
               592,    1668,     590,     544,     589,    1670,
               616,    1644,     622,    1636,     617,    1646,
-              617,};         
+              617};      
+    /*unsigned long l[115]={3525,    1744,     438,     444,     433,    1292,
+              439,     438,     439,     439,     439,     438,
+              439,     438,     439,     439,     439,     445,
+              440,     436,     441,     437,     440,     438,
+              446,     431,     441,     434,     442,    1288,
+              442,     435,     442,     445,     441,     435,
+              443,     436,     441,     436,     441,     436,
+              441,     436,     441,     442,     435,     435,
+              441,    1296,     441,     435,     442,     435,
+              442,     435,     441,    1288,     441,     436,
+              441,     436,     440,    1294,     436,     451,
+              442,     437,     441,     436,     441,     436,
+              441,     436,     441,     435,     442,     435,
+              441,     436,     441,     444,     441,    1293,
+              436,     436,     441,    1288,     442,    1288,
+              443,    1287,     441,    1287,     444,     435,
+              442,     450,     442,    1288,     442,     436,
+              441,    1289,     441,     436,     442,    1288,
+              442,    1289,     441,    1297,     434,    1293,
+              440};*/
+    /*unsigned long l[231] = {3519, 1745, 436, 439, 438, 1293, 437, 440, 438, 439, 439, 438, 439, 439, 437, 440, 439, 446, 439, 438, 439, 439, 439, 438, 439, 438, 441, 434, 441, 1289, 441, 434, 443, 445, 440, 437, 440, 437, 440, 437, 440, 437, 440, 437, 440, 436, 441, 437, 440, 1303, 435, 436, 440, 437, 440, 437, 440, 1290, 440, 435, 440, 436, 441, 1288, 442, 455, 439, 445, 432, 438, 439, 438, 439, 438, 439, 438, 439, 438, 439, 437, 439, 447, 439, 1291, 439, 438, 439, 1297, 432, 1291, 439, 1290, 440, 1292, 439, 438, 439, 451, 439, 1292, 438, 445, 432, 1290, 441, 438, 439, 1292, 437, 1293, 461, 1269, 463, 1269, 470, 74001, 3530, 1745, 438, 442, 435, 1295, 437, 440, 437, 440, 437, 440, 438, 440, 437, 440, 438, 447, 436, 441, 438, 439, 438, 447, 430, 440, 462, 413, 439, 1291, 439, 437, 440, 447, 461, 416, 464, 413, 464, 412, 465, 412, 465, 412, 472, 405, 439, 438, 439, 1299, 463, 413, 439, 438, 438, 438, 439, 1291, 468, 408, 439, 437, 440, 1296, 447, 440, 440, 438, 439, 438, 439, 438, 439, 438, 439, 438, 439, 438, 439, 438, 439, 446, 439, 1297, 433, 438, 438, 1291, 439, 1290, 440, 1291, 438, 1291, 467, 412, 466, 430, 433, 1292, 465, 412, 465, 1266, 466, 411, 465, 1266, 466, 1265, 466, 1272, 461, 1265, 438};*/             
     unsigned long flags;
     /*unsigned long l[67]={9069,    4457,     581,     549,     583,     549,
               582,    1650,     584,     547,     585,     547,
@@ -220,6 +247,24 @@ static void send_raw_codes() {
 	gpiochip->set(gpiochip, gpio_out_pin, invert);
 
 	spin_unlock_irqrestore(&lock, flags);
+	return;
+}
+
+static void send_hex_code(char *val) 
+{
+	long newval;
+	long i=0;
+	kstrtol(val, 16, &newval);
+	printk(KERN_INFO LIRC_DRIVER_NAME ": hex string %s decimal value is %ld\n", val, newval);
+	i=newval;
+	for(i>0;;i<<1) {
+		if(i&&1) {
+			printk(KERN_INFO LIRC_DRIVER_NAME ": bit is %d\n", 1);
+		}
+		else {
+			printk(KERN_INFO LIRC_DRIVER_NAME ": bit is %d\n", 0);
+		}
+	}
 	return;
 }
 
