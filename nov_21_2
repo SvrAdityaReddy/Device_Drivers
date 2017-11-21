@@ -1,0 +1,93 @@
+Script started on Tue 21 Nov 2017 06:15:52 UTC
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m udevs[Kadm monitor -p
+monitor will print the received events for:
+UDEV - the event which udev sends out after rule processing
+KERNEL - the kernel uevent
+
+KERNEL[757.637205] add      /module/hdmi_rpi (module)
+ACTION=add
+DEVPATH=/module/hdmi_rpi
+SEQNUM=1080
+SUBSYSTEM=module
+
+UDEV  [757.637665] add      /module/hdmi_rpi (module)
+ACTION=add
+DEVPATH=/module/hdmi_rpi
+SEQNUM=1080
+SUBSYSTEM=module
+USEC_INITIALIZED=757634956
+
+KERNEL[757.638040] add      /devices/virtual/misc/hdmi_device (misc)
+ACTION=add
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1081
+SUBSYSTEM=misc
+
+KERNEL[757.638425] change   /devices/virtual/misc/hdmi_device (HDMI)
+ACTION=change
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1082
+SUBSYSTEM=HDMI
+
+KERNEL[757.638749] add      /devices/platform/soc/3f200000.gpio/gpiochip0/gpio/gpio46 (gpio)
+ACTION=add
+DEVPATH=/devices/platform/soc/3f200000.gpio/gpiochip0/gpio/gpio46
+SEQNUM=1083
+SUBSYSTEM=gpio
+
+UDEV  [757.648358] add      /devices/virtual/misc/hdmi_device (misc)
+ACTION=add
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1081
+SUBSYSTEM=misc
+USEC_INITIALIZED=757643036
+
+UDEV  [757.688280] add      /devices/platform/soc/3f200000.gpio/gpiochip0/gpio/gpio46 (gpio)
+ACTION=add
+DEVPATH=/devices/platform/soc/3f200000.gpio/gpiochip0/gpio/gpio46
+SEQNUM=1083
+SUBSYSTEM=gpio
+USEC_INITIALIZED=757687845
+
+UDEV  [759.869751] change   /devices/virtual/misc/hdmi_device (HDMI)
+ACTION=change
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1082
+SUBSYSTEM=HDMI
+USEC_INITIALIZED=757645957
+
+KERNEL[772.790614] change   /devices/virtual/misc/hdmi_device (HDMI)
+ACTION=change
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1084
+SUBSYSTEM=HDMI
+
+UDEV  [775.028675] change   /devices/virtual/misc/hdmi_device (HDMI)
+ACTION=change
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1084
+SUBSYSTEM=HDMI
+USEC_INITIALIZED=772796814
+
+^C]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m exit
+exit
+
+Script done on Tue 21 Nov 2017 06:46:01 UTC

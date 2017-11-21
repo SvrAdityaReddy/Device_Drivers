@@ -1,0 +1,125 @@
+Script started on Tue 21 Nov 2017 06:15:05 UTC
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cd Device_Drivers/
+]0;pi@raspberrypi: ~/Device_Drivers[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers $[00m cd hdmi_final/
+]0;pi@raspberrypi: ~/Device_Drivers/hdmi_final[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/hdmi_final $[00m ls
+90-hdmi.rules   hdmi-rpi.c   hdmi-rpi.mod.c  hdmi-rpi.o  modules.order   nov_20
+hdmi_final_log  hdmi-rpi.ko  hdmi-rpi.mod.o  Makefile    Module.symvers
+]0;pi@raspberrypi: ~/Device_Drivers/hdmi_final[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/hdmi_final $[00m make 
+make -C /lib/modules/4.9.45-v7+/build M=/home/pi/Device_Drivers/hdmi_final modules
+make[1]: Entering directory '/home/pi/linux'
+  Building modules, stage 2.
+  MODPOST 1 modules
+make[1]: Leaving directory '/home/pi/linux'
+]0;pi@raspberrypi: ~/Device_Drivers/hdmi_final[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/hdmi_final $[00m make [3Plsmake [Ksudo insmod hdmi-rpi.ko 
+]0;pi@raspberrypi: ~/Device_Drivers/hdmi_final[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/hdmi_final $[00m cd
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m ls | nov
+bash: nov: command not found
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m ls | nov[Cgnovrnovenovpnov nov
+a2_log_[01;31m[Knov[m[K11
+a2_log_[01;31m[Knov[m[K11_new
+a2_log_[01;31m[Knov[m[K_8
+[01;31m[Knov[m[K_20
+[01;31m[Knov[m[K_20_2
+[01;31m[Knov[m[K_20_3
+[01;31m[Knov[m[K_21
+[01;31m[Knov[m[K_21_2
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cp * [K nov_2[K[K*_20[K[K[K*  [KDe
+Desktop/        Device_Drivers/ 
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cp * nov* De
+Desktop/        Device_Drivers/ 
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cp * nov* Device_Drivers/
+cp: -r not specified; omitting directory 'demo1'
+cp: -r not specified; omitting directory 'Desktop'
+cp: -r not specified; omitting directory 'Device_Drivers'
+cp: -r not specified; omitting directory 'Documents'
+cp: -r not specified; omitting directory 'Downloads'
+cp: -r not specified; omitting directory 'linux'
+cp: -r not specified; omitting directory 'Music'
+cp: -r not specified; omitting directory 'Pictures'
+cp: -r not specified; omitting directory 'Public'
+cp: -r not specified; omitting directory 'python_games'
+cp: -r not specified; omitting directory 'Templates'
+cp: -r not specified; omitting directory 'Videos'
+cp: warning: source file 'nov_20' specified more than once
+cp: warning: source file 'nov_20_2' specified more than once
+cp: warning: source file 'nov_20_3' specified more than once
+cp: warning: source file 'nov_21' specified more than once
+cp: warning: source file 'nov_21_2' specified more than once
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cp * nov* Device_Drivers/[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcd D
+Desktop/        Device_Drivers/ Documents/      Downloads/
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cd D
+Desktop/        Device_Drivers/ Documents/      Downloads/
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cd Device_Drivers/
+]0;pi@raspberrypi: ~/Device_Drivers[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers $[00m ls
+0                         irrecord-tmp-d1yHSX  k.lircd.conf
+a2_log_nov11              irrecord-tmp-Da6BId  kmd.lircd.conf
+a2_log_nov11_new          irrecord-tmp-Dr8mNf  KMD.lircd.conf
+a2_log_nov_8              irrecord-tmp-e1865T  l2.txt
+a2_nov_18                 irrecord-tmp-e29T9b  l3.txt
+aditya.lircd.conf         irrecord-tmp-euwNtj  lg_remote.lircd.conf
+assignment.log            irrecord-tmp-faW1Ys  lg_tv.lircd.conf
+casio_hex.lirc.conf       irrecord-tmp-fb4FXk  [0m[01;34mlirc_rpi[0m
+casio.lircd.conf          irrecord-tmp-fnU3lM  lp.lircd.conf
+casio_new_2.lircd.conf    irrecord-tmp-G9PLHg  l.txt
+casio_new_hex.lircd.conf  irrecord-tmp-GD5bji  [01;34mmailbox[0m
+casio_rem.lircd.conf      irrecord-tmp-gUH6Mz  nov_20
+code                      irrecord-tmp-hEkHhy  nov_20_2
+dd.lircd.conf             irrecord-tmp-kGiB7t  nov_20_3
+[01;34mexample_modules[0m           irrecord-tmp-mHTxvK  nov_21
+[01;34mhdmi_final[0m                irrecord-tmp-nUKs12  nov_21_2
+[01;34mhdmi_uevent[0m               irrecord-tmp-oB4yha  panasonic2.lircd.conf
+irrecord-tmp-36mZHn       irrecord-tmp-P34miA  panasonic_hex.lircd.conf
+irrecord-tmp-4at6Dd       irrecord-tmp-p3Zkqd  panasonic.lircd.conf
+irrecord-tmp-5ulu0o       irrecord-tmp-P7xO2g  proj_casio.lircd.conf
+irrecord-tmp-6A3GlY       irrecord-tmp-pj66kW  projector_casio.lircd.conf
+irrecord-tmp-6Hr8AE       irrecord-tmp-PwPE5U  projector_casio_old.lircd.conf
+irrecord-tmp-7DtZ5r       irrecord-tmp-QR45rP  projector_sanyo.lircd.conf
+irrecord-tmp-7EHsOk       irrecord-tmp-Rb8j3W  README.md
+irrecord-tmp-7v3psf       irrecord-tmp-T0xtc4  sachin.ko
+irrecord-tmp-7XMHBZ       irrecord-tmp-UF03gL  sanyo.lircd.conf
+irrecord-tmp-8CvXJK       irrecord-tmp-uM6TvX  sanyo_remote.lircd.conf
+irrecord-tmp-9RBjOj       irrecord-tmp-VPAFy2  [01;31mscreen-v.4.4.0.tar.gz[0m
+irrecord-tmp-A31Ocs       irrecord-tmp-WV1vVc  [01;32ms.sh[0m
+irrecord-tmp-b5TDwh       irrecord-tmp-XIiJ3c  temp.txt
+irrecord-tmp-BGm54S       irrecord-tmp-YDd65Y  [01;32mtest.sh[0m
+irrecord-tmp-CmWzYI       irrecord-tmp-zBNA3N  tv_remote.lircd.conf
+]0;pi@raspberrypi: ~/Device_Drivers[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers $[00m cd ..
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m ls
+0                         irrecord-tmp-Da6BId  l2.txt
+a2_log_nov11              irrecord-tmp-Dr8mNf  l3.txt
+a2_log_nov11_new          irrecord-tmp-e1865T  lg_remote.lircd.conf
+a2_log_nov_8              irrecord-tmp-e29T9b  lg_tv.lircd.conf
+aditya.lircd.conf         irrecord-tmp-euwNtj  [0m[01;34mlinux[0m
+assignment.log            irrecord-tmp-faW1Ys  lp.lircd.conf
+casio_hex.lirc.conf       irrecord-tmp-fb4FXk  l.txt
+casio.lircd.conf          irrecord-tmp-fnU3lM  [01;34mMusic[0m
+casio_new_2.lircd.conf    irrecord-tmp-G9PLHg  nov_20
+casio_new_hex.lircd.conf  irrecord-tmp-GD5bji  nov_20_2
+casio_rem.lircd.conf      irrecord-tmp-gUH6Mz  nov_20_3
+code                      irrecord-tmp-hEkHhy  nov_21
+dd.lircd.conf             irrecord-tmp-kGiB7t  nov_21_2
+[01;34mdemo1[0m                     irrecord-tmp-mHTxvK  panasonic2.lircd.conf
+[01;34mDesktop[0m                   irrecord-tmp-nUKs12  panasonic_hex.lircd.conf
+[01;34mDevice_Drivers[0m            irrecord-tmp-oB4yha  panasonic.lircd.conf
+[01;34mDocuments[0m                 irrecord-tmp-P34miA  [01;34mPictures[0m
+[01;34mDownloads[0m                 irrecord-tmp-p3Zkqd  proj_casio.lircd.conf
+irrecord-tmp-36mZHn       irrecord-tmp-P7xO2g  projector_casio.lircd.conf
+irrecord-tmp-4at6Dd       irrecord-tmp-pj66kW  projector_casio_old.lircd.conf
+irrecord-tmp-5ulu0o       irrecord-tmp-PwPE5U  projector_sanyo.lircd.conf
+irrecord-tmp-6A3GlY       irrecord-tmp-QR45rP  [01;34mPublic[0m
+irrecord-tmp-6Hr8AE       irrecord-tmp-Rb8j3W  [01;34mpython_games[0m
+irrecord-tmp-7DtZ5r       irrecord-tmp-T0xtc4  sachin.ko
+irrecord-tmp-7EHsOk       irrecord-tmp-UF03gL  sanyo.lircd.conf
+irrecord-tmp-7v3psf       irrecord-tmp-uM6TvX  sanyo_remote.lircd.conf
+irrecord-tmp-7XMHBZ       irrecord-tmp-VPAFy2  [01;31mscreen-v.4.4.0.tar.gz[0m
+irrecord-tmp-8CvXJK       irrecord-tmp-WV1vVc  [01;32ms.sh[0m
+irrecord-tmp-9RBjOj       irrecord-tmp-XIiJ3c  [01;34mTemplates[0m
+irrecord-tmp-A31Ocs       irrecord-tmp-YDd65Y  temp.txt
+irrecord-tmp-b5TDwh       irrecord-tmp-zBNA3N  [01;32mtest.sh[0m
+irrecord-tmp-BGm54S       k.lircd.conf         tv_remote.lircd.conf
+irrecord-tmp-CmWzYI       kmd.lircd.conf       [01;34mVideos[0m
+irrecord-tmp-d1yHSX       KMD.lircd.conf
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cd D[K[K[K[Kcp [K[K[Kexit
+exit
+
+Script done on Tue 21 Nov 2017 06:47:44 UTC

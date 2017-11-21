@@ -1,0 +1,1685 @@
+Script started on Wed 08 Nov 2017 12:22:28 UTC
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo -s
+root@raspberrypi:/home/pi# ls
+0		     irrecord-tmp-CmWzYI  lg_remote.lircd.conf
+a2_log_nov11	     irrecord-tmp-e1865T  lg_tv.lircd.conf
+a2_log_nov_8	     irrecord-tmp-fnU3lM  linux
+aditya.lircd.conf    irrecord-tmp-gUH6Mz  lp.lircd.conf
+assignment.log	     irrecord-tmp-kGiB7t  Music
+casio.lircd.conf     irrecord-tmp-mHTxvK  Pictures
+demo1		     irrecord-tmp-nUKs12  proj_casio.lircd.conf
+Desktop		     irrecord-tmp-oB4yha  Public
+Device_Drivers	     irrecord-tmp-p3Zkqd  python_games
+Documents	     irrecord-tmp-PwPE5U  sachin.ko
+Downloads	     irrecord-tmp-uM6TvX  screen-v.4.4.0.tar.gz
+irrecord-tmp-36mZHn  irrecord-tmp-VPAFy2  Templates
+irrecord-tmp-4at6Dd  irrecord-tmp-YDd65Y  test.sh
+irrecord-tmp-5ulu0o  irrecord-tmp-zBNA3N  tv_remote.lircd.conf
+irrecord-tmp-6Hr8AE  k.lircd.conf	  Videos
+irrecord-tmp-b5TDwh  kmd.lircd.conf
+irrecord-tmp-BGm54S  KMD.lircd.conf
+root@raspberrypi:/home/pi# exit
+exit
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m ls
+0                    irrecord-tmp-CmWzYI  lg_remote.lircd.conf
+a2_log_nov11         irrecord-tmp-e1865T  lg_tv.lircd.conf
+a2_log_nov_8         irrecord-tmp-fnU3lM  [0m[01;34mlinux[0m
+aditya.lircd.conf    irrecord-tmp-gUH6Mz  lp.lircd.conf
+assignment.log       irrecord-tmp-kGiB7t  [01;34mMusic[0m
+casio.lircd.conf     irrecord-tmp-mHTxvK  [01;34mPictures[0m
+[01;34mdemo1[0m                irrecord-tmp-nUKs12  proj_casio.lircd.conf
+[01;34mDesktop[0m              irrecord-tmp-oB4yha  [01;34mPublic[0m
+[01;34mDevice_Drivers[0m       irrecord-tmp-p3Zkqd  [01;34mpython_games[0m
+[01;34mDocuments[0m            irrecord-tmp-PwPE5U  sachin.ko
+[01;34mDownloads[0m            irrecord-tmp-uM6TvX  [01;31mscreen-v.4.4.0.tar.gz[0m
+irrecord-tmp-36mZHn  irrecord-tmp-VPAFy2  [01;34mTemplates[0m
+irrecord-tmp-4at6Dd  irrecord-tmp-YDd65Y  [01;32mtest.sh[0m
+irrecord-tmp-5ulu0o  irrecord-tmp-zBNA3N  tv_remote.lircd.conf
+irrecord-tmp-6Hr8AE  k.lircd.conf         [01;34mVideos[0m
+irrecord-tmp-b5TDwh  kmd.lircd.conf
+irrecord-tmp-BGm54S  KMD.lircd.conf
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo [K[K[K[K[Kcat /etc[K[K[K[K[K[K[K[Ksudo vim /erc[K[Ktc/console-setup/[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kboot
+boot/     boot.bak/ 
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo vim /boot/config.txt 
+[?1000h[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;24r[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[24;1H"/boot/config.txt" 56L, 1620C[>c[27m[23m[m[H[2J[2;1H# uncomment to increase signal to HDMI, if you have interference, blanking, or
+# no display
+#config_hdmi_boost=4
+
+# uncomment for composite PAL
+#sdtv_mode=2
+
+#uncomment to overclock the arm. 700 MHz is the default.
+#arm_freq=800
+
+# Uncomment some or all of these to enable the optional hardware interfaces
+#dtparam=i2c_arm=on
+#dtparam=i2s=on
+#dtparam=spi=on
+
+# Uncomment this to enable the lirc-rpi module
+dtoverlay=lirc-rpi,gpio_in_pin=18,gpio_out_pin=17
+
+# Additional overlays and parameters are documented /boot/overlays/README
+
+# Enable audio (loads snd_bcm2835)
+dtparam=audio=on[24;63H51,49[9CBot"/boot/config.txt" 56L, 1620C[33C     [9C   [18;49H[?12l[?25h[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?25l[24;53Hi[18;49H[24;53H [18;49H[24;1H[1m-- INSERT --[m[24;13H[K[24;63H51,49[9CBot[18;49H[?12l[?25h[?25l[24;64H2,1 [19;1H[?12l[?25h[?25l[24;64H3,49[20;49H[?12l[?25h[?25l[24;64H4,1 [21;1H[?12l[?25h[?25l[22;16H[46m([17C)[m[24;64H5,35[22;35H[?12l[?25h[24;1H[K[22;34H[?25l[24;53H^[[22;34H[24;53H  [22;35H[24;63H55,34[9CBot[22;34H[?12l[?25h[?25l[24;53H:[22;34H[24;53H[K[24;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h[?25l[?1006l[?1002l"/boot/config.txt" 56L, 1620C written
+[?1l>[?12l[?25h[?1049l]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo [K[K[K[K[K[3@(reverse-i-search)`':[C[27@i': sudo vim /boot/config.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cr': irsend SEND_START aditya KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cr': irrecord -f -d /dev/lirc0 ~/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@e[C[C[C[1@c[C[C[C[8P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@s[1@u[1@d[1@o[1@ 
+Running as regular user pi
+Using raw access on device /dev/lirc0
+Could not init hardware (lircd running ? --> close it, check permissions)
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo service lircd stop
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo service lircd stopirrecord -f -d /dev/lirc0 ~/lircd.conf
+Running as regular user pi
+Using raw access on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+Here is a lof of noise (1737992 bytes received)
+Running irrecord with this level of noise will not give good results.
+Please try to turn off fluorescent lamps or tubes and other sources
+of variable IR radiation and restart. If nothing else works, you
+might have to mask the receiving IR diode. You REALLY should press
+ctrl-C at this point, but it's technically possible to proceed
+by pressing RETURN
+
+Enter name of remote (only ascii, no spaces) :sanyo_old
+Using sanyo_old.lircd.conf as output filename
+
+Now start pressing buttons on your remote control.
+
+It is very important that you press many different buttons randomly
+and hold them down for approximately one second. Each button should
+generate at least one dot but never more than ten dots of output.
+Don't stop pressing buttons until two lines of dots (2x80) have
+been generated.
+
+Press RETURN now to start recording.
+................................................................................
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo irrecord -f -d /dev/lirc0 ~/lircd.conf
+Running as regular user pi
+Using raw access on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+Here is a lof of noise (1622032 bytes received)
+Running irrecord with this level of noise will not give good results.
+Please try to turn off fluorescent lamps or tubes and other sources
+of variable IR radiation and restart. If nothing else works, you
+might have to mask the receiving IR diode. You REALLY should press
+ctrl-C at this point, but it's technically possible to proceed
+by pressing RETURN
+
+Enter name of remote (only ascii, no spaces) :sanyo_remote
+Using sanyo_remote.lircd.conf as output filename
+
+Now start pressing buttons on your remote control.
+
+It is very important that you press many different buttons randomly
+and hold them down for approximately one second. Each button should
+generate at least one dot but never more than ten dots of output.
+Don't stop pressing buttons until two lines of dots (2x80) have
+been generated.
+
+Press RETURN now to start recording.
+........................................................................Cannot find any gap, using an arbitrary 50 ms one. If you have a
+regular remote for e. g., a TV or such this is probably a point
+where you hit control-C. However, technical hardware like air 
+condition gear often works without any gap. If you think it's
+reasonable that your remote lacks gap you can proceed. 
+Press RETURN to continue.
+
+
+^[[B    
+
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo irrecord -f -d /dev/lirc0 ~/lircd.conf
+Running as regular user pi
+Using raw access on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo irrecord -f -d /dev/lirc0 ~/lircd.conf[K[K[K[K[K[K[K[K[K[K[K[K[K
+Running as regular user pi
+Using raw access on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+Here is a lof of noise (1748228 bytes received)
+Running irrecord with this level of noise will not give good results.
+Please try to turn off fluorescent lamps or tubes and other sources
+of variable IR radiation and restart. If nothing else works, you
+might have to mask the receiving IR diode. You REALLY should press
+ctrl-C at this point, but it's technically possible to proceed
+by pressing RETURN
+
+Enter name of remote (only ascii, no spaces) :sanyo_remote
+Using sanyo_remote.lircd.conf as output filename
+
+Now start pressing buttons on your remote control.
+
+It is very important that you press many different buttons randomly
+and hold them down for approximately one second. Each button should
+generate at least one dot but never more than ten dots of output.
+Don't stop pressing buttons until two lines of dots (2x80) have
+been generated.
+
+Press RETURN now to start recording.
+...................Cannot find any gap, using an arbitrary 50 ms one. If you have a
+regular remote for e. g., a TV or such this is probably a point
+where you hit control-C. However, technical hardware like air 
+condition gear often works without any gap. If you think it's
+reasonable that your remote lacks gap you can proceed. 
+Press RETURN to continue.
+
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+KEY_POWER
+
+Now hold down button "KEY_POWER".
+Something went wrong: Something went wrong.Please try again. (28 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Something went wrong.Please try again. (27 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Something went wrong.Please try again. (26 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Something went wrong.Please try again. (25 retries left)
+
+Now hold down button "KEY_POWER".
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cd /sys/
+block/    class/    devices/  fs/       module/   
+bus/      dev/      firmware/ kernel/   power/    
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cd /sys/class/gpio/
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m ls
+[0m[01;32mexport[0m  [01;36mgpiochip0[0m  [01;32munexport[0m
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m export [C[1@e[1@c[1@h[1@o[1@ [1@1[1@8[1@ [1@>[1@ 
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m cd gpio18/
+device/    power/     subsystem/ 
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m cd gpio18/
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat d
+device/    direction  
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat direction 
+in
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat direction [K[K[K[K[K[K[K[K[K[Kvalue 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+1
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+1
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+1
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+1
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cd ..
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m ca[K[Kech o [K[K[K[Kho 18 > unexport 
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m cd
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cdecho 18 > unexport cd ..[Kat value [4@direction[C[4Pd gpio18/echo 18 > export ls[Kcd /sys/class/gpio/sudo irrecord -f -d /dev/lirc0[1P[1P[1P
+Running as regular user pi
+Using driver default on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+Here is a lof of noise (1836860 bytes received)
+Running irrecord with this level of noise will not give good results.
+Please try to turn off fluorescent lamps or tubes and other sources
+of variable IR radiation and restart. If nothing else works, you
+might have to mask the receiving IR diode. You REALLY should press
+ctrl-C at this point, but it's technically possible to proceed
+by pressing RETURN
+
+Enter name of remote (only ascii, no spaces) :sanyo_remote
+Using sanyo_remote.lircd.conf as output filename
+
+Now start pressing buttons on your remote control.
+
+It is very important that you press many different buttons randomly
+and hold them down for approximately one second. Each button should
+generate at least one dot but never more than ten dots of output.
+Don't stop pressing buttons until two lines of dots (2x80) have
+been generated.
+
+Press RETURN now to start recording.
+
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m ~sudo irrecord -d /dev/lirc0
+Running as regular user pi
+Using driver default on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+Here is a lof of noise (1004520 bytes received)
+Running irrecord with this level of noise will not give good results.
+Please try to turn off fluorescent lamps or tubes and other sources
+of variable IR radiation and restart. If nothing else works, you
+might have to mask the receiving IR diode. You REALLY should press
+ctrl-C at this point, but it's technically possible to proceed
+by pressing RETURN
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo irrecord -d /dev/lirc0
+Running as regular user pi
+Using driver default on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+Here is a lof of noise (1156812 bytes received)
+Running irrecord with this level of noise will not give good results.
+Please try to turn off fluorescent lamps or tubes and other sources
+of variable IR radiation and restart. If nothing else works, you
+might have to mask the receiving IR diode. You REALLY should press
+ctrl-C at this point, but it's technically possible to proceed
+by pressing RETURN
+
+Enter name of remote (only ascii, no spaces) :sant yo_remote
+Using sanyo_remote.lircd.conf as output filename
+
+Now start pressing buttons on your remote control.
+
+It is very important that you press many different buttons randomly
+and hold them down for approximately one second. Each button should
+generate at least one dot but never more than ten dots of output.
+Don't stop pressing buttons until two lines of dots (2x80) have
+been generated.
+
+Press RETURN now to start recording.
+..................Cannot find any gap, using an arbitrary 50 ms one. If you have a
+regular remote for e. g., a TV or such this is probably a point
+where you hit control-C. However, technical hardware like air 
+condition gear often works without any gap. If you think it's
+reasonable that your remote lacks gap you can proceed. 
+Press RETURN to continue.
+
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+KEY_POWER
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (28 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (27 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (26 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (25 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (24 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (23 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (22 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (21 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (20 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (19 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (18 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (17 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (16 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (15 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (14 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (13 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (12 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (11 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (10 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (9 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (8 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (7 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (6 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (5 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (4 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (3 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (2 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (1 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (0 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Too many errors.
+Check TROUBLESHOOTING in irrecord(1) manpage.
+Or try using the -f option.
+Unrecoverable error: Cannot decode data
+
+Giving up
+Check TROUBLESHOOTING in irrecord manpage.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo irrecord -d /dev/lirc0[C[C[1@-[1@f[1@ 
+Running as regular user pi
+Using raw access on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+Here is a lof of noise (1139372 bytes received)
+Running irrecord with this level of noise will not give good results.
+Please try to turn off fluorescent lamps or tubes and other sources
+of variable IR radiation and restart. If nothing else works, you
+might have to mask the receiving IR diode. You REALLY should press
+ctrl-C at this point, but it's technically possible to proceed
+by pressing RETURN
+
+Enter name of remote (only ascii, no spaces) :sanyo_remote
+Using sanyo_remote.lircd.conf as output filename
+
+Now start pressing buttons on your remote control.
+
+It is very important that you press many different buttons randomly
+and hold them down for approximately one second. Each button should
+generate at least one dot but never more than ten dots of output.
+Don't stop pressing buttons until two lines of dots (2x80) have
+been generated.
+
+Press RETURN now to start recording.
+.....................Cannot find any gap, using an arbitrary 50 ms one. If you have a
+regular remote for e. g., a TV or such this is probably a point
+where you hit control-C. However, technical hardware like air 
+condition gear often works without any gap. If you think it's
+reasonable that your remote lacks gap you can proceed. 
+Press RETURN to continue.
+
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+KEY_POWER
+
+Now hold down button "KEY_POWER".
+Something went wrong: Something went wrong.Please try again. (28 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Something went wrong.Please try again. (27 retries left)
+
+Now hold down button "KEY_POWER".
+Something went wrong: Something went wrong.Please try again. (26 retries left)
+
+Now hold down button "KEY_POWER".
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo irrecord -f -d /dev/lirc0
+Running as regular user pi
+Using raw access on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+Here is a lof of noise (2011260 bytes received)
+Running irrecord with this level of noise will not give good results.
+Please try to turn off fluorescent lamps or tubes and other sources
+of variable IR radiation and restart. If nothing else works, you
+might have to mask the receiving IR diode. You REALLY should press
+ctrl-C at this point, but it's technically possible to proceed
+by pressing RETURN
+
+Enter name of remote (only ascii, no spaces) :sanyo_remote
+Using sanyo_remote.lircd.conf as output filename
+
+Now start pressing buttons on your remote control.
+
+It is very important that you press many different buttons randomly
+and hold them down for approximately one second. Each button should
+generate at least one dot but never more than ten dots of output.
+Don't stop pressing buttons until two lines of dots (2x80) have
+been generated.
+
+Press RETURN now to start recording.
+
+
+
+
+
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo irrecord -f -d /dev/lirc0
+Running as regular user pi
+Using raw access on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+Here is a lof of noise (1824708 bytes received)
+Running irrecord with this level of noise will not give good results.
+Please try to turn off fluorescent lamps or tubes and other sources
+of variable IR radiation and restart. If nothing else works, you
+might have to mask the receiving IR diode. You REALLY should press
+ctrl-C at this point, but it's technically possible to proceed
+by pressing RETURN
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo irrecord -f -d /dev/lirc0
+Running as regular user pi
+Using raw access on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+Here is a lof of noise (973568 bytes received)
+Running irrecord with this level of noise will not give good results.
+Please try to turn off fluorescent lamps or tubes and other sources
+of variable IR radiation and restart. If nothing else works, you
+might have to mask the receiving IR diode. You REALLY should press
+ctrl-C at this point, but it's technically possible to proceed
+by pressing RETURN
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo irrecord -f -d /dev/lirc0
+Running as regular user pi
+Using raw access on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+Here is a lof of noise (746756 bytes received)
+Running irrecord with this level of noise will not give good results.
+Please try to turn off fluorescent lamps or tubes and other sources
+of variable IR radiation and restart. If nothing else works, you
+might have to mask the receiving IR diode. You REALLY should press
+ctrl-C at this point, but it's technically possible to proceed
+by pressing RETURN
+
+Enter name of remote (only ascii, no spaces) :sanyo_remote
+Using sanyo_remote.lircd.conf as output filename
+
+Now start pressing buttons on your remote control.
+
+It is very important that you press many different buttons randomly
+and hold them down for approximately one second. Each button should
+generate at least one dot but never more than ten dots of output.
+Don't stop pressing buttons until two lines of dots (2x80) have
+been generated.
+
+Press RETURN now to start recording.
+.................................................Cannot find any gap, using an arbitrary 50 ms one. If you have a
+regular remote for e. g., a TV or such this is probably a point
+where you hit control-C. However, technical hardware like air 
+condition gear often works without any gap. If you think it's
+reasonable that your remote lacks gap you can proceed. 
+Press RETURN to continue.
+
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+
+No recorded buttons saved. This config file makes no sense, but
+you can add button definitions to it next time you run irrecord.
+
+
+Successfully written config file sanyo_remote.lircd.conf
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo irrecord -f -d /dev/lirc0
+Running as regular user pi
+Using raw access on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+Here is a lof of noise (1424812 bytes received)
+Running irrecord with this level of noise will not give good results.
+Please try to turn off fluorescent lamps or tubes and other sources
+of variable IR radiation and restart. If nothing else works, you
+might have to mask the receiving IR diode. You REALLY should press
+ctrl-C at this point, but it's technically possible to proceed
+by pressing RETURN
+
+Enter name of remote (only ascii, no spaces) :sanyo_remote
+Using sanyo_remote.lircd.conf as output filename
+
+Now start pressing buttons on your remote control.
+
+It is very important that you press many different buttons randomly
+and hold them down for approximately one second. Each button should
+generate at least one dot but never more than ten dots of output.
+Don't stop pressing buttons until two lines of dots (2x80) have
+been generated.
+
+Press RETURN now to start recording.
+............................................Cannot find any gap, using an arbitrary 50 ms one. If you have a
+regular remote for e. g., a TV or such this is probably a point
+where you hit control-C. However, technical hardware like air 
+condition gear often works without any gap. If you think it's
+reasonable that your remote lacks gap you can proceed. 
+Press RETURN to continue.
+
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo irrecord -f -d /dev/lirc0
+Running as regular user pi
+Using raw access on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+Here is a lof of noise (1538320 bytes received)
+Running irrecord with this level of noise will not give good results.
+Please try to turn off fluorescent lamps or tubes and other sources
+of variable IR radiation and restart. If nothing else works, you
+might have to mask the receiving IR diode. You REALLY should press
+ctrl-C at this point, but it's technically possible to proceed
+by pressing RETURN
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo irrecord -f -d /dev/lirc0
+Running as regular user pi
+Using raw access on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+Here is a lof of noise (1522664 bytes received)
+Running irrecord with this level of noise will not give good results.
+Please try to turn off fluorescent lamps or tubes and other sources
+of variable IR radiation and restart. If nothing else works, you
+might have to mask the receiving IR diode. You REALLY should press
+ctrl-C at this point, but it's technically possible to proceed
+by pressing RETURN
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo irrecord -f -d /dev/lirc0
+Running as regular user pi
+Using raw access on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+No significant noise (received 0 bytes)
+
+Enter name of remote (only ascii, no spaces) :sanyo_remote
+Using sanyo_remote.lircd.conf as output filename
+
+Now start pressing buttons on your remote control.
+
+It is very important that you press many different buttons randomly
+and hold them down for approximately one second. Each button should
+generate at least one dot but never more than ten dots of output.
+Don't stop pressing buttons until two lines of dots (2x80) have
+been generated.
+
+Press RETURN now to start recording.
+................................................................................
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+KEY_POWER
+
+Now hold down button "KEY_POWER".
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+
+
+Successfully written config file sanyo_remote.lircd.conf
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cat sanyo_remote.lircd.conf 
+
+# Please take the time to finish this file as described in
+# https://sourceforge.net/p/lirc-remotes/wiki/Checklist/
+# and make it available to others by sending it to
+# <lirc@bartelmus.de>
+#
+# This config file was automatically generated
+# using lirc-0.9.4c(default) on Sat Nov 11 09:34:02 2017
+# Command line used: -f -d /dev/lirc0
+# Kernel version (uname -r): 4.9.45-v7+
+#
+# Remote name (as of config file): sanyo_remote
+# Brand of remote device, the thing you hold in your hand:
+# Remote device model nr:
+# Remote device info url:
+# Does remote device has a bundled capture device e. g., a
+#     usb dongle? :
+# For bundled USB devices: usb vendor id, product id
+#     and device string (use dmesg or lsusb):
+# Type of device controlled
+#     (TV, VCR, Audio, DVD, Satellite, Cable, HTPC, ...) :
+# Device(s) controlled by this remote:
+
+begin remote
+
+  name  sanyo_remote
+  flags RAW_CODES|CONST_LENGTH
+  eps            30
+  aeps          100
+
+  gap          107767
+
+      begin raw_codes
+
+          name KEY_POWER
+             9068    4455     575    1653     582    1651
+              585     549     583     548     584    1653
+              582    1660     574     551     583     550
+              583     549     583     550     583     549
+              583     549     583     549     590     541
+              584     548     585     546     585     546
+              586     546     585     548     584     548
+              584     546     586     547     591     540
+              585     547     584    1650     583    1649
+              585    1651     583    1658     576    1652
+              583    1653     583    1654     582    1654
+              588
+
+      end raw_codes
+
+end remote
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [3@(reverse-i-search)`':[C[29@i': cat sanyo_remote.lircd.conf[4P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ksudo service st[K[Klircd s[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcp[K[K[3@(reverse-i-search)`':[C[29@c': cat sanyo_remote.lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cp': sudo cp ~/aditya.lircd.conf /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1P[1P[1P[1@s[1@a[1@n[1@y[1@o[1@_[1@r[1@e[1@m[1@o[1@t[1@e
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo service lircd start
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo service lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[3@(reverse-i-search)`':[Ci': sudo service lircd start[1@r[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs': irsend SEND_START aditya KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@e[C[C[C[1@n[C[C[C[1@d[C[C[C[9P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P KEY_POWER[1P KEY_POWER[1P KEY_POWER[1P KEY_POWER[1P KEY_POWER[1P KEY_POWERs KEY_POWERa KEY_POWERn KEY_POWERy KEY_POWERo KEY_POWER_ KEY_POWERr KEY_POWERe KEY_POWERm KEY_POWERo KEY_POWERt KEY_POWERe KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START sanyo_remote KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cd /sys/class/gpio/
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m echo 17 > e[Kexport 
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m ls
+[0m[01;32mexport[0m  [01;36mgpio17[0m  [01;36mgpiochip0[0m  [01;32munexport[0m
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m cd gpio17/
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m ls
+[0m[01;32mactive_low[0m  [01;36mdevice[0m  [01;32mdirection[0m  [01;32medge[0m  [01;34mpower[0m  [01;36msubsystem[0m  [01;32muevent[0m  [01;32mvalue[0m
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cat direction 
+out
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cd [K[K[Kcat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cd 
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m v[Kcd /sys/class/gpio/[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcd /s[K[K[K[K[Kecho 17 > /ss[Kys/class/gpio/gpio17/[K[K[K[K[K[K[Kunexport 
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m ls /sys/class/gpio/
+[0m[01;32mexport[0m  [01;36mgpiochip0[0m  [01;32munexport[0m
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m ls /sys/class/gpio/echo 17 > /sys/class/gpio/unexport [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd [K[7@at value[C[4@direction[Cls[Kcd gpio17/ls[Kecho 17 > export cd /sys/class/gpio/irsend SEND_START sanyo_remote KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[16Psudo service lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_START sanyo_remote KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START sanyo_remote KEY_POWER[1P[1P[1P[1@O[1@P
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_STOP sanyo_remote KEY_POWER[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START sanyo_remote KEY_POWER[C[1P[1P[1P[1@O[1@P
+
+not repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_STOP sanyo_remote KEY_POWER[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START sanyo_remote KEY_POWER[1POP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cd /sys/
+block/    class/    devices/  fs/       module/   
+bus/      dev/      firmware/ kernel/   power/    
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cd /sys/class/gpio/
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m echo 17 > export 
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m cd gpio17
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cat direction 
+in
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cat direction \[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcd
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cd -
+/sys/class/gpio/gpio17
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cd ..
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m echo 17 > unexport 
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m ls
+[0m[01;32mexport[0m  [01;36mgpiochip0[0m  [01;32munexport[0m
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m irsend LIST sanyo_remoe[Kte ""
+
+0000000000000001 KEY_POWER
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m irsend LIST sanyo_remote ""ls[Kecho 17 > unexport ls[Kirsend LIST sanyo_remote ""[Kcd
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [H[2J]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo vim /etc/[K[K[K[Kboot/config.txt 
+[?1000h[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;24r[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[24;1H"/boot/config.txt" 56L, 1620C[>c[27m[23m[m[H[2J[2;1H# uncomment to increase signal to HDMI, if you have interference, blanking, or
+# no display
+#config_hdmi_boost=4
+
+# uncomment for composite PAL
+#sdtv_mode=2
+
+#uncomment to overclock the arm. 700 MHz is the default.
+#arm_freq=800
+
+# Uncomment some or all of these to enable the optional hardware interfaces
+#dtparam=i2c_arm=on
+#dtparam=i2s=on
+#dtparam=spi=on
+
+# Uncomment this to enable the lirc-rpi module
+dtoverlay=lirc-rpi,gpio_in_pin=18,gpio_out_pin=17
+
+# Additional overlays and parameters are documented /boot/overlays/README
+
+# Enable audio (loads snd_bcm2835)
+dtparam=audio=on[24;63H55,34[9CBot"/boot/config.txt" 56L, 1620C[33C     [9C   [22;34H[22;16H[46m([17C)[?12l[?25h[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?25l[1;23r[m[1;1H[3M[1;24r[21;1H[94m~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;1H[K[24;63H55,34[9CBot[19;34H[?12l[?25h[?25l[1;23r[1;1H[3M[1;24r[21;1H[94m~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H[K[24;63H55,34[9CBot[16;34H[?12l[?25h[?25l[1;23r[1;1H[3M[1;24r[21;1H[94m~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H[K[24;63H55,34[9CBot[13;34H[?12l[?25h[?25l[1;23r[1;1H[3M[1;24r[21;1H[94m~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H[K[24;63H55,34[9CBot[10;34H[?12l[?25h[?25l[1;23r[1;1H[3M[1;24r[21;1H[94m~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H[K[24;63H55,34[9CBot[7;34H[?12l[?25h[?25l[1;23r[1;1H[3M[1;24r[4;16H([17C)[21;1H[94m~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H[K[24;63H56,16[9CBot[5;16H[?12l[?25h[?25l[1;23r[1;1H[3M[1;24r[21;1H[94m~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H[K[24;63H56,16[9CBot[2;16H[?12l[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[94m~                                                                               [m[24;63H[K[24;63H56,16[9CBot[1;16H[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[?12l[?25h[?25l[1;23r[1;1H[3L[1;24r[1;1H# Additional overlays and parameters are documented /boot/overlays/README
+
+# Enable audio (loads snd_bcm2835)[24;63H[K[24;63H56,16[9CBot[4;16H[?12l[?25h[?25l[1;23r[1;1H[3L[1;24r[1;1H# Uncomment this to enable the lirc-rpi module
+dtoverlay=lirc-rpi,gpio_in_pin=18,gpio_out_pin=17[24;63H[K[24;63H56,16[9CBot[7;16H[?12l[?25h[?25l[1;23r[1;1H[3L[1;24r[1;1H#dtparam=i2s=on
+#dtparam=spi=on[24;63H[K[24;63H56,16[9CBot[10;16H[?12l[?25h[?25l[1;23r[1;1H[3L[1;24r[2;1H# Uncomment some or all of these to enable the optional hardware interfaces
+#dtparam=i2c_arm=on[24;63H[K[24;63H56,16[9CBot[13;16H[?12l[?25h[?25l[1;23r[1;1H[3L[1;24r[2;1H#uncomment to overclock the arm. 700 MHz is the default.
+#arm_freq=800[24;63H[K[24;63H56,16[9CBot[16;16H[?12l[?25h[?25l[1;23r[1;1H[3L[1;24r[2;1H# uncomment for composite PAL
+#sdtv_mode=2[24;63H[K[24;63H56,16[9CBot[19;16H[?12l[?25h[?25l[1;23r[1;1H[3L[1;24r[1;1H# uncomment to increase signal to HDMI, if you have interference, blanking, or
+# no display
+#config_hdmi_boost=4[24;63H[K[24;63H56,16[9CBot[22;16H[?12l[?25h[?25l[1;23r[1;1H[3M[1;24r[21;1H[94m~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H[K[24;63H56,16[9CBot[19;16H[?12l[?25h[?25l[24;53H:[19;16H[24;53H[K[24;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h[?25l[?1006l[?1002l"/boot/config.txt" 56L, 1620C written
+[?1l>[?12l[?25h[?1049l]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo vim /boot/config.txt [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd[Kirsend LIST sanyo_remote ""[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Kecho 17 > unexport cd ..[Kecho 17 > unexport ls[Kirsend LIST sanyo_remote ""[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd[Ksudo vim /boot/config.txt [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[H[2J]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cd [K[K[Kcd /sys/class/gpio/
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m ls
+[0m[01;32mexport[0m  [01;36mgpiochip0[0m  [01;32munexport[0m
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m echo 17 > export 
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m echo 17 > export [1P[1@8
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m cd gpio17/
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m ls
+[0m[01;32mactive_low[0m  [01;36mdevice[0m  [01;32mdirection[0m  [01;32medge[0m  [01;34mpower[0m  [01;36msubsystem[0m  [01;32muevent[0m  [01;32mvalue[0m
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cat d
+device/    direction  
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cat direction 
+in
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m echo out > direction 
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m echo out > direction [7Pcat[C[C[C[C[C[C[C[C[C[C[C
+out
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cd die[K[K[K[K[K[Kcd ../gpio18
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat direction 
+in
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+1
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+1
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+1
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+1
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+1
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+1
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+1
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+1
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+1
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+1
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value [4@direction[C
+in
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat direction [4Pvalue[C
+1
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+1
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cat value 
+1
+]0;pi@raspberrypi: /sys/class/gpio/gpio18[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio18 $[00m cd ..[K[K[K[K[Kcd ..
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m cd gpio17
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cat direction 
+out
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cat value 
+0
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m echo 1 > value 
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m echo 1 > value [C[1P[1@0
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m echo 0 > value 
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m echo 0 > value 
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m echo 0 > value 
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m echo 0 > value [1P[1@1
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m echo 1 > value [C[C[1P[1@0
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m echo 0 > value 
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m echo 0 > value [1P[1@1
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m echo 1 > value 0[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m echo 0 > value [C[1P[1@1
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m echo 1 > value [C[C[C[C[C[C[C[C[1P[1@0
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m echo 0 > value [C[C1[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m echo 1 > value 0[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m echo 0 > value 1[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: /sys/class/gpio/gpio17[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio/gpio17 $[00m cd ..
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m cd[K[Kecho 17 > unexport 
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m echo 17 > unexport [1P[1@8
+]0;pi@raspberrypi: /sys/class/gpio[01;32mpi@raspberrypi[00m:[01;34m/sys/class/gpio $[00m cd
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [3@(reverse-i-search)`':[C[15@i': cat direction[1@r[C[C[C[C[C[C[C[Cr': sudo irrecord -f -d /dev/lirc0[1@e[C[C[C[C[C[C[C[C[7P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+Running as regular user pi
+Using raw access on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+No significant noise (received 0 bytes)
+
+Enter name of remote (only ascii, no spaces) :sanyo
+Using sanyo.lircd.conf as output filename
+
+Now start pressing buttons on your remote control.
+
+It is very important that you press many different buttons randomly
+and hold them down for approximately one second. Each button should
+generate at least one dot but never more than ten dots of output.
+Don't stop pressing buttons until two lines of dots (2x80) have
+been generated.
+
+Press RETURN now to start recording.
+................................................................................
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+KEY_POWER
+
+Now hold down button "KEY_POWER".
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+KEY_POWER
+Button KEY_POWER is already recorded, removing old data.
+
+Now hold down button "KEY_POWER".
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+KEYP _POWER
+Button KEY_POWER is already recorded, removing old data.
+
+Now hold down button "KEY_POWER".
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+
+
+Successfully written config file sanyo.lircd.conf
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo irrecord -f -d /dev/lirc0[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kcat sa
+sachin.ko                sanyo.lircd.conf         sanyo_remote.lircd.conf
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cat sanyo
+sanyo.lircd.conf         sanyo_remote.lircd.conf  
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cat sanyo.lircd.conf 
+
+# Please take the time to finish this file as described in
+# https://sourceforge.net/p/lirc-remotes/wiki/Checklist/
+# and make it available to others by sending it to
+# <lirc@bartelmus.de>
+#
+# This config file was automatically generated
+# using lirc-0.9.4c(default) on Sat Nov 11 10:19:39 2017
+# Command line used: -f -d /dev/lirc0
+# Kernel version (uname -r): 4.9.45-v7+
+#
+# Remote name (as of config file): sanyo
+# Brand of remote device, the thing you hold in your hand:
+# Remote device model nr:
+# Remote device info url:
+# Does remote device has a bundled capture device e. g., a
+#     usb dongle? :
+# For bundled USB devices: usb vendor id, product id
+#     and device string (use dmesg or lsusb):
+# Type of device controlled
+#     (TV, VCR, Audio, DVD, Satellite, Cable, HTPC, ...) :
+# Device(s) controlled by this remote:
+
+begin remote
+
+  name  sanyo
+  flags RAW_CODES
+  eps            30
+  aeps          100
+
+  gap          9066
+
+      begin raw_codes
+
+          name KEY_POWER
+             9079    2302     501
+
+      end raw_codes
+
+end remote
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cat sanyo.lircd.conf [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[3@(reverse-i-search)`':[C[22@c': cat sanyo.lircd.confp': sudo cp ~/sanyo_remote.lircd.conf /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1P[1P[1P[1P[1P[1@o
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo service san[K[K[Klirec[K[Kc
+lircd         lircd-setup   lircd-uinput  lircmd        
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo service lirc
+lircd         lircd-setup   lircd-uinput  lircmd        
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo service lircd start
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [3@(reverse-i-search)`':[Ci': sudo service lircd start[1@r[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs': irsend LIST sanyo_remote ""[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@e[C[C[C[7P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C
+
+0000000000000001 KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend LIST sanyo_remote ""[1P ""[1P ""[1P ""[1P ""[1P ""[1P ""[1P ""
+
+unknown remote: "sanyo"
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend LIST sanyo ""
+
+unknown remote: "sanyo"
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cat sanyo
+cat: sanyo: No such file or directory
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cat sanyo.lircd.conf 
+
+# Please take the time to finish this file as described in
+# https://sourceforge.net/p/lirc-remotes/wiki/Checklist/
+# and make it available to others by sending it to
+# <lirc@bartelmus.de>
+#
+# This config file was automatically generated
+# using lirc-0.9.4c(default) on Sat Nov 11 10:19:39 2017
+# Command line used: -f -d /dev/lirc0
+# Kernel version (uname -r): 4.9.45-v7+
+#
+# Remote name (as of config file): sanyo
+# Brand of remote device, the thing you hold in your hand:
+# Remote device model nr:
+# Remote device info url:
+# Does remote device has a bundled capture device e. g., a
+#     usb dongle? :
+# For bundled USB devices: usb vendor id, product id
+#     and device string (use dmesg or lsusb):
+# Type of device controlled
+#     (TV, VCR, Audio, DVD, Satellite, Cable, HTPC, ...) :
+# Device(s) controlled by this remote:
+
+begin remote
+
+  name  sanyo
+  flags RAW_CODES
+  eps            30
+  aeps          100
+
+  gap          9066
+
+      begin raw_codes
+
+          name KEY_POWER
+             9079    2302     501
+
+      end raw_codes
+
+end remote
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cat sanyo.lircd.conf [Kirsend LIST sanyo ""_remote ""[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[3Psudo service lircd startcp ~/sanyo.lircd.conf /etc/lirc/lircd.conf
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo cp ~/sanyo.lircd.conf /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[26Pcat sanyo.lircd.conf [K.lircd.conf [Kirsend LIST sanyo ""_remote ""[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[3Psudo service lircd start[C[K[K[Kop
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo service lircd stop[K[Kart
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cat /etc/lirc/
+hardware.conf           lircd.conf.d/           lircmd.conf
+irexec.lircrc           lircd.conf.dist         lircmd.conf.dist
+irexec.lircrc.dist      lircd_original2.conf    lirc_options.conf
+lircd.conf              lircd_original.conf     lirc_options.conf.dist
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cat /etc/lirc/d[Klie[Krc
+lircd.conf              lircd_original2.conf    lircmd.conf.dist
+lircd.conf.d/           lircd_original.conf     lirc_options.conf
+lircd.conf.dist         lircmd.conf             lirc_options.conf.dist
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cat /etc/lirc/lircd.conf
+cat: /etc/lirc/lircd.conf: Permission denied
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cat /etc/lirc/lircd.conf[1@s[1@u[1@d[1@o[1@ 
+
+# Please take the time to finish this file as described in
+# https://sourceforge.net/p/lirc-remotes/wiki/Checklist/
+# and make it available to others by sending it to
+# <lirc@bartelmus.de>
+#
+# This config file was automatically generated
+# using lirc-0.9.4c(default) on Sat Nov 11 10:19:39 2017
+# Command line used: -f -d /dev/lirc0
+# Kernel version (uname -r): 4.9.45-v7+
+#
+# Remote name (as of config file): sanyo
+# Brand of remote device, the thing you hold in your hand:
+# Remote device model nr:
+# Remote device info url:
+# Does remote device has a bundled capture device e. g., a
+#     usb dongle? :
+# For bundled USB devices: usb vendor id, product id
+#     and device string (use dmesg or lsusb):
+# Type of device controlled
+#     (TV, VCR, Audio, DVD, Satellite, Cable, HTPC, ...) :
+# Device(s) controlled by this remote:
+
+begin remote
+
+  name  sanyo
+  flags RAW_CODES
+  eps            30
+  aeps          100
+
+  gap          9066
+
+      begin raw_codes
+
+          name KEY_POWER
+             9079    2302     501
+
+      end raw_codes
+
+end remote
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo cat /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csudo service lircd start[1Popcp ~/sanyo.lircd.conf /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[26Pcat sanyo.lircd.conf [Kirsend LIST sanyo ""_remote ""[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[3Psudo service lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend LIST sanyo_remote ""[1P ""[1P ""[1P ""[1P ""[1P ""[1P ""[1P ""
+
+0000000000000001 KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend LIST sanyo ""sudo cat /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csudo service lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5@sudo [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[9Pirsend LIST sanyo ""[Kirsend SEND_ONCE sanyo KR[KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE sanyo KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE sanyo KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE sanyo KEY_POWER[C[1P[1P[1P[1P[1@S[1@T[1@A[1@R[1@T
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START sanyo KEY_POWER[1P[1P[1P[1@O[1@P
+
+not repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_STOP sanyo KEY_POWER[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START sanyo KEY_POWER[1POP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+not repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_STOP sanyo KEY_POWER[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1P[1P[1@O[1@N[1@C[1@E
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE sanyo KEY_POWERSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+not repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_STOP sanyo KEY_POWERONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START sanyo KEY_POWER[1POP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+not repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_STOP sanyo KEY_POWER[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START sanyo KEY_POWER[1POP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+not repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_STOP sanyo KEY_POWER[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1P[1P[1@O[1@N[1@C[1@E
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE sanyo KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE sanyo KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE sanyo KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE sanyo KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE sanyo KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE sanyo KEY_POWERSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m exit
+exit
+
+Script done on Sat 11 Nov 2017 10:36:59 UTC

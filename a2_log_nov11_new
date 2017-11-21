@@ -1,5 +1,3024 @@
-Script started on Sat 18 Nov 2017 11:28:46 UTC
-]0;pi@raspberrypi: ~/Device_Drivers[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers $[00m exit
-exit
+Script started on Sat 11 Nov 2017 10:37:20 UTC
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m exitirsend SEND_START sanyo KEY_POWER[1PONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@START[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[K[K[3@(reverse-i-search)`':[Cr': irsend SEND_START sanyo KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5Pe': irsend LIST sanyo_remote ""c': sudo irrecord -f -d /dev/lirc0[6P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+Running as regular user pi
+Using raw access on device /dev/lirc0
 
-Script done on Sat 18 Nov 2017 11:28:52 UTC
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+No significant noise (received 0 bytes)
+
+Enter name of remote (only ascii, no spaces) :lp
+Using lp.lircd.conf as output filename
+
+Now start pressing buttons on your remote control.
+
+It is very important that you press many different buttons randomly
+and hold them down for approximately one second. Each button should
+generate at least one dot but never more than ten dots of output.
+Don't stop pressing buttons until two lines of dots (2x80) have
+been generated.
+
+Press RETURN now to start recording.
+................................................................................
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+KEY_POWER
+
+Now hold down button "KEY_POWER".
+KEY_POE WETimeout (10 seconds), try again (29 retries left).
+
+Now hold down button "KEY_POWER".
+R2\           Timeout (10 seconds), try again (28 retries left).
+
+Now hold down button "KEY_POWER".
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+KEY_POWER2
+
+Now hold down button "KEY_POWER2".
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+
+
+Successfully written config file lp.lircd.conf
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cat lp.lircd.conf 
+
+# Please take the time to finish this file as described in
+# https://sourceforge.net/p/lirc-remotes/wiki/Checklist/
+# and make it available to others by sending it to
+# <lirc@bartelmus.de>
+#
+# This config file was automatically generated
+# using lirc-0.9.4c(default) on Sat Nov 11 10:38:42 2017
+# Command line used: -f -d /dev/lirc0
+# Kernel version (uname -r): 4.9.45-v7+
+#
+# Remote name (as of config file): lp
+# Brand of remote device, the thing you hold in your hand:
+# Remote device model nr:
+# Remote device info url:
+# Does remote device has a bundled capture device e. g., a
+#     usb dongle? :
+# For bundled USB devices: usb vendor id, product id
+#     and device string (use dmesg or lsusb):
+# Type of device controlled
+#     (TV, VCR, Audio, DVD, Satellite, Cable, HTPC, ...) :
+# Device(s) controlled by this remote:
+
+begin remote
+
+  name  lp
+  flags RAW_CODES
+  eps            30
+  aeps          100
+
+  gap          9057
+
+      begin raw_codes
+
+          name KEY_POWER
+             9054    4453     581    1653     582    1653
+              612     518     585     547     585    1651
+              612    1624     611     522     610     522
+              584     548     584     548     584     548
+              584     548     584     549     584     547
+              584     547     585     546     586     547
+              584     546     586     546     585     547
+              585     547     585     562     570     546
+              585     547     585    1648     585    1650
+              583    1651     584    1652     611    1624
+              583    1652     611    1625     611    1627
+              610
+
+          name KEY_POWER2
+             9029    4462     575    1654     580    1654
+              582     550     582     548     585    1653
+              589    1647     581     551     582     551
+              581     550     583     550     582     550
+              583     549     583     549     589     543
+              583     548     585     545     585     547
+              585     547     585     548     584     548
+              583     548     584     548     590     540
+              585     548     584    1649     583    1651
+              583    1652     581    1660     576    1652
+              582    1655     581    1654     582    1655
+              582
+
+      end raw_codes
+
+end remote
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [3@(reverse-i-search)`':[C[19@c': cat lp.lircd.confp': sudo cp ~/sanyo.lircd.conf /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1P[1P[1@l[1@p
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo sto[K[K[Kservice sudo /etc/init.d/lirc start[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cd start[C[C[C[C[C[C
+[....] Starting lircd (via systemctl): lircd.service[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [3@(reverse-i-search)`':[Ci': sudo /etc/init.d/lircd start[1@r[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs': irsend SEND_START sanyo KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[6P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[KLIST lp ""
+
+unknown remote: "lp"
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend LIST lp ""[C[Csudo /etc/init.d/lircd start[K[K[Kop
+[....] Stopping lircd (via systemctl): lircd.serviceWarning: Stopping lircd.service, but it can still be activated by:
+  lircd.socket
+[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[10Pirsend LIST lp ""sudo /etc/init.d/lircd start
+[....] Starting lircd (via systemctl): lircd.service[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd start[1Pop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[10Pirsend LIST lp ""
+
+0000000000000001 KEY_POWER
+0000000000000002 KEY_POWER2
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend LIST lp ""sudo /etc/init.d/lircd start[1Pop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[10Pirsend LIST lp ""sudo /etc/init.d/lircd startcp ~/lp.lircd.conf /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[26Pcat lp.lircd.conf sudo irrecord -f -d /dev/lirc0[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[Kirsend SEND_START sanyo KEY_POWER[C[C[C[C[C[C[C[C[C[C[1P KEY_POWER[1P KEY_POWER[1P KEY_POWER[1P KEY_POWER[1P KEY_POWERl KEY_POWERp KEY_POWER[C[C[1P[1P[1P[1P[1P[1@O[1@N[1@C[1@E
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE lp KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE lp KEY_POWER[12PLIST lp ""sudo /etc/init.d/lircd start[1Pop
+[....] Stopping lircd (via systemctl): lircd.serviceWarning: Stopping lircd.service, but it can still be activated by:
+  lircd.socket
+[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [3@(reverse-i-search)`':[Cr': sudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ce': sudo irrecord -f -d /dev/lirc0[1@c[C[C[C[C[C[C[C[C[C[C[6P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+Running as regular user pi
+Using raw access on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+No significant noise (received 0 bytes)
+
+Enter name of remote (only ascii, no spaces) :lp  dd
+Using dd.lircd.conf as output filename
+
+Now start pressing buttons on your remote control.
+
+It is very important that you press many different buttons randomly
+and hold them down for approximately one second. Each button should
+generate at least one dot but never more than ten dots of output.
+Don't stop pressing buttons until two lines of dots (2x80) have
+been generated.
+
+Press RETURN now to start recording.
+................................................................................
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+KEY_POWER
+
+Now hold down button "KEY_POWER".
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+
+
+Successfully written config file dd.lircd.conf
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cat dd.lircd.conf 
+
+# Please take the time to finish this file as described in
+# https://sourceforge.net/p/lirc-remotes/wiki/Checklist/
+# and make it available to others by sending it to
+# <lirc@bartelmus.de>
+#
+# This config file was automatically generated
+# using lirc-0.9.4c(default) on Sat Nov 11 10:45:16 2017
+# Command line used: -f -d /dev/lirc0
+# Kernel version (uname -r): 4.9.45-v7+
+#
+# Remote name (as of config file): dd
+# Brand of remote device, the thing you hold in your hand:
+# Remote device model nr:
+# Remote device info url:
+# Does remote device has a bundled capture device e. g., a
+#     usb dongle? :
+# For bundled USB devices: usb vendor id, product id
+#     and device string (use dmesg or lsusb):
+# Type of device controlled
+#     (TV, VCR, Audio, DVD, Satellite, Cable, HTPC, ...) :
+# Device(s) controlled by this remote:
+
+begin remote
+
+  name  dd
+  flags RAW_CODES|CONST_LENGTH
+  eps            30
+  aeps          100
+
+  gap          107766
+
+      begin raw_codes
+
+          name KEY_POWER
+             9065    4449     581    1654     580    1662
+              573     552     581     550     583    1653
+              582    1654     581     551     580     559
+              575     551     581     551     582     550
+              582     550     582     550     582     550
+              581     550     584     547     590     542
+              583     548     584     548     584     549
+              583     548     582     549     584     549
+              583     548     584    1656     576    1652
+              582    1651     583    1653     582    1653
+              588    1647     582    1655     581    1655
+              581
+
+      end raw_codes
+
+end remote
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [3@(reverse-i-search)`':[C[19@c': cat dd.lircd.confp': sudo cp ~/lp.lircd.conf /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1@d[1@d
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo cp ~/dd.lircd.conf /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[26Pcat dd.lircd.conf sudo irrecord -f -d /dev/lirc0[3P/etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE lp KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2Psudo /etc/init.d/lircd stop[K[Kart
+[....] Starting lircd (via systemctl): lircd.service[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [3@(reverse-i-search)`':[Ci': sudo /etc/init.d/lircd start[1@r[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs': irsend SEND_ONCE lp KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@e[C[C[C[7P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+unknown remote: "lp"
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE lp KEY_POWER
+
+unknown remote: "lp"
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE lp KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kexit
+
+Script done on Sat 11 Nov 2017 10:52:24 UTC
+Script started on Sat 11 Nov 2017 11:44:03 UTC
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sud[K[K[Ksudo /etc/init.d/lirc stopd stop
+[....] Stopping lircd (via systemctl): lircd.serviceWarning: Stopping lircd.service, but it can still be activated by:
+  lircd.socket
+[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m mode2 -d /dev/lirc0
+Using driver default on device /dev/lirc0
+Trying device: /dev/lirc0
+Using device: /dev/lirc0
+space 3857010
+pulse 9021
+space 4460
+pulse 582
+space 1651
+pulse 580
+space 1656
+pulse 610
+space 517
+pulse 593
+space 539
+pulse 588
+space 1648
+pulse 604
+space 1634
+pulse 609
+space 542
+pulse 566
+space 572
+pulse 558
+space 550
+pulse 582
+space 581
+pulse 554
+space 558
+pulse 576
+space 559
+pulse 570
+space 556
+pulse 577
+space 553
+pulse 576
+space 567
+pulse 572
+space 555
+pulse 571
+space 546
+pulse 584
+space 560
+pulse 573
+space 553
+pulse 580
+space 551
+pulse 580
+space 561
+pulse 569
+space 547
+pulse 585
+space 545
+pulse 587
+space 544
+pulse 587
+space 1648
+pulse 590
+space 1655
+pulse 584
+space 1643
+pulse 582
+space 1653
+pulse 611
+space 1623
+pulse 583
+space 1653
+pulse 582
+space 1655
+pulse 609
+space 1625
+pulse 611
+space 44210
+pulse 9033
+space 2224
+pulse 586
+space 95903
+pulse 9053
+space 2225
+pulse 586
+space 95907
+pulse 9055
+space 2218
+pulse 586
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irrecord --list-namespace | grep POWER
+KEY_[01;31m[KPOWER[m[K
+KEY_[01;31m[KPOWER[m[K2
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irrecord --list-namespace | grep POWER[K[K[K[K[K[K[K[K[K[K[K[K[K
+KEY_0
+KEY_1
+KEY_102ND
+KEY_10CHANNELSDOWN
+KEY_10CHANNELSUP
+KEY_2
+KEY_3
+KEY_4
+KEY_5
+KEY_6
+KEY_7
+KEY_8
+KEY_9
+KEY_A
+KEY_AB
+KEY_ADDRESSBOOK
+KEY_AGAIN
+KEY_ALS_TOGGLE
+KEY_ALTERASE
+KEY_ANGLE
+KEY_APOSTROPHE
+KEY_APPSELECT
+KEY_ARCHIVE
+KEY_ATTENDANT_OFF
+KEY_ATTENDANT_ON
+KEY_ATTENDANT_TOGGLE
+KEY_AUDIO
+KEY_AUX
+KEY_B
+KEY_BACK
+KEY_BACKSLASH
+KEY_BACKSPACE
+KEY_BASSBOOST
+KEY_BATTERY
+KEY_BLUE
+KEY_BLUETOOTH
+KEY_BOOKMARKS
+KEY_BREAK
+KEY_BRIGHTNESSDOWN
+KEY_BRIGHTNESSUP
+KEY_BRIGHTNESS_AUTO
+KEY_BRIGHTNESS_CYCLE
+KEY_BRIGHTNESS_MAX
+KEY_BRIGHTNESS_MIN
+KEY_BRL_DOT1
+KEY_BRL_DOT10
+KEY_BRL_DOT2
+KEY_BRL_DOT3
+KEY_BRL_DOT4
+KEY_BRL_DOT5
+KEY_BRL_DOT6
+KEY_BRL_DOT7
+KEY_BRL_DOT8
+KEY_BRL_DOT9
+KEY_BUTTONCONFIG
+KEY_C
+KEY_CALC
+KEY_CALENDAR
+KEY_CAMERA
+KEY_CAMERA_DOWN
+KEY_CAMERA_FOCUS
+KEY_CAMERA_LEFT
+KEY_CAMERA_RIGHT
+KEY_CAMERA_UP
+KEY_CAMERA_ZOOMIN
+KEY_CAMERA_ZOOMOUT
+KEY_CANCEL
+KEY_CAPSLOCK
+KEY_CD
+KEY_CHANNEL
+KEY_CHANNELDOWN
+KEY_CHANNELUP
+KEY_CHAT
+KEY_CLEAR
+KEY_CLOSE
+KEY_CLOSECD
+KEY_COFFEE
+KEY_COMMA
+KEY_COMPOSE
+KEY_COMPUTER
+KEY_CONFIG
+KEY_CONNECT
+KEY_CONTEXT_MENU
+KEY_CONTROLPANEL
+KEY_COPY
+KEY_CUT
+KEY_CYCLEWINDOWS
+KEY_D
+KEY_DASHBOARD
+KEY_DATABASE
+KEY_DELETE
+KEY_DELETEFILE
+KEY_DEL_EOL
+KEY_DEL_EOS
+KEY_DEL_LINE
+KEY_DIGITS
+KEY_DIRECTION
+KEY_DIRECTORY
+KEY_DISPLAYTOGGLE
+KEY_DISPLAY_OFF
+KEY_DOCUMENTS
+KEY_DOLLAR
+KEY_DOT
+KEY_DOWN
+KEY_DVD
+KEY_E
+KEY_EDIT
+KEY_EDITOR
+KEY_EJECTCD
+KEY_EJECTCLOSECD
+KEY_EMAIL
+KEY_END
+KEY_ENTER
+KEY_EPG
+KEY_EQUAL
+KEY_ESC
+KEY_EURO
+KEY_EXIT
+KEY_F
+KEY_F1
+KEY_F10
+KEY_F11
+KEY_F12
+KEY_F13
+KEY_F14
+KEY_F15
+KEY_F16
+KEY_F17
+KEY_F18
+KEY_F19
+KEY_F2
+KEY_F20
+KEY_F21
+KEY_F22
+KEY_F23
+KEY_F24
+KEY_F3
+KEY_F4
+KEY_F5
+KEY_F6
+KEY_F7
+KEY_F8
+KEY_F9
+KEY_FASTFORWARD
+KEY_FAVORITES
+KEY_FILE
+KEY_FINANCE
+KEY_FIND
+KEY_FIRST
+KEY_FN
+KEY_FN_1
+KEY_FN_2
+KEY_FN_B
+KEY_FN_D
+KEY_FN_E
+KEY_FN_ESC
+KEY_FN_F
+KEY_FN_F1
+KEY_FN_F10
+KEY_FN_F11
+KEY_FN_F12
+KEY_FN_F2
+KEY_FN_F3
+KEY_FN_F4
+KEY_FN_F5
+KEY_FN_F6
+KEY_FN_F7
+KEY_FN_F8
+KEY_FN_F9
+KEY_FN_S
+KEY_FORWARD
+KEY_FORWARDMAIL
+KEY_FRAMEBACK
+KEY_FRAMEFORWARD
+KEY_FRONT
+KEY_G
+KEY_GAMES
+KEY_GOTO
+KEY_GRAPHICSEDITOR
+KEY_GRAVE
+KEY_GREEN
+KEY_H
+KEY_HANGEUL
+KEY_HANJA
+KEY_HELP
+KEY_HENKAN
+KEY_HIRAGANA
+KEY_HOME
+KEY_HOMEPAGE
+KEY_HP
+KEY_I
+KEY_IMAGES
+KEY_INFO
+KEY_INSERT
+KEY_INS_LINE
+KEY_ISO
+KEY_J
+KEY_JOURNAL
+KEY_K
+KEY_KATAKANA
+KEY_KATAKANAHIRAGANA
+KEY_KBDILLUMDOWN
+KEY_KBDILLUMTOGGLE
+KEY_KBDILLUMUP
+KEY_KBDINPUTASSIST_ACCEPT
+KEY_KBDINPUTASSIST_CANCEL
+KEY_KBDINPUTASSIST_NEXT
+KEY_KBDINPUTASSIST_NEXTGROUP
+KEY_KBDINPUTASSIST_PREV
+KEY_KBDINPUTASSIST_PREVGROUP
+KEY_KEYBOARD
+KEY_KP0
+KEY_KP1
+KEY_KP2
+KEY_KP3
+KEY_KP4
+KEY_KP5
+KEY_KP6
+KEY_KP7
+KEY_KP8
+KEY_KP9
+KEY_KPASTERISK
+KEY_KPCOMMA
+KEY_KPDOT
+KEY_KPENTER
+KEY_KPEQUAL
+KEY_KPJPCOMMA
+KEY_KPLEFTPAREN
+KEY_KPMINUS
+KEY_KPPLUS
+KEY_KPPLUSMINUS
+KEY_KPRIGHTPAREN
+KEY_KPSLASH
+KEY_L
+KEY_LANGUAGE
+KEY_LAST
+KEY_LEFT
+KEY_LEFTALT
+KEY_LEFTBRACE
+KEY_LEFTCTRL
+KEY_LEFTMETA
+KEY_LEFTSHIFT
+KEY_LIGHTS_TOGGLE
+KEY_LINEFEED
+KEY_LIST
+KEY_LOGOFF
+KEY_M
+KEY_MACRO
+KEY_MAIL
+KEY_MAX
+KEY_MEDIA
+KEY_MEDIA_REPEAT
+KEY_MEMO
+KEY_MENU
+KEY_MESSENGER
+KEY_MHP
+KEY_MICMUTE
+KEY_MINUS
+KEY_MODE
+KEY_MOVE
+KEY_MP3
+KEY_MSDOS
+KEY_MUHENKAN
+KEY_MUTE
+KEY_N
+KEY_NEW
+KEY_NEWS
+KEY_NEXT
+KEY_NEXTSONG
+KEY_NUMERIC_0
+KEY_NUMERIC_1
+KEY_NUMERIC_2
+KEY_NUMERIC_3
+KEY_NUMERIC_4
+KEY_NUMERIC_5
+KEY_NUMERIC_6
+KEY_NUMERIC_7
+KEY_NUMERIC_8
+KEY_NUMERIC_9
+KEY_NUMERIC_POUND
+KEY_NUMERIC_STAR
+KEY_NUMLOCK
+KEY_O
+KEY_OK
+KEY_OPEN
+KEY_OPTION
+KEY_P
+KEY_PAGEDOWN
+KEY_PAGEUP
+KEY_PASTE
+KEY_PAUSE
+KEY_PAUSECD
+KEY_PC
+KEY_PHONE
+KEY_PLAY
+KEY_PLAYCD
+KEY_PLAYER
+KEY_PLAYPAUSE
+KEY_POWER
+KEY_POWER2
+KEY_PRESENTATION
+KEY_PREVIOUS
+KEY_PREVIOUSSONG
+KEY_PRINT
+KEY_PROG1
+KEY_PROG2
+KEY_PROG3
+KEY_PROG4
+KEY_PROGRAM
+KEY_PROPS
+KEY_PVR
+KEY_Q
+KEY_QUESTION
+KEY_R
+KEY_RADIO
+KEY_RECORD
+KEY_RED
+KEY_REDO
+KEY_REFRESH
+KEY_REPLY
+KEY_RESERVED
+KEY_RESTART
+KEY_REWIND
+KEY_RFKILL
+KEY_RIGHT
+KEY_RIGHTALT
+KEY_RIGHTBRACE
+KEY_RIGHTCTRL
+KEY_RIGHTMETA
+KEY_RIGHTSHIFT
+KEY_RO
+KEY_S
+KEY_SAT
+KEY_SAT2
+KEY_SAVE
+KEY_SCALE
+KEY_SCREEN
+KEY_SCREENSAVER
+KEY_SCROLLDOWN
+KEY_SCROLLLOCK
+KEY_SCROLLUP
+KEY_SEARCH
+KEY_SELECT
+KEY_SEMICOLON
+KEY_SEND
+KEY_SENDFILE
+KEY_SETUP
+KEY_SHOP
+KEY_SHUFFLE
+KEY_SLASH
+KEY_SLEEP
+KEY_SLOW
+KEY_SOUND
+KEY_SPACE
+KEY_SPELLCHECK
+KEY_SPORT
+KEY_SPREADSHEET
+KEY_STOP
+KEY_STOPCD
+KEY_SUBTITLE
+KEY_SUSPEND
+KEY_SWITCHVIDEOMODE
+KEY_SYSRQ
+KEY_T
+KEY_TAB
+KEY_TAPE
+KEY_TASKMANAGER
+KEY_TEEN
+KEY_TEXT
+KEY_TIME
+KEY_TITLE
+KEY_TOUCHPAD_OFF
+KEY_TOUCHPAD_ON
+KEY_TOUCHPAD_TOGGLE
+KEY_TUNER
+KEY_TV
+KEY_TV2
+KEY_TWEN
+KEY_U
+KEY_UNDO
+KEY_UNKNOWN
+KEY_UP
+KEY_UWB
+KEY_V
+KEY_VCR
+KEY_VCR2
+KEY_VENDOR
+KEY_VIDEO
+KEY_VIDEOPHONE
+KEY_VIDEO_NEXT
+KEY_VIDEO_PREV
+KEY_VOICECOMMAND
+KEY_VOICEMAIL
+KEY_VOLUMEDOWN
+KEY_VOLUMEUP
+KEY_W
+KEY_WAKEUP
+KEY_WLAN
+KEY_WORDPROCESSOR
+KEY_WPS_BUTTON
+KEY_WWAN
+KEY_WWW
+KEY_X
+KEY_XFER
+KEY_Y
+KEY_YELLOW
+KEY_YEN
+KEY_Z
+KEY_ZENKAKUHANKAKU
+KEY_ZOOM
+KEY_ZOOMIN
+KEY_ZOOMOUT
+KEY_ZOOMRESET
+BTN_0
+BTN_1
+BTN_2
+BTN_3
+BTN_4
+BTN_5
+BTN_6
+BTN_7
+BTN_8
+BTN_9
+BTN_BACK
+BTN_BASE
+BTN_BASE2
+BTN_BASE3
+BTN_BASE4
+BTN_BASE5
+BTN_BASE6
+BTN_C
+BTN_DEAD
+BTN_DIGI
+BTN_DPAD_DOWN
+BTN_DPAD_LEFT
+BTN_DPAD_RIGHT
+BTN_DPAD_UP
+BTN_EAST
+BTN_EXTRA
+BTN_FORWARD
+BTN_GAMEPAD
+BTN_GEAR_DOWN
+BTN_GEAR_UP
+BTN_JOYSTICK
+BTN_LEFT
+BTN_MIDDLE
+BTN_MISC
+BTN_MODE
+BTN_MOUSE
+BTN_NORTH
+BTN_PINKIE
+BTN_RIGHT
+BTN_SELECT
+BTN_SIDE
+BTN_SOUTH
+BTN_START
+BTN_STYLUS
+BTN_STYLUS2
+BTN_TASK
+BTN_THUMB
+BTN_THUMB2
+BTN_THUMBL
+BTN_THUMBR
+BTN_TL
+BTN_TL2
+BTN_TOOL_AIRBRUSH
+BTN_TOOL_BRUSH
+BTN_TOOL_DOUBLETAP
+BTN_TOOL_FINGER
+BTN_TOOL_LENS
+BTN_TOOL_MOUSE
+BTN_TOOL_PEN
+BTN_TOOL_PENCIL
+BTN_TOOL_QUADTAP
+BTN_TOOL_QUINTTAP
+BTN_TOOL_RUBBER
+BTN_TOOL_TRIPLETAP
+BTN_TOP
+BTN_TOP2
+BTN_TOUCH
+BTN_TR
+BTN_TR2
+BTN_TRIGGER
+BTN_TRIGGER_HAPPY
+BTN_TRIGGER_HAPPY1
+BTN_TRIGGER_HAPPY10
+BTN_TRIGGER_HAPPY11
+BTN_TRIGGER_HAPPY12
+BTN_TRIGGER_HAPPY13
+BTN_TRIGGER_HAPPY14
+BTN_TRIGGER_HAPPY15
+BTN_TRIGGER_HAPPY16
+BTN_TRIGGER_HAPPY17
+BTN_TRIGGER_HAPPY18
+BTN_TRIGGER_HAPPY19
+BTN_TRIGGER_HAPPY2
+BTN_TRIGGER_HAPPY20
+BTN_TRIGGER_HAPPY21
+BTN_TRIGGER_HAPPY22
+BTN_TRIGGER_HAPPY23
+BTN_TRIGGER_HAPPY24
+BTN_TRIGGER_HAPPY25
+BTN_TRIGGER_HAPPY26
+BTN_TRIGGER_HAPPY27
+BTN_TRIGGER_HAPPY28
+BTN_TRIGGER_HAPPY29
+BTN_TRIGGER_HAPPY3
+BTN_TRIGGER_HAPPY30
+BTN_TRIGGER_HAPPY31
+BTN_TRIGGER_HAPPY32
+BTN_TRIGGER_HAPPY33
+BTN_TRIGGER_HAPPY34
+BTN_TRIGGER_HAPPY35
+BTN_TRIGGER_HAPPY36
+BTN_TRIGGER_HAPPY37
+BTN_TRIGGER_HAPPY38
+BTN_TRIGGER_HAPPY39
+BTN_TRIGGER_HAPPY4
+BTN_TRIGGER_HAPPY40
+BTN_TRIGGER_HAPPY5
+BTN_TRIGGER_HAPPY6
+BTN_TRIGGER_HAPPY7
+BTN_TRIGGER_HAPPY8
+BTN_TRIGGER_HAPPY9
+BTN_WEST
+BTN_WHEEL
+BTN_Z
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irrecord --list-namespace | grep POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[19Pmode2 -d /dev/lirc0sudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[8Pmode2 -d /dev/lirc0irrecord --list-namespace | grep POWER[K[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[3@(reverse-i-search)`':[Ci': irrecord --list-namespace[1@r[C[C[C[5P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirrecord -d /dev/lirc0 ~/lircd.confspace[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K
+Using driver default on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+No significant noise (received 0 bytes)
+
+Enter name of remote (only ascii, no spaces) :projr ector_sanyo
+Using projector_sanyo.lircd.conf as output filename
+
+Now start pressing buttons on your remote control.
+
+It is very important that you press many different buttons randomly
+and hold them down for approximately one second. Each button should
+generate at least one dot but never more than ten dots of output.
+Don't stop pressing buttons until two lines of dots (2x80) have
+been generated.
+
+Press RETURN now to start recording.
+No data for 10 secs, aborting
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irrecord -d /dev/lirc0 ~/lircd.conf
+Using driver default on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+No significant noise (received 384 bytes)
+
+Enter name of remote (only ascii, no spaces) :projector_sanyo
+Using projector_sanyo.lircd.conf as output filename
+
+Now start pressing buttons on your remote control.
+
+It is very important that you press many different buttons randomly
+and hold them down for approximately one second. Each button should
+generate at least one dot but never more than ten dots of output.
+Don't stop pressing buttons until two lines of dots (2x80) have
+been generated.
+
+Press RETURN now to start recording.
+................................................................................
+Got gap (107779 us)}
+
+Please keep on pressing buttons like described above.
+...............................................................................................................................................................................................................................................................................................................................................................................................................................................................No data for 10 secs, aborting
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irrecord -d /dev/lirc0 ~/lircd.conf
+Using driver default on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+No significant noise (received 0 bytes)
+
+Enter name of remote (only ascii, no spaces) :projector_re  sanyo
+Using projector_sanyo.lircd.conf as output filename
+
+Now start pressing buttons on your remote control.
+
+It is very important that you press many different buttons randomly
+and hold them down for approximately one second. Each button should
+generate at least one dot but never more than ten dots of output.
+Don't stop pressing buttons until two lines of dots (2x80) have
+been generated.
+
+Press RETURN now to start recording.
+................................................................................
+Got gap (107774 us)}
+
+Please keep on pressing buttons like described above.
+........................................................................................................................................................................................................................................................................................................................................................................................................................................
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+KEY_POWER
+
+Now hold down button "KEY_POWER".
+Something went wrong: Cannot decode data
+Please try again. (28 retries left)
+
+Now hold down button "KEY_POWER".
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+
+Checking for toggle bit mask.
+Please press an arbitrary button repeatedly as fast as possible.
+Make sure you keep pressing the SAME button and that you DON'T HOLD
+the button down!.
+If you can't see any dots appear, wait a bit between button presses.
+
+Press RETURN to continue.
+Cannot find any toggle mask.
+You have only recorded one button in a non-raw configuration file.
+This file doesn't really make much sense, you should record at
+least two or three buttons to get meaningful results. You can add
+more buttons next time you run irrecord.
+
+
+Successfully written config file projector_sanyo.lircd.conf
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cat projector_sanyo.lircd.conf 
+
+# Please take the time to finish this file as described in
+# https://sourceforge.net/p/lirc-remotes/wiki/Checklist/
+# and make it available to others by sending it to
+# <lirc@bartelmus.de>
+#
+# This config file was automatically generated
+# using lirc-0.9.4c(default) on Sat Nov 11 11:59:20 2017
+# Command line used: -d /dev/lirc0 /home/pi/lircd.conf
+# Kernel version (uname -r): 4.9.45-v7+
+#
+# Remote name (as of config file): projector_sanyo
+# Brand of remote device, the thing you hold in your hand:
+# Remote device model nr:
+# Remote device info url:
+# Does remote device has a bundled capture device e. g., a
+#     usb dongle? :
+# For bundled USB devices: usb vendor id, product id
+#     and device string (use dmesg or lsusb):
+# Type of device controlled
+#     (TV, VCR, Audio, DVD, Satellite, Cable, HTPC, ...) :
+# Device(s) controlled by this remote:
+
+begin remote
+
+  name  projector_sanyo
+  bits           32
+  flags SPACE_ENC|CONST_LENGTH
+  eps            30
+  aeps          100
+
+  header       9049  4457
+  one           588  1648
+  zero          588   542
+  ptrail        587
+  repeat       9052  2223
+  gap          107774
+  toggle_bit_mask 0x0
+  frequency    38000
+
+      begin codes
+          KEY_POWER                0xCC0000FF 0x7E97CDCC
+      end codes
+
+end remote
+
+
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo cp ~/lircd.conf /etc/lirc/lircd.conf
+cp: cannot stat '/home/pi/lircd.conf': No such file or directory
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo cp ~/lircd.conf /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[1P /etc/lirc/lircd.conf[1P /etc/lirc/lircd.conf[1P /etc/lirc/lircd.conf[1P /etc/lirc/lircd.conf[1P /etc/lirc/lircd.conf[1P /etc/lirc/lircd.conf[1P /etc/lirc/lircd.conf[1P /etc/lirc/lircd.conf[1P /etc/lirc/lircd.conf[1P /etc/lirc/lircd.confp /etc/lirc/lircd.confr /etc/lirc/lircd.confo /etc/lirc/lircd.confj /etc/lirc/lircd.confe /etc/lirc/lircd.confc /etc/lirc/lircd.conft /etc/lirc/lircd.confo /etc/lirc/lircd.confr /etc/lirc/lircd.conf_ /etc/lirc/lircd.confs /etc/lirc/lircd.confa /etc/lirc/lircd.confn /etc/lirc/lircd.confy /etc/lirc/lircd.confo /etc/lirc/lircd.conf.lircd.conf /etc/lirc/lircd.conf
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lirc startd start
+[....] Starting lircd (via systemctl): lircd.service[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [K]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [K]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [K]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [K]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend LIST projector_sanyo ""
+
+00000000cc0000ff KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [K]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE Roku KEY_POWER
+
+unknown remote: "Roku"
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE Roku KEY_POWER[1P KEY_POWER[1P KEY_POWER[1P KEY_POWER[1P KEY_POWER" KEY_POWER" KEY_POWER[1P KEY_POWER[1P KEY_POWERp KEY_POWERr KEY_POWERo KEY_POWERj KEY_POWERe KEY_POWERc KEY_POWERt KEY_POWERo KEY_POWERr KEY_POWER_ KEY_POWERs KEY_POWERa KEY_POWERn KEY_POWERy KEY_POWERo KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_sanyo KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_sanyo KEY_POWER
+
+transmission failed
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_sanyo KEY_POWER[C[1P[1P[1P[1P[1@S[1@T[1@A[1@R[1@T
+
+transmission failed
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_sanyo KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_sanyo KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_sanyo KEY_POWER[C[C[C[C[C[C[1P[1P[1P[1@O[1@P
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_STOP projector_sanyo KEY_POWER
+
+not repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_STOP projector_sanyo KEY_POWER[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_sanyo KEY_POWER[1POP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1PONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[11PRoku[C[C[C[C[C[C[C[C[C[C[1PLIST projector_sanyo ""[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2Psudo /etc/init.d/lircd start[K[K[Kop
+[....] Stopping lircd (via systemctl): lircd.serviceWarning: Stopping lircd.service, but it can still be activated by:
+  lircd.socket
+[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [3@(reverse-i-search)`':[Ci': sudo /etc/init.d/lircd stop[1@r[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cr': irrecord -d /dev/lirc0 ~/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[6P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+Using driver default on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+Here is a lof of noise (612 bytes received)
+Running irrecord with this level of noise will not give good results.
+Please try to turn off fluorescent lamps or tubes and other sources
+of variable IR radiation and restart. If nothing else works, you
+might have to mask the receiving IR diode. You REALLY should press
+ctrl-C at this point, but it's technically possible to proceed
+by pressing RETURN
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irrecord -d /dev/lirc0 ~/lircd.conf
+Using driver default on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+Here is a lof of noise (4288 bytes received)
+Running irrecord with this level of noise will not give good results.
+Please try to turn off fluorescent lamps or tubes and other sources
+of variable IR radiation and restart. If nothing else works, you
+might have to mask the receiving IR diode. You REALLY should press
+ctrl-C at this point, but it's technically possible to proceed
+by pressing RETURN
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irrecord -d /dev/lirc0 ~/lircd.conf
+Using driver default on device /dev/lirc0
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+No significant noise (received 0 bytes)
+
+Enter name of remote (only ascii, no spaces) :projector_casio
+Using projector_casio.lircd.conf as output filename
+
+Now start pressing buttons on your remote control.
+
+It is very important that you press many different buttons randomly
+and hold them down for approximately one second. Each button should
+generate at least one dot but never more than ten dots of output.
+Don't stop pressing buttons until two lines of dots (2x80) have
+been generated.
+
+Press RETURN now to start recording.
+................................................................................
+Got gap (40948 us)}
+
+Please keep on pressing buttons like described above.
+...............................................................................
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+KEY_POWER
+
+Now hold down button "KEY_POWER".
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+
+Checking for toggle bit mask.
+Please press an arbitrary button repeatedly as fast as possible.
+Make sure you keep pressing the SAME button and that you DON'T HOLD
+the button down!.
+If you can't see any dots appear, wait a bit between button presses.
+
+Press RETURN to continue.
+..............................
+Toggle bit mask is 0xe0e0.
+You have only recorded one button in a non-raw configuration file.
+This file doesn't really make much sense, you should record at
+least two or three buttons to get meaningful results. You can add
+more buttons next time you run irrecord.
+
+
+Successfully written config file projector_casio.lircd.conf
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cat projector_casio.lircd.conf 
+
+# Please take the time to finish this file as described in
+# https://sourceforge.net/p/lirc-remotes/wiki/Checklist/
+# and make it available to others by sending it to
+# <lirc@bartelmus.de>
+#
+# This config file was automatically generated
+# using lirc-0.9.4c(default) on Sat Nov 11 12:53:14 2017
+# Command line used: -d /dev/lirc0 /home/pi/lircd.conf
+# Kernel version (uname -r): 4.9.45-v7+
+#
+# Remote name (as of config file): projector_casio
+# Brand of remote device, the thing you hold in your hand:
+# Remote device model nr:
+# Remote device info url:
+# Does remote device has a bundled capture device e. g., a
+#     usb dongle? :
+# For bundled USB devices: usb vendor id, product id
+#     and device string (use dmesg or lsusb):
+# Type of device controlled
+#     (TV, VCR, Audio, DVD, Satellite, Cable, HTPC, ...) :
+# Device(s) controlled by this remote:
+
+begin remote
+
+  name  projector_casio
+  bits           32
+  flags SPACE_ENC
+  eps            30
+  aeps          100
+
+  header       9073  4483
+  one           589  1669
+  zero          589   544
+  ptrail        598
+  gap          40948
+  min_repeat      9
+#  suppress_repeat 9
+#  uncomment to suppress unwanted repeats
+  toggle_bit_mask 0xE0E0
+  frequency    38000
+
+      begin codes
+          KEY_POWER                0x212FD02F
+      end codes
+
+end remote
+
+
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [3@(reverse-i-search)`':[C[32@c': cat projector_casio.lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cp': sudo cp ~/projector_sanyo.lircd.conf /etc/lirc/llircd.conf[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo cp ~/projector_sanyo.lircd.conf /etc/lirc/lircd.[5Pconf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.lircd.conf /etc/lirc/lircd.c[1Ponf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.lircd.conf /etc/lirc/lircd.co[1Pnf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.lircd.conf /etc/lirc/lircd.con[1Pf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.lircd.conf /etc/lirc/lircd.conf[K[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.lircd.conf /etc/lirc/lircd.conf [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cc.lircd.conf /etc/lirc/lircd.conff[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ca.lircd.conf /etc/lirc/lircd.conf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs.lircd.conf /etc/lirc/lircd.conf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ci.lircd.conf /etc/lirc/lircd.conf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Co.lircd.conf /etc/lirc/lircd.conf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo cp ~/projector_casio.lircd.conf /etc/lirc/lircd..conf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [21Pcat projector_casio.lircd.conf 
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirrecord -d /dev/lirc0 ~/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[8Psudo /etc/init.d/lircd stop[K[Kart
+[....] Starting lircd (via systemctl): lircd.service[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend LIST proj
+proj_casio.lircd.conf       projector_sanyo.lircd.conf
+projector_casio.lircd.conf  
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend LIST proj
+proj_casio.lircd.conf       projector_sanyo.lircd.conf
+projector_casio.lircd.conf  
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend LIST projector_casio.lircd.conf \[K[K[K[K[K[K[K[K[K[K[K[K[K ""
+
+00000000212fd02f KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend LIST projector_casio ""[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2Psudo /etc/init.d/lircd startcp ~/projector_casio.lircd.conf /etc/lirc/lircd..conf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [21Pcat projector_casio.lircd.conf 
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirrecord -d /dev/lirc0 ~/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[8Psudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_START projector_sanyo KEY_POWER[1POP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1PONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[11PRoku[C[C[C[C[C[C[C[C[C[C[1PLIST projector_sanyo ""[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2Psudo /etc/init.d/lircd startcp ~/projector_sanyo.lircd.conf /etc/lirc/lircd..conf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[24P/etc/init.d/lircd start
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend LIST projector_sanyo ""[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2Psudo /etc/init.d/lircd startcp ~/projector_sanyo.lircd.conf /etc/lirc/lircd..conf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[11Plircd.conf /etc/lirc/lircd.conf
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[10Pcat projector_sanyo.lircd.conf [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirrecord -d /dev/lirc0 ~/lircd.conf[10P-list-namespaced /dev/lirc0 ~/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pcat projector_sanyo.lircd.conf [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csudo cp ~/lircd.conf /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cprojector_sanyo.lircd.conf /etc/lirc/lircd..conf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[24P/etc/init.d/lircd start
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend LIST projector_sanyo ""SEND_ONCE Roku KEY_POWER[11@projector_sanyo[C[C[C[C[C[C[C[C[C[C[1@START[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1POP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[16Psudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirrecord -d /dev/lirc0 ~/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pcat projector_casio.lircd.conf [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csudo cp ~/projector_casio.lircd.conf /etc/lirc/lircd..conf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[24P/etc/init.d/lircd start
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend LIST projector_casio ""[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kirsend LIST projector_casio ""[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2Psudo /etc/init.d/lircd startcp ~/projector_casio.lircd.conf /etc/lirc/lircd..conf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [21Pcat projector_casio.lircd.conf 
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirrecord -d /dev/lirc0 ~/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[8Psudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_START projector_sanyo KEY_POWER\ KEY_POWER[1P KEY_POWER[1P KEY_POWER[1P KEY_POWER[1P KEY_POWER[1P KEY_POWER[1P KEY_POWERx KEY_POWER[1P KEY_POWERc KEY_POWERa KEY_POWERs KEY_POWERi KEY_POWERo KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_casio KEY_POWER[13PLIST projector_casio ""SEND_START projector_casio KEY_POWER[C[C[C[1P[1P[1P[1P[1@T[1@O[1@P
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_STOP projector_casio KEY_POWER[C[C[C[1P[1P[1P[1P[1@O[1@N[1@C[1@E
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWERSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1POP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+not repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_STOP projector_casio KEY_POWERONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+^[[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWERSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+not repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_STOP projector_casio KEY_POWERONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWERSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWERSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1POP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWERSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [3@(reverse-i-search)`':[Cs': irsend SEND_START projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Pt': sudo /etc/init.d/lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Co': sudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@p[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[7P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[....] Stopping lircd (via systemctl): lircd.serviceWarning: Stopping lircd.service, but it can still be activated by:
+  lircd.socket
+[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [3@(reverse-i-search)`':[Cc': sudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cp': sudo cp ~/projector_casio.lircd.conf /etc/lirc/llircd.conf[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo cp ~/projector_casio.lircd.conf /etc/lirc/lircd.[5Pconf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.lircd.conf /etc/lirc/lircd.c[1Ponf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.lircd.conf /etc/lirc/lircd.co[1Pnf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.lircd.conf /etc/lirc/lircd.con[1Pf[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.lircd.conf /etc/lirc/lircd.conf[K[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.lircd.conf /etc/lirc/lircd.conf [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[24P/etc/init.d/lircd start
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend LIST projector_casio ""SEND_START projector_casio KEY_POWER[1POP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@START[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[16Psudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ksudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_START projector_casio KEY_POWER[1PONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[13PLIST projector_casio ""[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[2Psudo /etc/init.d/lircd startcp ~/projector_.lircd.conf /etc/lirc/lircd.conf [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[24P/etc/init.d/lircd start
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[....] Starting lircd (via systemctl): lircd.service^[[A[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd start[1Pop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_START projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[16Psudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_START projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m ^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[15Psudo /etc/init.d/lircd start[1Pop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_START projector_casio KEY_POWER[1PONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_STOP projector_casio KEY_POWER[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1P[1P[1@O[1@N[1@C[1@E
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [3@(reverse-i-search)`':[Ci': irsend SEND_ONCE projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@r[C[C[C[6Pr': irrecord -d /dev/lirc0 ~/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@e[C[C[C[1@c[C[C[C[8P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[8Psudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_START projector_sanyo KEY_POWER[1POP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+unknown remote: "projector_sanyo"
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_sanyo KEY_POWER[1P KEY_POWER[1P KEY_POWER[1P KEY_POWER[1P KEY_POWER[1P KEY_POWERc KEY_POWERa KEY_POWERs KEY_POWERi KEY_POWERo KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_casio KEY_POWER[1P[1P[1P[1P[1P[1@O[1@N[1@C[1@E
+^[[A]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+^[[A
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+^[[A
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+
+busy: repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kirsend SEND_START projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_casio KEY_POWER
+
+already repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_casio KEY_POWER
+
+already repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_casio KEY_POWER
+
+already repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_casio KEY_POWER
+
+already repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_casio KEY_POWER
+
+already repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kirsend SEND_START projector_casio KEY_POWERsany[C[C[C[C[C[C[C[C[C[C[C[1PONCE projector_casi[C[C[C[C[C[C[C[C[C[C[C
+
+busy: repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+
+busy: repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER[C[1P[1P[1P[1P[1@s[1@t[1@o[1@p[1P[1P[1P[1P[5@START[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5@START[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@O[1@N[1@C[1@E
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER[1@START[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kirsend SEND_START projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_casio KEY_POWER[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Ksudo vim /etc/i[Klirc/lirc
+lircd.conf              lircmd.conf
+lircd.conf.d/           lircmd.conf.dist
+lircd.conf.dist         lirc_options.conf
+lircd_original2.conf    lirc_options.conf.dist
+lircd_original.conf     
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo vim /etc/lirc/lirc
+lircd.conf              lircmd.conf
+lircd.conf.d/           lircmd.conf.dist
+lircd.conf.dist         lirc_options.conf
+lircd_original2.conf    lirc_options.conf.dist
+lircd_original.conf     
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo vim /etc/lirc/lircd.conf
+[?1000h[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;42r[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[42;1H"/etc/lirc/lircd.conf" 49L, 1320C[>c[27m[23m[m[H[2J[2;1H[96m# Please take the time to finish this file as described in
+# https://sourceforge.net/p/lirc-remotes/wiki/Checklist/
+# and make it available to others by sending it to
+# <lirc@bartelmus.de>
+#
+# This config file was automatically generated
+# using lirc-0.9.4c(default) on Sat Nov 11 12:53:14 2017
+# Command line used: -d /dev/lirc0 /home/pi/lircd.conf
+# Kernel version (uname -r): 4.9.45-v7+
+#
+# Remote name (as of config file): projector_casio
+# Brand of remote device, the thing you hold in your hand:
+# Remote device model nr:
+# Remote device info url:
+# Does remote device has a bundled capture device e. g., a
+#     usb dongle? :
+# For bundled USB devices: usb vendor id, product id
+#     and device string (use dmesg or lsusb):
+# Type of device controlled
+#     (TV, VCR, Audio, DVD, Satellite, Cable, HTPC, ...) :
+# Device(s) controlled by this remote:[m
+
+begin remote
+
+  name  projector_casio
+  bits[11C32
+  flags SPACE_ENC
+  eps[12C30
+  aeps[10C100
+
+  header[7C9073  4483
+  one[11C589  1669
+  zero[10C589   544
+  ptrail[8C598
+  gap[10C40948
+  min_repeat      9
+[96m#  suppress_repeat 9
+#  uncomment to suppress unwanted repeats[m
+  toggle_bit_mask 0xE0E0
+  frequency    38000[42;54H36,18[9CTop"/etc/lirc/lircd.conf" 49L, 1320C[20C     [9C   [36;18H[?12l[?25h[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?25l[42;44H~@k[36;18H[42;44H   [36;18H[1;41r[41;1H
+[1;42r[42;1H[K[42;54H37,18[9C12%[36;18H[?12l[?25h[?25l[42;44H~@k[36;18H[42;44H   [36;18H[1;41r[41;1H
+[1;42r[41;7Hbegin codes[42;54H[K[42;54H38,18[9C25%[36;18H[?12l[?25h[?25l[42;44H~@k[36;18H[42;44H   [36;18H[1;41r[41;1H
+[1;42r[41;11HKEY_POWER[16C0x212FD02F[42;54H[K[42;54H39,18[9C37%[36;18H[?12l[?25h[?25l[42;44H~@k[36;18H[42;44H   [36;18H[1;41r[41;1H
+[1;42r[41;7Hend codes[42;54H[K[42;54H40,18[9C50%[36;18H[?12l[?25h[?25l[42;44H~@k[36;18H[42;44H   [36;18H[1;41r[41;1H
+[1;42r[42;54H[K[42;54H41,18[9C62%[36;18H[?12l[?25h[?25l[42;44H~@k[36;18H[42;44H   [36;1H[1;41r[41;1H
+[1;42r[41;1Hend remote[42;54H[K[42;54H42,0-1[8C75%[36;1H[?12l[?25h[?25l[42;44H~@k[36;1H[42;44H   [36;17H[1;41r[41;1H
+[1;42r[42;54H[K[42;54H43,17[9C87%[36;17H[?12l[?25h[?25l[42;44H~@k[36;17H[42;44H   [36;18H[1;41r[41;1H
+[1;42r[42;54H[K[42;54H44,18[9CBot[36;18H[?12l[?25h[?25l[42;44H~@k[36;18H[42;44H   [37;15H[42;55H5,15[37;15H[?12l[?25h[?25l[42;44H~@k[37;15H[42;44H   [38;1H[42;55H6,0-1[38;1H[?12l[?25h[?25l[42;44H~@k[38;1H[42;44H   [39;10H[42;55H7,10 [39;10H[?12l[?25h[?25l[42;44H~@k[39;10H[42;44H   [40;1H[42;55H8,0-1[40;1H[?12l[?25h[?25l[42;44H~@k[40;1H[42;44H   [41;1H[42;55H9[41;1H[?12l[?25h[?25l[42;44Hi[41;1H[42;44H [41;1H
+[1m-- INSERT --[m[42;54H[K[42;54H49,1[10CBot[41;1H[?12l[?25h[?25l[42;55H8[40;1H[?12l[?25h[?25l[42;55H7[39;1H[?12l[?25h[?25l[42;55H6[38;1H[?12l[?25h[?25l[42;55H5[37;1H[?12l[?25h[?25l[42;55H4[36;1H[?12l[?25h[?25l[42;57H2[36;2H[?12l[?25h[?25l[42;57H3[36;3H[?12l[?25h[?25l[42;57H4[36;4H[?12l[?25h[?25l[42;57H5[36;5H[?12l[?25h[?25l[42;57H6[36;6H[?12l[?25h[?25l[42;57H7[36;7H[?12l[?25h[?25l[42;57H8[36;8H[?12l[?25h[?25l[42;57H9[36;9H[?12l[?25h[?25l[42;57H10[36;10H[?12l[?25h[?25l[42;58H1[36;11H[?12l[?25h[?25l[42;58H2[36;12H[?12l[?25h[?25l[42;58H3[36;13H[?12l[?25h[?25l[42;58H4[36;14H[?12l[?25h[?25l[42;58H5[36;15H[?12l[?25h[?25l[42;58H6[36;16H[?12l[?25h[?25l[42;58H7[36;17H[?12l[?25h[?25l[42;58H8[36;18H[?12l[?25h[?25l[42;58H9[36;19H[?12l[?25h[?25l[42;57H20[36;20H[?12l[?25h[?25l[42;58H1[36;21H[?12l[?25h[?25l[42;58H2[36;22H[?12l[?25h[?25l[42;58H3[36;23H[?12l[?25h[?25l[42;58H4[36;24H[?12l[?25h[?25l[42;58H5[36;25H[?12l[?25h[?25l[42;58H6[36;26H[?12l[?25h[?25l[42;58H7[36;27H[?12l[?25h[?25l[42;58H8[36;28H[?12l[?25h[?25l[42;58H9[36;29H[?12l[?25h[?25l[42;57H30[36;30H[?12l[?25h[?25l[42;58H1[36;31H[?12l[?25h[?25l[42;58H2[36;32H[?12l[?25h[?25l[42;58H3[36;33H[?12l[?25h[?25l[42;58H4[36;34H[?12l[?25h[?25l[42;58H5[36;35H[?12l[?25h[?25l[42;58H6[36;36H[?12l[?25h[?25l[42;58H7[36;37H[?12l[?25h[?25l[42;58H8[36;38H[?12l[?25h[?25l[42;58H9[36;39H[?12l[?25h[?25l[42;57H40[36;40H[?12l[?25h[?25l[42;58H1[36;41H[?12l[?25h[?25l[42;58H2[36;42H[?12l[?25h[?25l[42;58H3[36;43H[?12l[?25h[?25l[42;58H4[36;44H[?12l[?25h[?25l[42;58H5[36;45H[?12l[?25h[?25l[42;58H6[36;46H[?12l[?25h[?25l[42;58H5[36;45H[?12l[?25h[?25l[42;58H4[36;44H[?12l[?25h[?25l[42;58H5[36;45H[?12l[?25h[?25lF[36;45H[K[42;58H4[36;44H[?12l[?25h[?25lF[36;44H[K[42;58H3[36;43H[?12l[?25h[?25lF[36;43H[K[42;58H2[36;42H[?12l[?25h[?25l2F[42;58H3[36;43H[?12l[?25h[?25l0F[42;58H4[36;44H[?12l[?25h[?25lDF[42;58H5[36;45H[?12l[?25h[?25l[42;55H3,18[35;18H[?12l[?25h[42;1H[K[35;17H[?25l[42;44H^[[35;17H[42;44H  [35;18H[42;54H43,17[9CBot[35;17H[?12l[?25h[?25l[42;44H:[35;17H[42;44H[K[42;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h[?25l[?1006l[?1002l"/etc/lirc/lircd.conf" 49L, 1320C written
+[?1l>[?12l[?25h[?1049l]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo vim /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_START projector_casio KEY_POWER[1PONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@START[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kirsend SEND_START projector_casio KEY_POWERsany[C[C[C[C[C[C[C[C[C[C[C[1PONCE projector_casi[C[C[C[C[C[C[C[C[C[C[CSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[15Psudo /etc/init.d/lircd start[1Popart[1Popart
+[....] Starting lircd (via systemctl): lircd.service[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd start[C[Crstartestart
+[....] Restarting lircd (via systemctl): lircd.service[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd restart[2Pstartvim /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_START projector_casio KEY_POWER[1PONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[12Psudo /etc/init.d/lircd restart[2Pstartrestart[2Pstartvim /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_START projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Psudo vim /etc/lirc/lircd.conf
+[?1000h[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;42r[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[42;1H"/etc/lirc/lircd.conf" 49L, 1320C[>c[27m[23m[m[H[2J[1;1H[96m# using lirc-0.9.4c(default) on Sat Nov 11 12:53:14 2017
+# Command line used: -d /dev/lirc0 /home/pi/lircd.conf
+# Kernel version (uname -r): 4.9.45-v7+
+#
+# Remote name (as of config file): projector_casio
+# Brand of remote device, the thing you hold in your hand:
+# Remote device model nr:
+# Remote device info url:
+# Does remote device has a bundled capture device e. g., a
+#     usb dongle? :
+# For bundled USB devices: usb vendor id, product id
+#     and device string (use dmesg or lsusb):
+# Type of device controlled
+#     (TV, VCR, Audio, DVD, Satellite, Cable, HTPC, ...) :
+# Device(s) controlled by this remote:[m
+
+begin remote
+
+  name  projector_casio
+  bits[11C32
+  flags SPACE_ENC
+  eps[12C30
+  aeps[10C100
+
+  header[7C9073  4483
+  one[11C589  1669
+  zero[10C589   544
+  ptrail[8C598
+  gap[10C40948
+  min_repeat      9
+[96m#  suppress_repeat 9
+#  uncomment to suppress unwanted repeats[m
+  toggle_bit_mask 0xE0E0
+  frequency    38000[36;7Hbegin codes[37;11HKEY_POWER[16C0x212F20DF[38;7Hend codes
+
+end remote[42;54H43,17[9C87%"/etc/lirc/lircd.conf" 49L, 1320C[20C     [9C   [36;17H[?12l[?25h[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?25l[42;44Hi[36;17H[42;44H [36;17H[42;1H[1m-- INSERT --[m[42;13H[K[42;54H43,17[9C87%[36;17H[?12l[?25h[?25l[42;58H8[36;18H[?12l[?25h[?25l[42;55H2,1 [35;1H[?12l[?25h[?25l[42;55H1,18[34;18H[?12l[?25h[?25l[42;55H0[33;18H[?12l[?25h[?25l[42;54H39[32;18H[?12l[?25h[?25l[42;55H8[31;18H[?12l[?25h[?25l[42;55H7[30;18H[?12l[?25h[?25l[42;55H6[29;18H[?12l[?25h[?25l[42;55H5[28;18H[?12l[?25h[?25l[42;55H4[27;18H[?12l[?25h[?25l[42;55H3[26;18H[?12l[?25h[?25l[42;55H2[25;18H[?12l[?25h[?25l[42;55H1,1 [24;1H[?12l[?25h[?25l[42;55H0,18[23;18H[?12l[?25h[?25l[42;54H29[22;18H[?12l[?25h[?25l[42;54H30[23;18H[?12l[?25h[?25l[42;55H1,1 [24;1H[?12l[?25h[?25l[42;55H2,18[25;18H[?12l[?25h[?25l[42;55H3[26;18H[?12l[?25h[?25l[42;55H4[27;18H[?12l[?25h[?25l[42;55H5[28;18H[?12l[?25h[?25l[42;55H6[29;18H[?12l[?25h[?25l[42;55H5[28;18H[?12l[?25h[?25l[42;55H4[27;18H[?12l[?25h[?25l[42;55H3[26;18H[?12l[?25h[?25l[42;55H2[25;18H[?12l[?25h[?25l[42;58H9[25;19H[?12l[?25h[?25l[42;57H20[25;20H[?12l[?25h[?25l  4483[25;25H[K[42;57H19[25;19H[?12l[?25h[?25l  4483[25;24H[K[42;58H8[25;18H[?12l[?25h[?25l6  4483[42;58H9[25;19H[?12l[?25h[?25l1  4483[42;57H20[25;20H[?12l[?25h[?25l[42;58H1[25;21H[?12l[?25h[?25l[42;58H2[25;22H[?12l[?25h[?25l[42;58H3[25;23H[?12l[?25h[?25l[42;58H4[25;24H[?12l[?25h[?25l[42;58H5[25;25H[?12l[?25h[?25l[42;58H6[25;26H[?12l[?25h[?25l[42;58H5[25;25H[?12l[?25h[?25l3[25;25H[K[42;58H4[25;24H[?12l[?25h[?25l53[42;58H5[25;25H[?12l[?25h[?25l[42;55H3[26;25H[?12l[?25h[?25l[42;58H4[26;24H[?12l[?25h[?25l[42;58H3[26;23H[?12l[?25h[?25l[42;58H2[26;22H[?12l[?25h[?25l[42;58H1[26;21H[?12l[?25h[?25l[42;58H0[26;20H[?12l[?25h[?25l  1669[26;25H[K[42;57H19[26;19H[?12l[?25h[?25l  1669[26;24H[K[42;58H8[26;18H[?12l[?25h[?25l9  1669[42;58H9[26;19H[?12l[?25h[?25l1  1669[42;57H20[26;20H[?12l[?25h[?25l[42;58H1[26;21H[?12l[?25h[?25l[42;58H2[26;22H[?12l[?25h[?25l[42;58H3[26;23H[?12l[?25h[?25l[42;58H4[26;24H[?12l[?25h[?25l[42;58H5[26;25H[?12l[?25h[?25l[42;58H6[26;26H[?12l[?25h[?25l[26;25H[K[42;58H5[26;25H[?12l[?25h[?25l[26;24H[K[42;58H4[26;24H[?12l[?25h[?25l5[42;58H5[26;25H[?12l[?25h[?25l8[42;58H6[26;26H[?12l[?25h[?25l[42;55H4[27;26H[?12l[?25h[?25l[42;58H5[27;25H[?12l[?25h[?25l[42;58H4[27;24H[?12l[?25h[?25l[42;58H3[27;23H[?12l[?25h[?25l[42;58H2[27;22H[?12l[?25h[?25l[42;58H1[27;21H[?12l[?25h[?25l[42;58H0[27;20H[?12l[?25h[?25l   54[27;25H[K[42;57H19[27;19H[?12l[?25h[?25l   54[27;24H[K[42;58H8[27;18H[?12l[?25h[?25l   54[27;23H[K[42;58H7[27;17H[?12l[?25h[?25l5   544[42;58H8[27;18H[?12l[?25h[?25l9   544[42;58H9[27;19H[?12l[?25h[?25l1   544[42;57H20[27;20H[?12l[?25h[?25l[42;58H1[27;21H[?12l[?25h[?25l[42;58H2[27;22H[?12l[?25h[?25l[42;58H3[27;23H[?12l[?25h[?25l[42;58H4[27;24H[?12l[?25h[?25l[42;58H5[27;25H[?12l[?25h[?25l[42;58H6[27;26H[?12l[?25h[?25l[27;25H[K[42;58H5[27;25H[?12l[?25h[?25l[27;24H[K[42;58H4[27;24H[?12l[?25h[?25l3[42;58H5[27;25H[?12l[?25h[?25l9[42;58H6[27;26H[?12l[?25h[?25l[42;55H5,20[28;20H[?12l[?25h[?25l[28;19H[K[42;57H19[28;19H[?12l[?25h[?25l7[42;57H20[28;20H[?12l[?25h[?25l[42;55H6[29;20H[?12l[?25h[?25l[42;58H1[29;21H[?12l[?25h[?25l[29;20H[K[42;58H0[29;20H[?12l[?25h[?25l[29;19H[K[42;57H19[29;19H[?12l[?25h[?25l[29;18H[K[42;58H8[29;18H[?12l[?25h[?25l[29;17H[K[42;58H7[29;17H[?12l[?25h[?25l[29;16H[K[42;58H6[29;16H[?12l[?25h[?25l1[42;58H7[29;17H[?12l[?25h[?25l0[42;58H8[29;18H[?12l[?25h[?25l8[42;58H9[29;19H[?12l[?25h[?25l0[42;57H20[29;20H[?12l[?25h[?25l0[42;58H1[29;21H[?12l[?25h[?25l4[42;58H2[29;22H[?12l[?25h[?25l[42;55H7,20[30;20H[?12l[?25h[?25l[42;57H19[30;19H[?12l[?25h[?25l[42;58H8[30;18H[?12l[?25h[?25l[42;58H7[30;17H[?12l[?25h[?25l[42;58H6[30;16H[?12l[?25h[?25l[42;58H5[30;15H[?12l[?25h[?25l[42;58H4[30;14H[?12l[?25h[?25l[42;58H3[30;13H[?12l[?25h[?25l[42;58H2[30;12H[?12l[?25h[?25l[42;58H1[30;11H[?12l[?25h[?25l[42;58H0[30;10H[?12l[?25h[?25l[42;57H9 [30;9H[?12l[?25h[?25l[42;57H8[30;8H[?12l[?25h[?25l[42;57H7[30;7H[?12l[?25h[?25l[42;57H6[30;6H[?12l[?25h[?25l[42;57H5[30;5H[?12l[?25h[?25l[42;57H4[30;4H[?12l[?25h[?25l[42;57H3[30;3H[?12l[?25h[?25l[96m#min_repeat      9[m[42;57H4[30;4H[?12l[?25h[?25l[42;55H8[31;4H[?12l[?25h[?25l[42;55H9[32;4H[?12l[?25h[?25l[42;57H5[32;5H[?12l[?25h[?25l[42;57H6[32;6H[?12l[?25h[?25l[42;57H7[32;7H[?12l[?25h[?25l[42;57H8[32;8H[?12l[?25h[?25l[42;57H9[32;9H[?12l[?25h[?25l[42;57H10[32;10H[?12l[?25h[?25l[42;58H1[32;11H[?12l[?25h[?25l[42;58H2[32;12H[?12l[?25h[?25l[42;58H3[32;13H[?12l[?25h[?25l[42;58H4[32;14H[?12l[?25h[?25l[42;58H5[32;15H[?12l[?25h[?25l[42;58H6[32;16H[?12l[?25h[?25l[42;58H7[32;17H[?12l[?25h[?25l[42;58H8[32;18H[?12l[?25h[?25l[42;58H9[32;19H[?12l[?25h[?25l[42;57H20[32;20H[?12l[?25h[?25l[42;58H1[32;21H[?12l[?25h[?25l[42;58H2[32;22H[?12l[?25h[?25l[42;54H40[33;22H[?12l[?25h[?25l[42;58H3[33;23H[?12l[?25h[?25l[42;58H4[33;24H[?12l[?25h[?25l[42;58H5[33;25H[?12l[?25h[?25l[42;58H4[33;24H[?12l[?25h[?25l0[33;24H[K[42;58H3[33;23H[?12l[?25h[?25l[33;23H[K[42;58H2[33;22H[?12l[?25h[?25l0[33;22H[K[42;58H1[33;21H[?12l[?25h[?25l[42;55H1[34;21H[?12l[?25h[?25l[42;55H2,1 [35;1H[?12l[?25h[?25l[42;55H3,18[36;18H[?12l[?25h[42;1H[K[36;17H[?25l[42;44H^[[36;17H[42;44H  [36;18H[42;54H43,17[9C87%[36;17H[?12l[?25h[?25l[42;44H:[36;17H[42;44H[K[42;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h[?25l[?1006l[?1002l"/etc/lirc/lircd.conf" 49L, 1319C written
+[?1l>[?12l[?25h[?1049l]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo vim /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[12Psudo /etc/init.d/lircd restart
+[....] Restarting lircd (via systemctl): lircd.service[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd restart[1Pvim /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWER
+
+unknown remote: "projector_casio"
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+
+unknown remote: "projector_casio"
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[12Psudo /etc/init.d/lircd restart
+[....] Restarting lircd (via systemctl): lircd.service[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd restart[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWER
+
+unknown remote: "projector_casio"
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER[12Psudo /etc/init.d/lircd restart[C[K[K[K[K[K[K[Kstop
+[....] Stopping lircd (via systemctl): lircd.serviceWarning: Stopping lircd.service, but it can still be activated by:
+  lircd.socket
+[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd stop[K[Kart
+[....] Starting lircd (via systemctl): lircd.service[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd start[K[Ktus
+[0;1;32m●[0m lircd.service - Flexible IR remote input/output application support
+   Loaded: loaded (/lib/systemd/system/lircd.service; enabled; vendor preset: enabled)
+   Active: [0;1;32mactive (running)[0m since Sat 2017-11-11 13:37:20 UTC; 4s ago
+     Docs: man:lircd(8)
+           http://lirc.org/html/configure.html
+ Main PID: 2237 (lircd)
+   CGroup: /system.slice/lircd.service
+           └─2237 /usr/sbin/lircd --nodaemon
+
+Nov 11 13:37:20 raspberrypi lircd[2237]: lircd-0.9.4c[2237]: Error: …ed
+Nov 11 13:37:20 raspberrypi lircd[2237]: lircd-0.9.4c[2237]: Warning…on
+Nov 11 13:37:20 raspberrypi lircd[2237]: lircd-0.9.4c[2237]: Notice:…cd
+Nov 11 13:37:20 raspberrypi lircd-0.9.4c[2237]: [0;1;39mWarning: Running as …ot[0m
+Nov 11 13:37:20 raspberrypi lircd-0.9.4c[2237]: Info: Using remote: …o.
+Nov 11 13:37:20 raspberrypi lircd-0.9.4c[2237]: [0;1;31mError: error in conf…7:[0m
+Nov 11 13:37:20 raspberrypi lircd-0.9.4c[2237]: [0;1;31mError: unknown defin…9"[0m
+Nov 11 13:37:20 raspberrypi lircd-0.9.4c[2237]: [0;1;31mError: reading of fi…ed[0m
+Nov 11 13:37:20 raspberrypi lircd-0.9.4c[2237]: [0;1;39mWarning: config file…on[0m
+Nov 11 13:37:20 raspberrypi lircd-0.9.4c[2237]: [0;1;39mNotice: lircd(defaul…cd[0m
+Hint: Some lines were ellipsized, use -l to show in full.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [K]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [K]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [K]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [K]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd status
+[0;1;32m●[0m lircd.service - Flexible IR remote input/output application support
+   Loaded: loaded (/lib/systemd/system/lircd.service; enabled; vendor preset: enabled)
+   Active: [0;1;32mactive (running)[0m since Sat 2017-11-11 13:37:20 UTC; 18s ago
+     Docs: man:lircd(8)
+           http://lirc.org/html/configure.html
+ Main PID: 2237 (lircd)
+   CGroup: /system.slice/lircd.service
+           └─2237 /usr/sbin/lircd --nodaemon
+
+Nov 11 13:37:20 raspberrypi lircd[2237]: lircd-0.9.4c[2237]: Error: reading of file '/etc/lirc/lircd.conf' failed
+Nov 11 13:37:20 raspberrypi lircd[2237]: lircd-0.9.4c[2237]: Warning: config file /etc/lirc/lircd.conf contains no valid remote cont…definition
+Nov 11 13:37:20 raspberrypi lircd[2237]: lircd-0.9.4c[2237]: Notice: lircd(default) ready, using /var/run/lirc/lircd
+Nov 11 13:37:20 raspberrypi lircd-0.9.4c[2237]: [0;1;39mWarning: Running as root[0m
+Nov 11 13:37:20 raspberrypi lircd-0.9.4c[2237]: Info: Using remote: projector_casio.
+Nov 11 13:37:20 raspberrypi lircd-0.9.4c[2237]: [0;1;31mError: error in configfile line 37:[0m
+Nov 11 13:37:20 raspberrypi lircd-0.9.4c[2237]: [0;1;31mError: unknown definiton or too few arguments: "#min_repeat 9"[0m
+Nov 11 13:37:20 raspberrypi lircd-0.9.4c[2237]: [0;1;31mError: reading of file '/etc/lirc/lircd.conf' failed[0m
+Nov 11 13:37:20 raspberrypi lircd-0.9.4c[2237]: [0;1;39mWarning: config file /etc/lirc/lircd.conf contains no valid remote control definition[0m
+Nov 11 13:37:20 raspberrypi lircd-0.9.4c[2237]: [0;1;39mNotice: lircd(default) ready, using /var/run/lirc/lircd[0m
+Hint: Some lines were ellipsized, use -l to show in full.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd status[1Prt
+[....] Starting lircd (via systemctl): lircd.service[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd starttus[1Prt[1Pop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWER
+
+unknown remote: "projector_casio"
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Psudo /etc/init.d/lircd starttus[1Prt[1Pop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[12Psudo /etc/init.d/lircd restart[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[12Psudo /etc/init.d/lircd restart[1Pvim /etc/lirc/lircd.conf
+[?1000h[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;43r[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[43;1H"/etc/lirc/lircd.conf" 49L, 1319C[>c[27m[23m[m[H[2J[1;1H[96m# This config file was automatically generated
+# using lirc-0.9.4c(default) on Sat Nov 11 12:53:14 2017
+# Command line used: -d /dev/lirc0 /home/pi/lircd.conf
+# Kernel version (uname -r): 4.9.45-v7+
+#
+# Remote name (as of config file): projector_casio
+# Brand of remote device, the thing you hold in your hand:
+# Remote device model nr:
+# Remote device info url:
+# Does remote device has a bundled capture device e. g., a
+#     usb dongle? :
+# For bundled USB devices: usb vendor id, product id
+#     and device string (use dmesg or lsusb):
+# Type of device controlled
+#     (TV, VCR, Audio, DVD, Satellite, Cable, HTPC, ...) :
+# Device(s) controlled by this remote:[m
+
+begin remote
+
+  name  projector_casio
+  bits[11C32
+  flags SPACE_ENC
+  eps[12C30
+  aeps[10C100
+
+  header[7C9061  4453
+  one[11C591  1658
+  zero[10C591   539
+  ptrail[8C597
+  gap[10C108004
+  [96m#min_repeat      9
+#  suppress_repeat 9
+#  uncomment to suppress unwanted repeats[m
+  toggle_bit_mask 0x0
+  frequency    38000[37;7Hbegin codes[38;11HKEY_POWER[16C0x212F20DF[39;7Hend codes
+
+end remote[43;126H43,17[9C85%"/etc/lirc/lircd.conf" 49L, 1319C[92C     [9C   [37;17H[?12l[?25h[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?25l[43;116H~@k[37;17H[43;116H   [37;17H[1;42r[42;1H
+[1;43r[43;1H[K[43;126H44,17[9CBot[37;17H[?12l[?25h[?25l[43;116H~@k[37;17H[43;116H   [38;15H[43;127H5,15[38;15H[?12l[?25h[?25l[43;116H~@k[38;15H[43;116H   [39;1H[43;127H6,0-1[39;1H[?12l[?25h[?25l[43;116H~@k[39;1H[43;116H   [40;10H[43;127H7,10 [40;10H[?12l[?25h[?25l[43;116H~@k[40;10H[43;116H   [41;1H[43;127H8,0-1[41;1H[?12l[?25h[?25l[43;116H~@k[41;1H[43;116H   [42;1H[43;127H9[42;1H[?12l[?25h[?25l[43;116H~@k[42;1H[43;116H   [42;1H[?12l[?25h[?25l[43;116H~@k[42;1H[43;116H   [42;1H[?12l[?25h[?25l[43;116H~@k[42;1H[43;116H   [42;1H[?12l[?25h[?25l[43;116H~@k[42;1H[43;116H   [41;1H[43;127H8[41;1H[?12l[?25h[?25l[43;116H~@k[41;1H[43;116H   [40;10H[43;127H7,10 [40;10H[?12l[?25h[?25l[43;116H~@k[40;10H[43;116H   [39;1H[43;127H6,0-1[39;1H[?12l[?25h[?25l[43;116H~@k[39;1H[43;116H   [38;15H[43;127H5,15 [38;15H[?12l[?25h[?25l[43;116H~@k[38;15H[43;116H   [37;17H[43;127H4,17[37;17H[?12l[?25h[?25l[43;116H~@k[37;17H[43;116H   [36;17H[43;127H3[36;17H[?12l[?25h[?25l[43;116H~@k[36;17H[43;116H   [35;1H[43;127H2,0-1[35;1H[?12l[?25h[?25l[43;116H~@k[35;1H[43;116H   [34;17H[43;127H1,17 [34;17H[?12l[?25h[?25l[43;116H~@k[34;17H[43;116H   [33;17H[43;127H0[33;17H[?12l[?25h[?25l[43;116H~@k[33;17H[43;116H   [32;17H[43;126H39[32;17H[?12l[?25h[?25l[43;116H~@k[32;17H[43;116H   [31;17H[43;127H8[31;17H[?12l[?25h[?25l[43;116H:[31;17H[43;116H[K[43;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h[?25l[?1006l[?1002l"/etc/lirc/lircd.conf" 49L, 1319C written
+[?1l>[?12l[?25h[?1049l]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo vim /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Psudo /etc/init.d/lircd starttus[1Prt
+[....] Starting lircd (via systemctl): lircd.service[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd startvim /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWER
+
+unknown remote: "projector_casio"
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cp proh[Kjector_casio.lircd.conf projector_casio.lircd.conf [1@o[1@l[1@d[1@_
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cp projector_casio.lircd.conf projector_casio_old.lircd.conf [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[19Pirsend SEND_ONCE projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Psudo /etc/init.d/lircd startvim /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[13Psudo vim /etc/lirc/lircd.conf[1P/etc/init.d/lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccp projector_casio.lircd.conf projector_casio_old.lircd.conf [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kvim projector_casio.lircd.conf 
+[?1000h[?1049h[?1h=[2;1H▽[6n[2;1H  [1;1H]11;?[1;43r[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[43;1H"projector_casio.lircd.conf" 49L, 1320C[>c[27m[23m[m[H[2J[2;1H[96m# Please take the time to finish this file as described in
+# https://sourceforge.net/p/lirc-remotes/wiki/Checklist/
+# and make it available to others by sending it to
+# <lirc@bartelmus.de>
+#
+# This config file was automatically generated
+# using lirc-0.9.4c(default) on Sat Nov 11 12:53:14 2017
+# Command line used: -d /dev/lirc0 /home/pi/lircd.conf
+# Kernel version (uname -r): 4.9.45-v7+
+#
+# Remote name (as of config file): projector_casio
+# Brand of remote device, the thing you hold in your hand:
+# Remote device model nr:
+# Remote device info url:
+# Does remote device has a bundled capture device e. g., a
+#     usb dongle? :
+# For bundled USB devices: usb vendor id, product id
+#     and device string (use dmesg or lsusb):
+# Type of device controlled
+#     (TV, VCR, Audio, DVD, Satellite, Cable, HTPC, ...) :
+# Device(s) controlled by this remote:[m
+
+begin remote
+
+  name  projector_casio
+  bits[11C32
+  flags SPACE_ENC
+  eps[12C30
+  aeps[10C100
+
+  header[7C9073  4483
+  one[11C589  1669
+  zero[10C589   544
+  ptrail[8C598
+  gap[10C40948
+  min_repeat      9
+[96m#  suppress_repeat 9
+#  uncomment to suppress unwanted repeats[m
+  toggle_bit_mask 0xE0E0
+  frequency    38000[43;126H1,0-1[9CTop"projector_casio.lircd.conf" 49L, 1320C[86C     [9C   [1;1H[?12l[?25h[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?25l[43;116Hi[1;1H[43;116H [1;1H[43;1H[1m-- INSERT --[m[43;13H[K[43;126H1,1[11CTop[1;1H[?12l[?25h[?25l[43;126H2[2;1H[?12l[?25h[?25l[43;126H3[3;1H[?12l[?25h[?25l[43;126H4[4;1H[?12l[?25h[?25l[43;126H5[5;1H[?12l[?25h[?25l[43;126H6[6;1H[?12l[?25h[?25l[43;126H7[7;1H[?12l[?25h[?25l[43;126H8[8;1H[?12l[?25h[?25l[43;126H9[9;1H[?12l[?25h[?25l[43;126H10,1[10;1H[?12l[?25h[?25l[43;127H1[11;1H[?12l[?25h[?25l[43;127H2[12;1H[?12l[?25h[?25l[43;127H3[13;1H[?12l[?25h[?25l[43;127H4[14;1H[?12l[?25h[?25l[43;127H5[15;1H[?12l[?25h[?25l[43;127H6[16;1H[?12l[?25h[?25l[43;127H7[17;1H[?12l[?25h[?25l[43;127H8[18;1H[?12l[?25h[?25l[43;127H9[19;1H[?12l[?25h[?25l[43;126H20[20;1H[?12l[?25h[?25l[43;127H1[21;1H[?12l[?25h[?25l[43;127H2[22;1H[?12l[?25h[?25l[43;127H3[23;1H[?12l[?25h[?25l[43;127H4[24;1H[?12l[?25h[?25l[43;127H5[25;1H[?12l[?25h[?25l[43;127H6[26;1H[?12l[?25h[?25l[43;127H7[27;1H[?12l[?25h[?25l[43;127H8[28;1H[?12l[?25h[?25l[43;127H9[29;1H[?12l[?25h[?25l[43;126H30[30;1H[?12l[?25h[?25l[43;127H1[31;1H[?12l[?25h[?25l[43;127H2[32;1H[?12l[?25h[?25l[43;127H3[33;1H[?12l[?25h[?25l[43;127H4[34;1H[?12l[?25h[?25l[43;127H3[33;1H[?12l[?25h[?25l[43;127H2[32;1H[?12l[?25h[?25l[43;129H2[32;2H[?12l[?25h[?25l[43;129H3[32;3H[?12l[?25h[?25l[43;129H4[32;4H[?12l[?25h[?25l[43;129H5[32;5H[?12l[?25h[?25l[43;129H6[32;6H[?12l[?25h[?25l[43;129H7[32;7H[?12l[?25h[?25l[43;129H8[32;8H[?12l[?25h[?25l[43;129H9[32;9H[?12l[?25h[?25l[43;129H10[32;10H[?12l[?25h[?25l[43;130H1[32;11H[?12l[?25h[?25l[43;130H2[32;12H[?12l[?25h[?25l[43;130H3[32;13H[?12l[?25h[?25l[43;130H4[32;14H[?12l[?25h[?25l[43;130H5[32;15H[?12l[?25h[?25l[43;130H6[32;16H[?12l[?25h[?25l[43;130H7[32;17H[?12l[?25h[?25l[43;130H8[32;18H[?12l[?25h[?25l[43;127H3[33;18H[?12l[?25h[?25l[43;127H4[34;18H[?12l[?25h[?25l[43;127H5[35;18H[?12l[?25h[?25l[43;127H6[36;18H[?12l[?25h[?25l[43;127H7[37;18H[?12l[?25h[?25l[1;42r[42;1H
+[1;43r[42;7Hbegin codes[43;126H[K[43;126H38,18[9C14%[37;18H[?12l[?25h[?25l[1;42r[42;1H
+[1;43r[42;11HKEY_POWER[16C0x212FD02F[43;126H[K[43;126H39,18[9C28%[37;18H[?12l[?25h[?25l[1;42r[42;1H
+[1;43r[42;7Hend codes[43;126H[K[43;126H40,18[9C42%[37;18H[?12l[?25h[?25l[1;42r[42;1H
+[1;43r[43;126H[K[43;126H41,18[9C57%[37;18H[?12l[?25h[?25l[1;42r[42;1H
+[1;43r[42;1Hend remote[43;126H[K[43;126H42,1[10C71%[37;1H[?12l[?25h[?25l[1;42r[42;1H
+[1;43r[43;126H[K[43;126H43,18[9C85%[37;18H[?12l[?25h[?25l[1;42r[42;1H
+[1;43r[43;126H[K[43;126H44,18[9CBot[37;18H[?12l[?25h[?25l[43;127H5,16[38;16H[?12l[?25h[?25l[43;127H4,18[37;18H[?12l[?25h[?25l[43;127H3[36;18H[?12l[?25h[?25l[43;127H2,1 [35;1H[?12l[?25h[?25l[43;127H1,18[34;18H[?12l[?25h[?25l[43;127H0[33;18H[?12l[?25h[?25l[43;130H9[33;19H[?12l[?25h[?25l[43;129H20[33;20H[?12l[?25h[?25l[43;130H1[33;21H[?12l[?25h[?25l[43;130H2[33;22H[?12l[?25h[?25l[43;130H3[33;23H[?12l[?25h[?25l[43;130H4[33;24H[?12l[?25h[?25l[43;130H5[33;25H[?12l[?25h[?25l[43;130H4[33;24H[?12l[?25h[?25l0[33;24H[K[43;130H3[33;23H[?12l[?25h[?25l[33;23H[K[43;130H2[33;22H[?12l[?25h[?25l0[33;22H[K[43;130H1[33;21H[?12l[?25h[?25l[43;127H1[34;21H[?12l[?25h[?25l[43;127H2,1 [35;1H[?12l[?25h[?25l[43;127H3,18[36;18H[?12l[?25h[?25l[43;127H4,21[37;21H[?12l[?25h[?25l[43;130H2[37;22H[?12l[?25h[?25l[43;130H3[37;23H[?12l[?25h[?25l[43;130H4[37;24H[?12l[?25h[?25l[43;130H5[37;25H[?12l[?25h[?25l[43;130H6[37;26H[?12l[?25h[?25l[43;130H7[37;27H[?12l[?25h[?25l[43;130H8[37;28H[?12l[?25h[?25l[43;130H9[37;29H[?12l[?25h[?25l[43;129H30[37;30H[?12l[?25h[?25l[43;130H1[37;31H[?12l[?25h[?25l[43;130H2[37;32H[?12l[?25h[?25l[43;130H3[37;33H[?12l[?25h[?25l[43;130H4[37;34H[?12l[?25h[?25l[43;130H5[37;35H[?12l[?25h[?25l[43;130H6[37;36H[?12l[?25h[?25l[43;130H7[37;37H[?12l[?25h[?25l[43;130H8[37;38H[?12l[?25h[?25l[43;130H9[37;39H[?12l[?25h[?25l[43;129H40[37;40H[?12l[?25h[?25l[43;130H1[37;41H[?12l[?25h[?25l[43;130H2[37;42H[?12l[?25h[?25l[43;130H3[37;43H[?12l[?25h[?25l[43;130H4[37;44H[?12l[?25h[?25l[43;130H5[37;45H[?12l[?25h[?25lF[37;45H[K[43;130H4[37;44H[?12l[?25h[?25lzF[43;130H5[37;45H[?12l[?25h[?25lDF[43;130H6[37;46H[?12l[?25h[?25l[43;130H5[37;45H[?12l[?25h[?25lDF[37;46H[K[43;130H4[37;44H[?12l[?25h[?25l[43;130H3[37;43H[?12l[?25h[?25l20DF[43;130H4[37;44H[?12l[?25h[?25l[43;130H3[37;43H[?12l[?25h[?25l20DF[37;46H[K[43;130H2[37;42H[?12l[?25h[?25l[43;127H3,18[36;18H[?12l[?25h[?25l[43;127H2,1 [35;1H[?12l[?25h[?25l[43;127H1,21[34;21H[?12l[?25h[?25l[43;127H0,22[33;22H[?12l[?25h[?25l[43;126H39,4[32;42H[?12l[?25h[?25l[43;127H8,21[31;21H[?12l[?25h[?25l[43;127H7,20[30;20H[?12l[?25h[?25l[43;127H6,21[29;21H[?12l[?25h[?25l[43;130H0[29;20H[?12l[?25h[?25l[43;129H19[29;19H[?12l[?25h[?25l[43;130H8[29;18H[?12l[?25h[?25l[43;130H7[29;17H[?12l[?25h[?25l[43;130H6[29;16H[?12l[?25h[?25l140948[43;130H7[29;17H[?12l[?25h[?25l040948[43;130H8[29;18H[?12l[?25h[?25l840948[43;130H9[29;19H[?12l[?25h[?25l040948[43;129H20[29;20H[?12l[?25h[?25l040948[43;130H1[29;21H[?12l[?25h[?25l[43;130H2[29;22H[?12l[?25h[?25l948[29;25H[K[29;22H[?12l[?25h[?25l48[29;24H[K[29;22H[?12l[?25h[?25l8[29;23H[K[29;22H[?12l[?25h[?25l[29;22H[K[29;22H[?12l[?25h[?25l[43;130H1[29;21H[?12l[?25h[?25l[43;130H2[29;22H[?12l[?25h[?25l[43;127H5,20[28;20H[?12l[?25h[?25l[28;19H[K[43;129H19[28;19H[?12l[?25h[?25l7[43;129H20[28;20H[?12l[?25h[?25l[43;127H4[27;20H[?12l[?25h[?25l   54[27;25H[K[43;129H19[27;19H[?12l[?25h[?25l   54[27;24H[K[43;130H8[27;18H[?12l[?25h[?25l9   544[43;130H9[27;19H[?12l[?25h[?25l1   544[43;129H20[27;20H[?12l[?25h[?25l[43;130H1[27;21H[?12l[?25h[?25l[43;130H2[27;22H[?12l[?25h[?25l[43;130H3[27;23H[?12l[?25h[?25l[43;130H4[27;24H[?12l[?25h[?25l[43;130H5[27;25H[?12l[?25h[?25l[43;130H6[27;26H[?12l[?25h[?25l[27;25H[K[43;130H5[27;25H[?12l[?25h[?25l[27;24H[K[43;130H4[27;24H[?12l[?25h[?25l3[43;130H5[27;25H[?12l[?25h[?25l9[43;130H6[27;26H[?12l[?25h[?25l[43;127H3[26;26H[?12l[?25h[?25l[26;25H[K[43;130H5[26;25H[?12l[?25h[?25l[26;24H[K[43;130H4[26;24H[?12l[?25h[?25l5[43;130H5[26;25H[?12l[?25h[?25l8[43;130H6[26;26H[?12l[?25h[?25l[43;130H5[26;25H[?12l[?25h[?25l[43;130H4[26;24H[?12l[?25h[?25l[43;130H3[26;23H[?12l[?25h[?25l[43;130H2[26;22H[?12l[?25h[?25l[43;130H1[26;21H[?12l[?25h[?25l[43;130H0[26;20H[?12l[?25h[?25l  1658[26;25H[K[43;129H19[26;19H[?12l[?25h[?25l  1658[26;24H[K[43;130H8[26;18H[?12l[?25h[?25l9  1658[43;130H9[26;19H[?12l[?25h[?25l1  1658[43;129H20[26;20H[?12l[?25h[?25l[43;127H2[25;20H[?12l[?25h[?25l  4483[25;25H[K[43;129H19[25;19H[?12l[?25h[?25l  4483[25;24H[K[43;130H8[25;18H[?12l[?25h[?25l6  4483[43;130H9[25;19H[?12l[?25h[?25l1  4483[43;129H20[25;20H[?12l[?25h[?25l[43;130H1[25;21H[?12l[?25h[?25l[43;130H2[25;22H[?12l[?25h[?25l[43;130H3[25;23H[?12l[?25h[?25l[43;130H4[25;24H[?12l[?25h[?25l[43;130H5[25;25H[?12l[?25h[?25l3[25;25H[K[43;130H4[25;24H[?12l[?25h[?25l53[43;130H5[25;25H[?12l[?25h[43;1H[K[25;24H[?25l[43;116H^[[25;24H[43;116H  [25;25H[43;126H32,24[9CBot[25;24H[?12l[?25h[?25l[43;116H:[25;24H[43;116H[K[43;1H:[?12l[?25h [?25l[25;24H[43;126H32,24[9CBot[25;24H[?12l[?25h[?25l[43;116Hi[25;24H[43;116H [25;24H[43;1H[1m-- INSERT --[m[43;126H[K[43;126H32,24[9CBot[25;24H[?12l[?25h[?25l[43;127H1,1 [24;1H[?12l[?25h[?25l[43;127H0,20[23;20H[?12l[?25h[?25l[43;126H29[22;20H[?12l[?25h[?25l[43;127H8,18[21;18H[?12l[?25h[?25l|[43;130H9[21;19H[?12l[?25h[?25lC[43;129H20[21;20H[?12l[?25h[?25lO[43;130H1[21;21H[?12l[?25h[?25lN[43;130H2[21;22H[?12l[?25h[?25lS[43;130H3[21;23H[?12l[?25h[?25lT[43;130H4[21;24H[?12l[?25h[?25l_[43;130H5[21;25H[?12l[?25h[?25lL[43;130H6[21;26H[?12l[?25h[?25lE[43;130H7[21;27H[?12l[?25h[?25lN[43;130H8[21;28H[?12l[?25h[?25lG[43;130H9[21;29H[?12l[?25h[?25lT[43;129H30[21;30H[?12l[?25h[?25lH[43;130H1[21;31H[?12l[?25h[43;1H[K[21;30H[?25l[43;116H^[[21;30H[43;116H  [21;31H[43;126H28,30[9CBot[21;30H[?12l[?25h[?25l[43;116H:[21;30H[43;116H[K[43;1H:[?12l[?25hw[?25l[?12l[?25hq[?25l[?12l[?25h[?25l[?1006l[?1002l"projector_casio.lircd.conf" 49L, 1331C written
+[?1l>[?12l[?25h[?1049l]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [3@(reverse-i-search)`':[C[32@s': vim projector_casio.lircd.conf[2Pu': sudo /etc/init.d/lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@d[C[C[C[1@o[C[C[C[1@ [C[C[Cc': sudo cp ~/projector_.lircd.conf /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@p[C[C[C[10P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@c[1@a[1@s[1@i[1@o
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo cp ~/projector_casio.lircd.conf /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[26Pvim projector_casio.lircd.conf [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[30@cp projector_casio.lircd.conf projector_casio_old[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[19Pirsend SEND_ONCE projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Psudo /etc/init.d/lircd startvim /etc/lirc/lircd.conf[1P/etc/init.d/lircd start[K[K[Kop
+[....] Stopping lircd (via systemctl): lircd.serviceWarning: Stopping lircd.service, but it can still be activated by:
+  lircd.socket
+[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd stopcp ~/projector_casio.lircd.conf /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[26Pvim projector_casio.lircd.conf [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[30@cp projector_casio.lircd.conf projector_casio_old[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[19Pirsend SEND_ONCE projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Psudo /etc/init.d/lircd start
+[....] Starting lircd (via systemctl): lircd.service[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd start[1Popcp ~/projector_casio.lircd.conf /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[26Pvim projector_casio.lircd.conf [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[30@cp projector_casio.lircd.conf projector_casio_old[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[19Pirsend SEND_ONCE projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Psudo /etc/init.d/lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Psudo /etc/init.d/lircd start
+[....] Starting lircd (via systemctl): lircd.service[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER[1P[1P[1P[1P[1P[1@_[1@S[1@T[1@A[1@R[1@T
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_casio KEY_POWER[1PONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Psudo /etc/init.d/lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Psudo /etc/init.d/lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Psudo /etc/init.d/lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWER[1@START[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kirsend SEND_START projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_casio KEY_POWER
+
+already repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_casio KEY_POWER[1PONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Psudo /etc/init.d/lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWER[1@START[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[KA[Kirsend SEND_START projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_casio KEY_POWER[C[1P[1P[1P[1@O[1@P
+
+not repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_STOP projector_casio KEY_POWER[1P[1P[1P[1P[1@O[1@N[1@C[1@E
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m ir[K[Kirsend SEND_ONCE projector_casio KEY_POWERSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1PONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Psudo /etc/init.d/lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Psudo /etc/init.d/lircd start
+[....] Starting lircd (via systemctl): lircd.service[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irw
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irwsudo /etc/init.d/lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWERSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1PONCE[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[14Psudo /etc/init.d/lircd start[K[K[Kop
+[....] Stopping lircd (via systemctl): lircd.serviceWarning: Stopping lircd.service, but it can still be activated by:
+  lircd.socket
+[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirw[Ksudo /etc/init.d/lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWERSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@ART[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[16Psudo /etc/init.d/lircd stop
+[....] Stopping lircd (via systemctl): lircd.serviceWarning: Stopping lircd.service, but it can still be activated by:
+  lircd.socket
+[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_START projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[16Psudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirw[Ksudo /etc/init.d/lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirw[K
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irwsudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_START projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[16Psudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirw[Ksudo /etc/init.d/lircd start
+[....] Starting lircd (via systemctl): lircd.service[?25l7[1G[[32m ok [39;49m8[?12l[?25h.
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo /etc/init.d/lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirw[Ksudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_START projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irw
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irwsend SEND_START projector_casio KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m ^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kirw
+^C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [H[2J]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cat /etc/lirc/lircd.conf
+cat: /etc/lirc/lircd.conf: Permission denied
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cat /etc/lirc/lircd.conf[1@s[1@u[1@d[1@o[1@ 
+
+# Please take the time to finish this file as described in
+# https://sourceforge.net/p/lirc-remotes/wiki/Checklist/
+# and make it available to others by sending it to
+# <lirc@bartelmus.de>
+#
+# This config file was automatically generated
+# using lirc-0.9.4c(default) on Sat Nov 11 12:53:14 2017
+# Command line used: -d /dev/lirc0 /home/pi/lircd.conf
+# Kernel version (uname -r): 4.9.45-v7+
+#
+# Remote name (as of config file): projector_casio
+# Brand of remote device, the thing you hold in your hand:
+# Remote device model nr:
+# Remote device info url:
+# Does remote device has a bundled capture device e. g., a
+#     usb dongle? :
+# For bundled USB devices: usb vendor id, product id
+#     and device string (use dmesg or lsusb):
+# Type of device controlled
+#     (TV, VCR, Audio, DVD, Satellite, Cable, HTPC, ...) :
+# Device(s) controlled by this remote:
+
+begin remote
+
+  name  projector_casio
+  bits           32
+  flags SPACE_ENC|CONST_LENGTH
+  eps            30
+  aeps          100
+
+  header       9061  4453
+  one           591  1658
+  zero          591   539
+  ptrail        597
+  gap          108004
+  min_repeat      9
+#  suppress_repeat 9
+#  uncomment to suppress unwanted repeats
+  toggle_bit_mask 0x0
+  frequency    38000
+
+      begin codes
+          KEY_POWER                0x212F20DF
+      end codes
+
+end remote
+
+
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m history
+  558  geany bhalu.c 
+  559  vim bhalu.c 
+  560  make -f Makefile0 bhalu.ko
+  561  vim bhalu.c 
+  562  make -f Makefile0 bhalu.ko
+  563  vim bhalu.c 
+  564  make -f Makefile0
+  565  vim bhalu.c 
+  566  make -f Makefile0 clean
+  567  make -f Makefile0 bhalu.ko
+  568  vim bhalu.c 
+  569  make -f Makefile0
+  570  sudo shutdown now
+  571  tail -n1 -f /var/log/syslog 
+  572  exit
+  573  sudo insmod ./bhalu.ko
+  574  ls /sys/bus/platform/devices/
+  575  ls /sys/bus/platform/drivers/
+  576  sudo rmmod ./bhalu.ko
+  577  ls /sys/bus/platform/devices/
+  578  ls /sys/bus/platform/drivers/
+  579  sudo insmod ./bhalu.ko
+  580  ls /sys/bus/platform/devices/
+  581  sudo -s
+  582  exit
+  583  ls
+  584  cd demo1/
+  585  ls
+  586  sudo insmod ./bhalu.ko
+  587  sudo rmmod ./bhalu.ko
+  588  tmux
+  589  sudo -s
+  590  cd
+  591  sudo shutdown now
+  592  sudo apt-get install lirc
+  593  lirc_dev
+  594  lsmod | grep lirc_dev
+  595  lsmod | grep lirc*
+  596  lsmod
+  597  modinfo uinputput
+  598  modinfo ui
+  599  modinfo uinput
+  600  cd /sys/module/uinput/
+  601  ls
+  602  cd /etc/
+  603  ls
+  604  cat modules
+  605  cat modules-load.d/modules.conf 
+  606  cd modules-load.d/
+  607  ls
+  608  cd
+  609  ls
+  610  lsmod 
+  611  lircd
+  612  sudo lircd
+  613  sudo lircd-uinput 
+  614  cd /dev/input/
+  615  ls
+  616  sudo vim /etc/modules
+  617  sudo vim /etc/lirc/hardware.conf
+  618  cd /etc/lirc/
+  619  ls
+  620  sudo vim hardware.conf
+  621  sudo reboot
+  622  sudo apt-get install lirc
+  623  lsmod
+  624  lsmod | grep lirc
+  625  cd /sys
+  626  ls
+  627  cd module/
+  628  ls
+  629  cd rc_core/
+  630  ls
+  631  cat uevent 
+  632  sudo cat uevent 
+  633  ls -l uevent 
+  634  sudo -s
+  635  cat refcnt 
+  636  cd ..
+  637  cd lirc_dev/
+  638  ls
+  639  cat refcnt 
+  640  lsmod | grep lirc
+  641  cd ..
+  642  cd ../
+  643  ls
+  644  cd class/rc
+  645  ls
+  646  cd ..
+  647  cd lirc/
+  648  ls
+  649  cd ../..
+  650  exit
+  651  sudo apt-get remove lirc
+  652  script -a assignment.log
+  653  ls
+  654  sudo vim /etc/lirc/hardware.conf
+  655  sudo vim /etc/modules
+  656  sudo apt-get reinstall lirc
+  657  sudo apt-get remove lir
+  658  sudo apt-get clean
+  659  sudo vim /etc/lirc/hardware.conf
+  660  sudo apt-get autoclean
+  661  sudo vim /etc/lirc/hardware.conf
+  662  sudo rm -rf /etc/lirc/hardware.conf
+  663  sudo apt-get install lirc
+  664  sudo apt-get remove lirc
+  665  cd /sys/
+  666  cd module/
+  667  ls
+  668  cd lirc_dev/
+  669  sudo reboot
+  670  lsmod
+  671  cd linux/
+  672  ls
+  673  grep -r lirc_driver.h
+  674  cd drivers/
+  675  cd ..
+  676  cd include/
+  677  cd ..
+  678  ls
+  679  cd ..
+  680  cd /media/
+  681  ls
+  682  cd
+  683  uname -r
+  684  cd linux/
+  685  cd include/
+  686  cd media/
+  687  ls
+  688  vim lirc.h
+  689  vim lirc_dev.h 
+  690  vim lirc.h
+  691  cd ..
+  692  cd uapi/
+  693  ls
+  694  cd linux/
+  695  vim lirc.h 
+  696  lsmod
+  697  exit
+  698  cd /sys/
+  699  cd
+  700  rm assignment.log 
+  701  ls
+  702  script -a assignment.log
+  703  sudo halt
+  704  cd linux/
+  705  cd drivers/media/
+  706  cd rc/
+  707  vim lirc_dev.c
+  708  modinfo lirc_c_dev.ko
+  709  modinfo lirc_dev.ko
+  710  vim lirc_dev.c
+  711  cd ../../../../
+  712  cd linux/
+  713  cd kernel/
+  714  ls
+  715  cd rcu/
+  716  ls
+  717  cd ..
+  718  ls
+  719  cd drivers/
+  720  cd ..
+  721  cd include/
+  722  ls
+  723  cd linux/
+  724  cd gpio/
+  725  ls
+  726  cd ..
+  727  ls
+  728  cd
+  729  cd linux/
+  730  ls
+  731  cd /etc/modules-load.d/
+  732  ls
+  733  cd ..
+  734  cd modprobe.d/
+  735  ls
+  736  cd ..
+  737  ls
+  738  cd /lib/modules
+  739  ls
+  740  cd 4.9.45-v7+/
+  741  ls
+  742  cd kernel/
+  743  ls
+  744  cd ..
+  745  cd build
+  746  ls
+  747  cd ..
+  748  cd source
+  749  ls
+  750  cd ..
+  751  ls
+  752  cat modules.order 
+  753  cat modules.order | grep lirc
+  754  ls
+  755  cd kernel/ls
+  756  ls
+  757  cd kernel/drivers/staging/media/lirc/
+  758  ls
+  759  cd -
+  760  cat modules.builtin | grep lirc
+  761  cat modules.symbols | grep lirc
+  762  exit
+  763  cd lirc
+  764  cd linux/
+  765  ls
+  766  cd drivers/
+  767  ls
+  768  cd media/
+  769  ls
+  770  cd rc/
+  771  ls
+  772  vim lirc_dev.c 
+  773  ls
+  774  cd ..
+  775  cd
+  776  cd linux/
+  777  grep -r linux_rpi.c
+  778  cd drivers/
+  779  ls
+  780  cd spi/
+  781  ls
+  782  cd ..
+  783  ls
+  784  cat modules.builtin 
+  785  cat modules.builtin | grep lirc_rpi
+  786  cat modules.builtin | grep lir
+  787  ls
+  788  cd drivers/
+  789  ls
+  790  cd media/
+  791  ls
+  792  cd spi/
+  793  ls
+  794  cd ..
+  795  ls
+  796  cd rc/
+  797  ls
+  798  vim lirc_dev.c
+  799  cd
+  800  script -a assignment.log
+  801  cp assignment.log Device_Drivers/
+  802  cd Device_Drivers/
+  803  cat assignment.log 
+  804  cd -
+  805  cd /lib/modules/4.9.45-v7+/
+  806  ls
+  807  cd source
+  808  ls
+  809  cd ..
+  810  ls
+  811  cd build
+  812  ls
+  813  cd ..
+  814  cd kernel/
+  815  ls
+  816  grep -r lirc_serial.c
+  817  modinfo lirc_serial
+  818  ls
+  819  exit
+  820  git
+  821  git pull https://github.com/SvrAdityaReddy/Device_Drivers.git
+  822  git clone https://github.com/SvrAdityaReddy/Device_Drivers.git
+  823  cd Device_Drivers/
+  824  ls
+  825  vim README.md 
+  826  git add .
+  827  git push
+  828  git commit -m "Updated Readme and added log file which involved looking at various other modules based on lirc and base driver file lirc_dev.c"
+  829  git config --global user.name "SvrAdityaReddy"
+  830  git commit -m "Updated Readme and added log file which involved looking at various other modules based on lirc and base driver file lirc_dev.c"
+  831  git push
+  832  cd lirc_rpi/
+  833  make 
+  834  vim lirc_rpi.c
+  835  make clean
+  836  make lirc_rpi.ko
+  837  modinfo lirc_rpi.ko
+  838  sudo insmod lirc_rpi.ko
+  839  dmesg | tail -f1
+  840  dmesg | tail -f
+  841  dmesg | tail
+  842  sudo rmmod lirc_rpi
+  843  dmesg | tail
+  844  cd ..
+  845  vim README.md 
+  846  cd lirc_rpi/
+  847  sudo insmod lirc_rpi.ko
+  848  ls /sys/module/lirc_rpi/
+  849  sudo rmmod lirc_rpi
+  850  vim lirc_rpi.c
+  851  make clean
+  852  make
+  853  make lirc_rpi.ko
+  854  make clean
+  855  make lirc_rpi.ko
+  856  ls
+  857  sudo insmod lirc_rpi.ko
+  858  ls /sys/module/lirc_rpi/
+  859  cd /sys/module/lirc_rpi/
+  860  ls
+  861  cd parameters/
+  862  ls
+  863  cat gpio_
+  864  cat gpio_in 
+  865  cat gpio_out 
+  866  echo 8 > gpio_in 
+  867  cd-
+  868  cd - 
+  869  cd /home/pi/Device_Drivers/
+  870  exit
+  871  cd lirc_rpi/
+  872  modinfo lirc_rpi.ko
+  873  dmesg
+  874  sudo rmmod lirc_rpi.ko
+  875  dmesg | tail
+  876  exit
+  877  ls
+  878  cd demo1/
+  879  ls
+  880  make clean
+  881  vim Makefile0 
+  882  make clean
+  883  vim bhalu.c 
+  884  vim sachin.c 
+  885  vim deepa.c
+  886  vim Kbuild 
+  887  vim Makefile0 
+  888  cp Makefile0 ../Device_Drivers/lirc_rpi/Makefile 
+  889  vim deepa.c
+  890  vim bhalu.c
+  891  cd 
+  892  cd linux/drivers/media/rc/
+  893  ls
+  894  modinfo lirc_dev.ko
+  895  vim lirc_dev.c
+  896  ls
+  897  modprobe lirc_dev
+  898  sudo modprobe lirc_dev
+  899  dmesg
+  900  ls /sys/module/lirc_dev/
+  901  cd /sys/module/lirc_dev/
+  902  ls
+  903  cd parameters/
+  904  ls
+  905  cd ..
+  906  cat uevent 
+  907  sudo cat uevent 
+  908  cd /sys/class/lirc/
+  909  ls
+  910  cd ../rc
+  911  ls
+  912  cd
+  913  sudo modprobe lirc_dev
+  914  dmesg
+  915  sudo rmmod lirc_dev
+  916  dmesg
+  917  sudo rmmod lirc_rpi 
+  918  dmesg
+  919  vim linux/drivers/media/rc/lirc_dev.c
+  920  cd Device_Drivers/
+  921  ls
+  922  vim lirc_rpi.c
+  923  ls
+  924  mkdir lirc_rpi
+  925  mv lirc_rpi.c lirc_rpi/
+  926  ls
+  927  cd lirc_rpi/
+  928  vim Kbuild
+  929  vim Makefile
+  930  make
+  931  vim lirc_rpi.c
+  932  make
+  933  vim lirc_rpi.c
+  934  make
+  935  vim lirc_rpi.c
+  936  make lirc_rpi.ko
+  937  vim lirc_rpi.c
+  938  make lirc_rpi.ko
+  939  vim lirc_rpi.c
+  940  make lirc_rpi.ko
+  941  modinfo lirc_rpi.ko
+  942  vim lirc_rpi.c
+  943  cd ..
+  944  ls
+  945  script -a assignment.log
+  946  git add .
+  947  git commit -m "Added basic lirc_rpi module file with Kbuild file and makefile"
+  948  git push
+  949  ls
+  950  cd lirc_rpi/
+  951  make clean 
+  952  ls
+  953  cd ..
+  954  git add .
+  955  git commit -m "Added basic lirc_rpi module file with Kbuild file and makefile"
+  956  git push
+  957  cd lirc_rpi/
+  958  vim lirc_rpi.c 
+  959  make clean
+  960  make lirc_rpi.ko
+  961  modinfo lirc_rpi.ko
+  962  sudo insmod lirc_rpi.ko
+  963  cd ..
+  964  script -a assignment.log
+  965  git add .
+  966  git commit -m "Added author and description to lirc_rpi module"
+  967  git push
+  968  cd lirc_rpi/
+  969  make clean 
+  970  git add .
+  971  git commit -m "Added author and description to lirc_rpi module"
+  972  git push
+  973  cd ..
+  974  ls
+  975  vim README.md 
+  976  git add .
+  977  git commit -m "Readme updated"
+  978  git push
+  979  cd
+  980  ls -l
+  981  sudo vim config.txt 
+  982  sudo vim /etc/modules
+  983  sudo reboot
+  984  sudo lsmod| grep rpi
+  985  sudo insmod lirc_rpi.ko
+  986  sudo insmod lirc_rpi
+  987  sudo modprobe lirc_rpi
+  988  cd /lib/modules/$(uname -r)/
+  989  cd kernel/drivers/staging/media/lirc/
+  990  ls
+  991  sudo modprobe lirc_rpi
+  992  sudo modprobe -i lirc_rpi
+  993  lsmod lirc_rpi
+  994  lsmod 
+  995  cd .
+  996  ls
+  997  cd 
+  998  ls
+  999  script -a assignment.log 
+ 1000  sudo modprobe lirc_rpi
+ 1001  lsmod | grep lirc_rpi
+ 1002  dmesg | tail
+ 1003  modinfo lirc_rpi
+ 1004  sudo rmmod lirc_rpi
+ 1005  sudo modprobe lirc_rpi debug=1
+ 1006  dmesg | tail
+ 1007  sudo modprobe lirc_rpi
+ 1008  lsmod
+ 1009  sudo rmmod lirc_rpi
+ 1010  script -a assignment.log 
+ 1011  ls
+ 1012  echo 17 > export 
+ 1013  echo 18 > export 
+ 1014  cd gpio17/
+ 1015  ls
+ 1016  cat value 
+ 1017  cat direction 
+ 1018  echo 1 > value 
+ 1019  echo 0 > value 
+ 1020  cat value 
+ 1021  cat ../gpio18/value 
+ 1022  echo 1 > value 
+ 1023  cat ../gpio18/value 
+ 1024  echo 0 > value 
+ 1025  echo 1 > value 
+ 1026  cat ../gpio18/value 
+ 1027  echo 1 >> ../gpio18/value 
+ 1028  cd ../gpio18
+ 1029  ls
+ 1030  cat direction 
+ 1031  cat value 
+ 1032  cat ../gpio17/value 
+ 1033  echo 1 >> ../gpio17/value 
+ 1034  echo 0 >> ../gpio17/value  
+ 1035  cat ../gpio17/value 
+ 1036  cat value 
+ 1037  echo 1 >> ../gpio17/value 
+ 1038  cat value 
+ 1039  echo 0 >> ../gpio17/value 
+ 1040  cat value 
+ 1041  cd ..
+ 1042  cd gpio17/
+ 1043  cat value 
+ 1044  echo 1 > value
+ 1045  echo 0 > value
+ 1046  echo 1 > value
+ 1047  echo 0 > value
+ 1048  echo 1 > value
+ 1049  echo 0 > value
+ 1050  echo 1 > value
+ 1051  cat ../gpio18/value 
+ 1052  echo 0 > value
+ 1053  cat ../gpio18/value 
+ 1054  echo 1 > value
+ 1055  cat ../gpio18/value 
+ 1056  echo 1 > value
+ 1057  cat ../gpio18/value 
+ 1058  echo 0 > value
+ 1059  cat ../gpio18/value 
+ 1060  echo 0 > value
+ 1061  cat ../gpio18/value 
+ 1062  echo 1 > value
+ 1063  cat ../gpio18/value 
+ 1064  cat ../gpio18/direction 
+ 1065  echo 1 > valuel
+ 1066  s
+ 1067  echo 1 > value
+ 1068  cat value 
+ 1069  cd ../gpio18/
+ 1070  ls
+ 1071  cat direction 
+ 1072  cat value 
+ 1073  cd ..
+ 1074  cd ../gpio17/
+ 1075  cd gpio17/
+ 1076  cat value 
+ 1077  echo 0 > value
+ 1078  cat ../gpio18/value 
+ 1079  cd
+ 1080  exit
+ 1081  cd /sys/class/gpio
+ 1082  ls
+ 1083  cd gpio17
+ 1084  cat direction 
+ 1085  echo 0 > value 
+ 1086  cat ../gpio18/direction 
+ 1087  cat ../gpio18/value 
+ 1088  echo 1 > value 
+ 1089  cat value 
+ 1090  cat ../gpio18/direction 
+ 1091  cat ../gpio18/value 
+ 1092  exit
+ 1093  script -a assignment.log 
+ 1094  cd /sys/class/gpio/gpio17
+ 1095  cat direction 
+ 1096  cat value 
+ 1097  cat ../gpio18/direction 
+ 1098  cat ../gpio18/value 
+ 1099  echo 0 > value 
+ 1100  cat direction 
+ 1101  cat value 
+ 1102  cat ../gpio18/direction 
+ 1103  cat ../gpio18/value 
+ 1104  cat ../gpio18/direction 
+ 1105  cat value 
+ 1106  echo 1 > value 
+ 1107  cat value 
+ 1108  cat ../gpio18/value 
+ 1109  exit
+ 1110  cat ../gpio18/value 
+ 1111  cat /sys/class/gpio/gpio17/
+ 1112  cat /sys/class/gpio/
+ 1113  cd /sys/
+ 1114  cd /class
+ 1115  cd class
+ 1116  cd gpio
+ 1117  ls
+ 1118  echo 17 > export
+ 1119  echo 18 > export
+ 1120  ls
+ 1121  cd gpio17
+ 1122  ls
+ 1123  cat value 
+ 1124  cd ../gpio18
+ 1125  cat value 
+ 1126  cd ../gpio17
+ 1127  cat value
+ 1128  echo 1 > value
+ 1129  cat value 
+ 1130  cat ../gpio18/value 
+ 1131  cat direction 
+ 1132  cat ../gpio18/value 
+ 1133  echo 1 > value
+ 1134  echo 0 > value
+ 1135  cd ..
+ 1136  echo 17 > unexport 
+ 1137  echo 18 > unexport 
+ 1138  sudo reboot
+ 1139  sudo cat >> /etc/modules <<EOF
+ 1140  lirc_dev
+ 1141  lirc_rpi gpio_in_pin=17 gpio_out_pin=18
+ 1142  EOF
+ 1143  sudo vim /etc/modules
+ 1144  cat /etc/modules
+ 1145  sudo vim /etc/modules
+ 1146  sudo vim /etc/lirc/hardware.conf
+ 1147  cat /etc/lirc/hardware.conf
+ 1148  sudo vim /boot/config.txt 
+ 1149  sudo /etc/init.d/lirc stop
+ 1150  sudo /etc/init.d/lircd stop
+ 1151  sudo /etc/init.d/lircd start
+ 1152  sudo /etc/init.d/lircd stop
+ 1153  mode2 -d /dev/lirc0
+ 1154  ls
+ 1155  lirc
+ 1156  sudo apt-get install lirc
+ 1157  sudo cat >> /etc/modules <<EOF
+ 1158  lirc_dev
+ 1159  script -a assignment.log 
+ 1160  sudo /etc/init.d/lircd stop
+ 1161  sudo /etc/init.d/lircd start
+ 1162  mode2 -d /dev/lirc0
+ 1163  sudo vim /etc/lirc/lirc_options.conf
+ 1164  sudo /etc/init.d/lircd restart
+ 1165  mode2 -d /dev/lirc0
+ 1166  sudo /etc/init.d/lircd stop
+ 1167  exit
+ 1168  irrecord -d /dev/lirc0 ~/lircd.conf
+ 1169  sudo mv /etc/lirc/lircd.conf /etc/lirc/lircd_original.conf
+ 1170  cat /etc/lirc/lircd.conf
+ 1171  cat /etc/lirc/lircd_original.conf 
+ 1172  sudo cp ~/lircd.conf /etc/lirc/lircd.conf
+ 1173  sudo /etc/init.d/lirc start
+ 1174  sudo /etc/init.d/lircd start
+ 1175  irsend LIST lg_tv_home ""
+ 1176  irsend LIST lg_tv_home
+ 1177  irsend LIST lg_tv_home ""
+ 1178  sudo /etc/init.d/lirc stop
+ 1179  sudo /etc/init.d/lircd stop
+ 1180  mode2 -d /dev/lirc0
+ 1181  sudo irrecord --device /dev/lirc0 --driver default
+ 1182  cat lg_tv_home.lircd.conf
+ 1183  find lg_tv_home.lircd.conf
+ 1184  cd /etc/lirc/lircd.conf.d/
+ 1185  ls
+ 1186  cd ..
+ 1187  ls
+ 1188  cd lircd.conf.d/
+ 1189  ls
+ 1190  cat devinput.lircd.conf 
+ 1191  cd
+ 1192  cd /dev/
+ 1193  ls | grep lg
+ 1194  ls lirc0 
+ 1195  cd ..
+ 1196  cd /etc/lirc/lircd.conf.d/
+ 1197  sudo irrecord --device /dev/lirc0 --driver default
+ 1198  sudo /etc/init.d/lircd stop
+ 1199  sudo irrecord --device /dev/lirc0 --driver default
+ 1200  cd
+ 1201  sudo irrecord --device /dev/lirc0 --driver default
+ 1202  cat lg_tv.lircd.conf 
+ 1203  irrecord --list-namespaceirrecord --list-namespace
+ 1204  irrecord --list-namespace
+ 1205  irrecord --list-namespace | poer
+ 1206  irrecord --list-namespace | grep power
+ 1207  irrecord --list-namespace | grep start
+ 1208  irrecord --list-namespace | grep stop
+ 1209  irrecord --list-namespace | grep START
+ 1210  irrecord --list-namespace | grep STOP
+ 1211  irrecord --list-namespace | grep ON
+ 1212  irrecord --list-namespace | grep OFF
+ 1213  sudo irrecord --device /dev/lirc0 --driver default
+ 1214  cat lg_tv.lircd.conf 
+ 1215  irsend LIST lg_tv ""
+ 1216  sudo /etc/init.d/lircd stop
+ 1217  exit
+ 1218  irrecord --list-namespace | grep POWER
+ 1219  cd ~/
+ 1220  ls
+ 1221  cd /sys/class/gpio/
+ 1222  ls
+ 1223  echo 18 > export
+ 1224  cd gpio18/
+ 1225  cat value 
+ 1226  sudo /etc/init.d/lircd stop
+ 1227  exit
+ 1228  cd gpio18/
+ 1229  cd gpio17
+ 1230  ls
+ 1231  cd /sys/class/gpio/gpio18/
+ 1232  ls
+ 1233  cat value
+ 1234  irsend LIST lg_remote ""
+ 1235  cat /home/pi/lircd.conf 
+ 1236  irsend SEND_ONCE lg_remote KEY_POWER
+ 1237  irsend SEND_START lg_remote KEY_POWER
+ 1238  cat value
+ 1239  exit
+ 1240  cd /sys/gpio
+ 1241  cd /sys/class/gpio/
+ 1242  echo 18 > export
+ 1243  ls
+ 1244  cd gpio18/
+ 1245  cat value
+ 1246  irsend SEND_START lg_remote KEY_POWER
+ 1247  cat value
+ 1248  exit
+ 1249  script -a assignment.log 
+ 1250  mode2 -d /dev/lirc0
+ 1251  irrecord -d /dev/lirc0 ~/lircd.conf
+ 1252  irrecord -d -f /dev/lirc0 ~/lircd.conf
+ 1253  irrecord -f /dev/lirc0 ~/lircd.conf
+ 1254  irrecord -d /dev/lirc0 ~/lircd.conf
+ 1255  irrecord -f -d /dev/lirc0 ~/lircd.conf
+ 1256  ps -a
+ 1257  kill -9 1517
+ 1258  irrecord -f -d /dev/lirc0 ~/lircd.conf
+ 1259  cat tv_remote.lircd.conf 
+ 1260  irrecord -f -d /dev/lirc0 ~/lircd.conf
+ 1261  cat lg_remote.lircd.conf 
+ 1262  cd /etc/lirc/lircd.conf.d/
+ 1263  ls
+ 1264  cd ..
+ 1265  ls
+ 1266  cd
+ 1267  cp lg_remote.lircd.conf 
+ 1268  cp lg_remote.lircd.conf lircd.conf
+ 1269  sudo cp ~/lircd.conf /etc/lirc/lircd.conf
+ 1270  sudo /etc/init.d/lirc start
+ 1271  sudo /etc/init.d/lircd start
+ 1272  irsend LIST tv_remote ""
+ 1273  irsend LIST lg_remote ""
+ 1274  irsend SEND_ONCE lg_remote KEY_POWER
+ 1275  irsend LIST lg_remote ""
+ 1276  irsend SEND_ONCE lg_remote KEY_POWER
+ 1277  irsend LIST tv_remote ""
+ 1278  irsend SEND_ONCE lg_remote KEY_POWER
+ 1279  irsend SEND_START lg_remote KEY_POWER
+ 1280  irsend SEND_STOP lg_remote KEY_POWER
+ 1281  irsend SEND_START lg_remote KEY_POWER
+ 1282  irsend SEND_STOP lg_remote KEY_POWER
+ 1283  irsend LIST lg_remote ""
+ 1284  sudo /etc/init.d/lirc start
+ 1285  sudo /etc/init.d/lircd start
+ 1286  irsend SEND_START lg_remote KEY_POWER
+ 1287  irsend SEND_STOP lg_remote KEY_POWER
+ 1288  irsend SEND_START lg_remote KEY_POWER
+ 1289  irsend SEND_STOP lg_remote KEY_POWER
+ 1290  irsend SEND_START lg_remote KEY_POWER
+ 1291  irsend SEND_STOP lg_remote KEY_POWER
+ 1292  irsend SEND_START lg_remote KEY_POWER
+ 1293  ls
+ 1294  script -a assignment.log 
+ 1295  cat assignment.log 
+ 1296  script -a assignment.log 
+ 1297  sudo halt
+ 1298  sudo /etc/init.d/lircd stop
+ 1299  irrecord -f -d /dev/lirc0 ~/lircd.conf
+ 1300  rm lircd.conf 
+ 1301  irrecord -f -d /dev/lirc0 ~/lircd.conf
+ 1302  irrecord -d /dev/lirc0 ~/lircd.conf
+ 1303  irrecord -f -d /dev/lirc0 ~/lircd.conf
+ 1304  cat proj_casio.lircd.conf 
+ 1305  exit
+ 1306  script -a assignment.log 
+ 1307  sudo halt
+ 1308  cat proj_casio.lircd.conf 
+ 1309  mode2 -d /dev/lirc0
+ 1310  sudo /etc/init.d/lircd stop
+ 1311  mode2 -d /dev/lirc0
+ 1312  vim test.sh
+ 1313  chmod 755 test.sh 
+ 1314  ./test.sh 
+ 1315  vim test.sh
+ 1316  ./test.sh 
+ 1317  vim test.sh
+ 1318  ./test.sh 
+ 1319  cat proj_casio.lircd.conf 
+ 1320  sudo mv /etc/lirc/lircd.conf /etc/lirc/lircd_original2.conf
+ 1321  sudo cp ~/proj_casio.lircd.conf /etc/lirc/lircd.conf
+ 1322  sudo /etc/init.d/lircd start
+ 1323  irsend LIST proj_casio ""
+ 1324  irsend SEND_START proj_casio KEY_POWER
+ 1325  irsend SEND_STOP proj_casio KEY_POWER
+ 1326  irrecord -d /dev/lirc0 ~/lircd.conf
+ 1327  irrecord -f -d /dev/lirc0 ~/lircd.conf
+ 1328  cat casio.lircd.conf 
+ 1329  sudo cp ~/casio.lircd.conf /etc/lirc/lircd.conf
+ 1330  sudo /etc/init.d/lircd start
+ 1331  irsend LIST casio ""
+ 1332  irsend LIST Casio ""
+ 1333  irsend LIST casio ""
+ 1334  cat /etc/lirc/lircd.conf
+ 1335  sudo cat /etc/lirc/lircd.conf
+ 1336  sudo vim /etc/lirc/lircd.conf
+ 1337  irsend LIST casio ""
+ 1338  sudo /etc/init.d/lircd stop
+ 1339  irrecord -f -d /dev/lirc0 ~/lircd.conf
+ 1340  cat aditya.lircd.conf 
+ 1341  sudo cp ~/aditya.lircd.conf /etc/lirc/lircd.conf
+ 1342  sudo /etc/init.d/lircd start
+ 1343  irsend LIST aditya ""
+ 1344  irsend SEND_START aditya KEY_POWER
+ 1345  exit
+ 1346  script -a a2_log_nov_8
+ 1347  exit
+ 1348  ls
+ 1349  sudo vim /boot/config.txt 
+ 1350  sudo irrecord -f -d /dev/lirc0 ~/lircd.conf
+ 1351  sudo service lircd stop
+ 1352  sudo irrecord -f -d /dev/lirc0 ~/lircd.conf
+ 1353  sudo irrecord -f -d /dev/lirc0
+ 1354  cd /sys/class/gpio/
+ 1355  ls
+ 1356  echo 18 > export 
+ 1357  cd gpio18/
+ 1358  cat direction 
+ 1359  cat value 
+ 1360  cd ..
+ 1361  echo 18 > unexport 
+ 1362  cd
+ 1363  sudo irrecord -d /dev/lirc0
+ 1364  sudo irrecord -f -d /dev/lirc0
+ 1365  cat sanyo_remote.lircd.conf 
+ 1366  sudo cp ~/sanyo_remote.lircd.conf /etc/lirc/lircd.conf
+ 1367  sudo service lircd start
+ 1368  irsend SEND_START sanyo_remote KEY_POWER
+ 1369  cd /sys/class/gpio/
+ 1370  echo 17 > export 
+ 1371  ls
+ 1372  cd gpio17/
+ 1373  ls
+ 1374  cat direction 
+ 1375  cat value 
+ 1376  cd 
+ 1377  echo 17 > /sys/class/gpio/unexport 
+ 1378  ls /sys/class/gpio/
+ 1379  irsend SEND_START sanyo_remote KEY_POWER
+ 1380  irsend SEND_STOP sanyo_remote KEY_POWER
+ 1381  irsend SEND_START sanyo_remote KEY_POWER
+ 1382  irsend SEND_STOP sanyo_remote KEY_POWER
+ 1383  irsend SEND_START sanyo_remote KEY_POWER
+ 1384  irsend SEND_STOP sanyo_remote KEY_POWER
+ 1385  cd /sys/class/gpio/
+ 1386  echo 17 > export 
+ 1387  cd gpio17
+ 1388  cat direction 
+ 1389  cd
+ 1390  cd -
+ 1391  cd ..
+ 1392  echo 17 > unexport 
+ 1393  ls
+ 1394  irsend LIST sanyo_remote ""
+ 1395  cd
+ 1396  sudo vim /boot/config.txt 
+ 1397  cd /sys/class/gpio/
+ 1398  ls
+ 1399  echo 17 > export 
+ 1400  echo 18 > export 
+ 1401  cd gpio17/
+ 1402  ls
+ 1403  cat direction 
+ 1404  echo out > direction 
+ 1405  cat direction 
+ 1406  cd ../gpio18
+ 1407  cat direction 
+ 1408  cat value 
+ 1409  cat direction 
+ 1410  cat value 
+ 1411  cd ..
+ 1412  cd gpio17
+ 1413  cat direction 
+ 1414  cat value 
+ 1415  echo 1 > value 
+ 1416  echo 0 > value 
+ 1417  echo 1 > value 
+ 1418  echo 0 > value 
+ 1419  echo 1 > value 
+ 1420  echo 0 > value 
+ 1421  echo 1 > value 
+ 1422  echo 0 > value 
+ 1423  echo 1 > value 
+ 1424  echo 0 > value 
+ 1425  echo 1 > value 
+ 1426  cd ..
+ 1427  echo 17 > unexport 
+ 1428  echo 18 > unexport 
+ 1429  cd
+ 1430  sudo irrecord -f -d /dev/lirc0
+ 1431  cat sanyo.lircd.conf 
+ 1432  sudo cp ~/sanyo.lircd.conf /etc/lirc/lircd.conf
+ 1433  sudo service lircd start
+ 1434  irsend LIST sanyo_remote ""
+ 1435  irsend LIST sanyo ""
+ 1436  cat sanyo
+ 1437  cat sanyo.lircd.conf 
+ 1438  sudo cp ~/sanyo.lircd.conf /etc/lirc/lircd.conf
+ 1439  sudo service lircd stop
+ 1440  sudo service lircd start
+ 1441  cat /etc/lirc/lircd.conf
+ 1442  sudo cat /etc/lirc/lircd.conf
+ 1443  irsend LIST sanyo ""
+ 1444  irsend SEND_ONCE sanyo KEY_POWER
+ 1445  irsend SEND_START sanyo KEY_POWER
+ 1446  irsend SEND_STOP sanyo KEY_POWER
+ 1447  irsend SEND_START sanyo KEY_POWER
+ 1448  irsend SEND_STOP sanyo KEY_POWER
+ 1449  irsend SEND_ONCE sanyo KEY_POWER
+ 1450  irsend SEND_STOP sanyo KEY_POWER
+ 1451  irsend SEND_START sanyo KEY_POWER
+ 1452  irsend SEND_STOP sanyo KEY_POWER
+ 1453  irsend SEND_START sanyo KEY_POWER
+ 1454  irsend SEND_STOP sanyo KEY_POWER
+ 1455  irsend SEND_ONCE sanyo KEY_POWER
+ 1456  irsend SEND_START sanyo KEY_POWER
+ 1457  exit
+ 1458  sudo irrecord -f -d /dev/lirc0
+ 1459  cat lp.lircd.conf 
+ 1460  sudo cp ~/lp.lircd.conf /etc/lirc/lircd.conf
+ 1461  sudo /etc/init.d/lircd start
+ 1462  irsend LIST lp ""
+ 1463  sudo /etc/init.d/lircd stop
+ 1464  sudo /etc/init.d/lircd start
+ 1465  irsend LIST lp ""
+ 1466  irsend SEND_ONCE lp KEY_POWER
+ 1467  sudo /etc/init.d/lircd stop
+ 1468  sudo irrecord -f -d /dev/lirc0
+ 1469  cat dd.lircd.conf 
+ 1470  sudo cp ~/dd.lircd.conf /etc/lirc/lircd.conf
+ 1471  sudo /etc/init.d/lircd start
+ 1472  irsend SEND_ONCE lp KEY_POWER
+ 1473  ls
+ 1474  script -a a2_log_nov11
+ 1475  script -a a2_log_nov11_new
+ 1476  sudo /etc/init.d/lircd stop
+ 1477  mode2 -d /dev/lirc0
+ 1478  irrecord --list-namespace | grep POWER
+ 1479  irrecord --list-namespace
+ 1480  irrecord -d /dev/lirc0 ~/lircd.conf
+ 1481  cat projector_sanyo.lircd.conf 
+ 1482  sudo cp ~/lircd.conf /etc/lirc/lircd.conf
+ 1483  sudo cp ~/projector_sanyo.lircd.conf /etc/lirc/lircd.conf
+ 1484  sudo /etc/init.d/lircd start
+ 1485  irsend LIST projector_sanyo ""
+ 1486  irsend SEND_ONCE Roku KEY_POWER
+ 1487  irsend SEND_ONCE projector_sanyo KEY_POWER
+ 1488  irsend SEND_START projector_sanyo KEY_POWER
+ 1489  irsend SEND_STOP projector_sanyo KEY_POWER
+ 1490  irsend SEND_START projector_sanyo KEY_POWER
+ 1491  sudo /etc/init.d/lircd stop
+ 1492  irrecord -d /dev/lirc0 ~/lircd.conf
+ 1493  cat projector_casio.lircd.conf 
+ 1494  sudo cp ~/projector_casio.lircd.conf /etc/lirc/lircd.conf
+ 1495  sudo /etc/init.d/lircd start
+ 1496  irsend LIST projector_casio ""
+ 1497  irsend SEND_START projector_casio KEY_POWER
+ 1498  irsend SEND_STOP projector_casio KEY_POWER
+ 1499  irsend SEND_ONCE projector_casio KEY_POWER
+ 1500  irsend SEND_STOP projector_casio KEY_POWER
+ 1501  irsend SEND_ONCE projector_casio KEY_POWER
+ 1502  irsend SEND_STOP projector_casio KEY_POWER
+ 1503  irsend SEND_ONCE projector_casio KEY_POWER
+ 1504  irsend SEND_START projector_casio KEY_POWER
+ 1505  sudo /etc/init.d/lircd stop
+ 1506  sudo /etc/init.d/lircd start
+ 1507  irsend SEND_START projector_casio KEY_POWER
+ 1508  irsend SEND_STOP projector_casio KEY_POWER
+ 1509  irsend SEND_ONCE projector_casio KEY_POWER
+ 1510  irsend SEND_START projector_sanyo KEY_POWER
+ 1511  irsend SEND_START projector_casio KEY_POWER
+ 1512* 
+ 1513  irsend SEND_START projector_casio KEY_POWER
+ 1514  irsend SEND_ONCE projector_casio KEY_POWER
+ 1515  irsend SEND_START projector_casio KEY_POWER
+ 1516  sudo vim /etc/lirc/lircd.conf
+ 1517  sudo /etc/init.d/lircd start
+ 1518  sudo /etc/init.d/lircd restart
+ 1519  irsend SEND_ONCE projector_casio KEY_POWER
+ 1520  sudo vim /etc/lirc/lircd.conf
+ 1521  sudo /etc/init.d/lircd restart
+ 1522  irsend SEND_ONCE projector_casio KEY_POWER
+ 1523  sudo /etc/init.d/lircd restart
+ 1524  irsend SEND_ONCE projector_casio KEY_POWER
+ 1525  sudo /etc/init.d/lircd stop
+ 1526  sudo /etc/init.d/lircd start
+ 1527  sudo /etc/init.d/lircd status
+ 1528  sudo /etc/init.d/lircd start
+ 1529  irsend SEND_ONCE projector_casio KEY_POWER
+ 1530  sudo vim /etc/lirc/lircd.conf
+ 1531  sudo /etc/init.d/lircd start
+ 1532  irsend SEND_ONCE projector_casio KEY_POWER
+ 1533  cp projector_casio.lircd.conf projector_casio_old.lircd.conf 
+ 1534  vim projector_casio.lircd.conf 
+ 1535  sudo cp ~/projector_casio.lircd.conf /etc/lirc/lircd.conf
+ 1536  sudo /etc/init.d/lircd stop
+ 1537  sudo /etc/init.d/lircd start
+ 1538  irsend SEND_ONCE projector_casio KEY_POWER
+ 1539  sudo /etc/init.d/lircd start
+ 1540  irsend SEND_ONCE projector_casio KEY_POWER
+ 1541  irsend SEND_START projector_casio KEY_POWER
+ 1542  irsend SEND_STOP projector_casio KEY_POWER
+ 1543  irsend SEND_ONCE projector_casio KEY_POWER
+ 1544  sudo /etc/init.d/lircd start
+ 1545  irw
+ 1546  sudo /etc/init.d/lircd stop
+ 1547  irsend SEND_START projector_casio KEY_POWER
+ 1548  sudo /etc/init.d/lircd stop
+ 1549  irw
+ 1550  sudo /etc/init.d/lircd start
+ 1551  irsend SEND_START projector_casio KEY_POWER
+ 1552  irw
+ 1553  irsend SEND_START projector_casio KEY_POWER
+ 1554  irw
+ 1555  cat /etc/lirc/lircd.conf
+ 1556  sudo cat /etc/lirc/lircd.conf
+ 1557  history
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irrecord --force casio
+Using raw access on device auto
+
+irrecord -  application for recording IR-codes for usage with lirc
+Copyright (C) 1998,1999 Christoph Bartelmus(lirc@bartelmus.de)
+
+This program will record the signals from your remote control
+and create a config file for lircd.
+
+A proper config file for lircd is maybe the most vital part of this
+package, so you should invest some time to create a working config
+file. Although I put a good deal of effort in this program it is often
+not possible to automatically recognize all features of a remote
+control. Often short-comings of the receiver hardware make it nearly
+impossible. If you have problems to create a config file READ THE
+DOCUMENTATION at https://sf.net/p/lirc-remotes/wiki
+
+If there already is a remote control of the same brand available at
+http://sf.net/p/lirc-remotes you might want to try using such a
+remote as a template. The config files already contains all
+parameters of the protocol used by remotes of a certain brand and
+knowing these parameters makes the job of this program much
+easier. There are also template files for the most common protocols
+available. Templates can be downloaded using irdb-get(1). You use a
+template file by providing the path of the file as a command line
+parameter.
+
+Please take the time to finish the file as described in
+https://sourceforge.net/p/lirc-remotes/wiki/Checklist/ an send it
+to  <lirc@bartelmus.de> so it can be made available to others.
+
+Press RETURN to continue.
+
+Checking for ambient light  creating too much disturbances.
+Please don't press any buttons, just wait a few seconds...
+
+No significant noise (received 0 bytes)
+
+Enter name of remote (only ascii, no spaces) :casio
+You cannot use the same name if not updating
+
+Please use another name
+
+Enter name of remote (only ascii, no spaces) :casio_rem
+Using casio_rem.lircd.conf as output filename
+
+Now start pressing buttons on your remote control.
+
+It is very important that you press many different buttons randomly
+and hold them down for approximately one second. Each button should
+generate at least one dot but never more than ten dots of output.
+Don't stop pressing buttons until two lines of dots (2x80) have
+been generated.
+
+Press RETURN now to start recording.
+................................................................................
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+KEY_POWER
+
+Now hold down button "KEY_POWER".
+
+Please enter the name for the next button (press <ENTER> to finish recording)
+
+
+Successfully written config file casio_rem.lircd.conf
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irrecord -a casio_rem.lircd.conf > casio_hex.lirc.conf
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo cp casio
+casio_hex.lirc.conf   casio.lircd.conf      casio_rem.lircd.conf  
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo cp casio-hex[K[K[K[K_hex.lircd.conf /etc/lirc/lircd.conf
+cp: cannot stat 'casio_hex.lircd.conf': No such file or directory
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo cp casio_hex.lircd.conf /etc/lirc/lircd.conf[C[1P
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo cp casio_hex.lirc.conf /etc/lirc/lircd.conf[1@d[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirrecord -a casio_rem.lircd.conf > casio_hex.lirc.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C-force casio[K[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chistory[Ksudo cat /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirw[Ksend SEND_START projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cw[Ksend SEND_START projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[15Psudo /etc/init.d/lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirw[Ksudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_START projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[16Psudo /etc/init.d/lircd stop[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirw[Ksudo /etc/init.d/lircd start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirsend SEND_ONCE projector_casio KEY_POWERSTOP[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[3@(reverse-i-search)`':[Cs': irsend SEND_START projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[23Py': cd /sys/class/gpio/[1@s[C[C[C[C[C[C[C[C[8@failed reverse-i-search)`syst[C[C[C[C[C[C[C[1@e[C[C[C[C[C[C[C[1@m[C[C[C[C[C[C[C[1@c[C[C[C[C[C[C[C[1@t[C[C[C[C[C[C[C[1P[C[C[C[C[C[C[C[1P[C[C[C[C[C[C[C[1P[C[C[C[C[C[C[C[1P[C[C[C[C[C[C[C[C[8Preverse-i-search)`sys': ls[C[C[1P[C[C[C[C[C[C[C[1P[C[C[C[C[C[C[C[C[6@failed reverse-i-search)`[C[C[C[C[C[C[C[C[6Preverse-i-search)`s[C[C[C[C[C[C[Ct': sudo service lircd starto': sudo service lircd stop[1@p[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[7P]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo service lircd stop[K[Kart
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m sudo service lircd start[1Popcp casio_hex.lirc.conf /etc/lirc/lircd.conf[1@d[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirrecord -a casio_rem.lircd.conf > casio_hex.lirc.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C-force casio[K[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chistory[Ksudo cat /etc/lirc/lircd.conf[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cirw[Ksend SEND_START projector_casio KEY_POWER[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cw[Ksend SEND_START projector_casio KEY_POWER[Kr[C[1P[1P[1P[1P[1P[1P[1P KEY_POWEr[1P[1P[1P[1P[1P KEY_POWEr[1P[1P[1P KEY_POWErc KEY_POWEra KEY_POWErs KEY_POWEri KEY_POWEro KEY_POWEr_ KEY_POWErr KEY_POWEre KEY_POWErm KEY_POWEro KEY_POWEr[1P KEY_POWEr
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START casio_rem KEY_POWEr[KR[K]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START casio_rem KEY_POWER[K]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START casio_rem KEY_POWER
+
+already repeating
+Error running command: Input/output error
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_START casio_rem KEY_POWER[1P[1P[1P[1P[1@t[1@o[1@p[1P[1P[1P[1@T[1@O[1@P
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_STOP casio_rem KEY_POWER[1P[1P[1P[1P[1@O[1@N[1@C[1@E
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [K]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [K]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m irsend SEND_ONCE casio_rem KEY_POWER
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [K]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m [K]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[

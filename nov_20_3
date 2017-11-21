@@ -1,0 +1,401 @@
+Script started on Mon 20 Nov 2017 08:04:52 UTC
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m udevadm on[K[Kmonitor --env
+monitor will print the received events for:
+UDEV - the event which udev sends out after rule processing
+KERNEL - the kernel uevent
+
+KERNEL[1639.218962] remove   /devices/virtual/misc/hdmi_device (misc)
+ACTION=remove
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1110
+SUBSYSTEM=misc
+
+KERNEL[1639.221833] remove   /module/hdmi_dev (module)
+ACTION=remove
+DEVPATH=/module/hdmi_dev
+SEQNUM=1111
+SUBSYSTEM=module
+
+UDEV  [1639.225751] remove   /devices/virtual/misc/hdmi_device (misc)
+ACTION=remove
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1110
+SUBSYSTEM=misc
+USEC_INITIALIZED=1639219058
+
+UDEV  [1639.228003] remove   /module/hdmi_dev (module)
+ACTION=remove
+DEVPATH=/module/hdmi_dev
+SEQNUM=1111
+SUBSYSTEM=module
+USEC_INITIALIZED=1639221925
+
+KERNEL[1651.965582] add      /module/hdmi_dev (module)
+ACTION=add
+DEVPATH=/module/hdmi_dev
+SEQNUM=1112
+SUBSYSTEM=module
+
+KERNEL[1651.968622] add      /devices/virtual/misc/hdmi_device (misc)
+ACTION=add
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1113
+SUBSYSTEM=misc
+
+KERNEL[1651.971306] change   /devices/virtual/misc/hdmi_device (HDMI)
+ACTION=change
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1114
+SUBSYSTEM=HDMI
+
+UDEV  [1651.976118] add      /module/hdmi_dev (module)
+ACTION=add
+DEVPATH=/module/hdmi_dev
+SEQNUM=1112
+SUBSYSTEM=module
+USEC_INITIALIZED=1651974204
+
+UDEV  [1651.980980] add      /devices/virtual/misc/hdmi_device (misc)
+ACTION=add
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1113
+SUBSYSTEM=misc
+USEC_INITIALIZED=1651979349
+
+UDEV  [1652.108822] change   /devices/virtual/misc/hdmi_device (HDMI)
+ACTION=change
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1114
+SUBSYSTEM=HDMI
+USEC_INITIALIZED=1651984042
+
+KERNEL[1687.672115] remove   /devices/virtual/misc/hdmi_device (misc)
+ACTION=remove
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1115
+SUBSYSTEM=misc
+
+KERNEL[1687.672568] remove   /module/hdmi_dev (module)
+ACTION=remove
+DEVPATH=/module/hdmi_dev
+SEQNUM=1116
+SUBSYSTEM=module
+
+UDEV  [1687.678602] remove   /devices/virtual/misc/hdmi_device (misc)
+ACTION=remove
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1115
+SUBSYSTEM=misc
+USEC_INITIALIZED=1687672381
+
+UDEV  [1687.680858] remove   /module/hdmi_dev (module)
+ACTION=remove
+DEVPATH=/module/hdmi_dev
+SEQNUM=1116
+SUBSYSTEM=module
+USEC_INITIALIZED=1687674822
+
+KERNEL[1690.528395] add      /module/hdmi_dev (module)
+ACTION=add
+DEVPATH=/module/hdmi_dev
+SEQNUM=1117
+SUBSYSTEM=module
+
+KERNEL[1690.531730] add      /devices/virtual/misc/hdmi_device (misc)
+ACTION=add
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1118
+SUBSYSTEM=misc
+
+KERNEL[1690.532461] change   /devices/virtual/misc/hdmi_device (HDMI)
+ACTION=change
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1119
+SUBSYSTEM=HDMI
+
+UDEV  [1690.538087] add      /module/hdmi_dev (module)
+ACTION=add
+DEVPATH=/module/hdmi_dev
+SEQNUM=1117
+SUBSYSTEM=module
+USEC_INITIALIZED=1690537448
+
+UDEV  [1690.544535] add      /devices/virtual/misc/hdmi_device (misc)
+ACTION=add
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1118
+SUBSYSTEM=misc
+USEC_INITIALIZED=1690543579
+
+UDEV  [1690.660264] change   /devices/virtual/misc/hdmi_device (HDMI)
+ACTION=change
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1119
+SUBSYSTEM=HDMI
+USEC_INITIALIZED=1690547155
+
+KERNEL[1791.990832] remove   /devices/virtual/misc/hdmi_device (misc)
+ACTION=remove
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1120
+SUBSYSTEM=misc
+
+KERNEL[1791.991290] remove   /module/hdmi_dev (module)
+ACTION=remove
+DEVPATH=/module/hdmi_dev
+SEQNUM=1121
+SUBSYSTEM=module
+
+UDEV  [1791.997858] remove   /devices/virtual/misc/hdmi_device (misc)
+ACTION=remove
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1120
+SUBSYSTEM=misc
+USEC_INITIALIZED=1791991568
+
+UDEV  [1791.999907] remove   /module/hdmi_dev (module)
+ACTION=remove
+DEVPATH=/module/hdmi_dev
+SEQNUM=1121
+SUBSYSTEM=module
+USEC_INITIALIZED=1791994031
+
+KERNEL[1793.664307] add      /module/hdmi_dev (module)
+ACTION=add
+DEVPATH=/module/hdmi_dev
+SEQNUM=1122
+SUBSYSTEM=module
+
+KERNEL[1793.670815] add      /devices/virtual/misc/hdmi_device (misc)
+ACTION=add
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1123
+SUBSYSTEM=misc
+
+KERNEL[1793.671378] change   /devices/virtual/misc/hdmi_device (HDMI)
+ACTION=change
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1124
+SUBSYSTEM=HDMI
+
+UDEV  [1793.674113] add      /module/hdmi_dev (module)
+ACTION=add
+DEVPATH=/module/hdmi_dev
+SEQNUM=1122
+SUBSYSTEM=module
+USEC_INITIALIZED=1793673682
+
+UDEV  [1793.677051] add      /devices/virtual/misc/hdmi_device (misc)
+ACTION=add
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1123
+SUBSYSTEM=misc
+USEC_INITIALIZED=1793676193
+
+UDEV  [1793.788843] change   /devices/virtual/misc/hdmi_device (HDMI)
+ACTION=change
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1124
+SUBSYSTEM=HDMI
+USEC_INITIALIZED=1793680170
+
+KERNEL[1889.214065] remove   /devices/virtual/misc/hdmi_device (misc)
+ACTION=remove
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1125
+SUBSYSTEM=misc
+
+KERNEL[1889.214986] remove   /module/hdmi_dev (module)
+ACTION=remove
+DEVPATH=/module/hdmi_dev
+SEQNUM=1126
+SUBSYSTEM=module
+
+UDEV  [1889.319085] remove   /devices/virtual/misc/hdmi_device (misc)
+ACTION=remove
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1125
+SUBSYSTEM=misc
+USEC_INITIALIZED=1889214808
+
+UDEV  [1889.320435] remove   /module/hdmi_dev (module)
+ACTION=remove
+DEVPATH=/module/hdmi_dev
+SEQNUM=1126
+SUBSYSTEM=module
+USEC_INITIALIZED=1889315696
+
+KERNEL[1891.979061] add      /module/hdmi_dev (module)
+ACTION=add
+DEVPATH=/module/hdmi_dev
+SEQNUM=1127
+SUBSYSTEM=module
+
+KERNEL[1891.980945] add      /devices/virtual/misc/hdmi_device (misc)
+ACTION=add
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1128
+SUBSYSTEM=misc
+
+KERNEL[1891.981839] change   /devices/virtual/misc/hdmi_device (HDMI)
+ACTION=change
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1129
+SUBSYSTEM=HDMI
+
+UDEV  [1891.987505] add      /module/hdmi_dev (module)
+ACTION=add
+DEVPATH=/module/hdmi_dev
+SEQNUM=1127
+SUBSYSTEM=module
+USEC_INITIALIZED=1891986999
+
+UDEV  [1891.991649] add      /devices/virtual/misc/hdmi_device (misc)
+ACTION=add
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1128
+SUBSYSTEM=misc
+USEC_INITIALIZED=1891990602
+
+UDEV  [1893.099307] change   /devices/virtual/misc/hdmi_device (HDMI)
+ACTION=change
+DEVNAME=/dev/hdmi_device
+DEVPATH=/devices/virtual/misc/hdmi_device
+MAJOR=10
+MINOR=57
+SEQNUM=1129
+SUBSYSTEM=HDMI
+USEC_INITIALIZED=1891994343
+
+^C]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m exit
+exit
+
+Script done on Mon 20 Nov 2017 08:09:48 UTC
+Script started on Mon 20 Nov 2017 17:45:07 UTC
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m ls
+0                         irrecord-tmp-d1yHSX  kmd.lircd.conf
+a2_log_nov11              irrecord-tmp-Da6BId  KMD.lircd.conf
+a2_log_nov11_new          irrecord-tmp-Dr8mNf  l2.txt
+a2_log_nov_8              irrecord-tmp-e1865T  l3.txt
+aditya.lircd.conf         irrecord-tmp-e29T9b  lg_remote.lircd.conf
+assignment.log            irrecord-tmp-euwNtj  lg_tv.lircd.conf
+casio_hex.lirc.conf       irrecord-tmp-faW1Ys  [0m[01;34mlinux[0m
+casio.lircd.conf          irrecord-tmp-fb4FXk  lp.lircd.conf
+casio_new_2.lircd.conf    irrecord-tmp-fnU3lM  l.txt
+casio_new_hex.lircd.conf  irrecord-tmp-G9PLHg  [01;34mMusic[0m
+casio_rem.lircd.conf      irrecord-tmp-GD5bji  nov_20
+code                      irrecord-tmp-gUH6Mz  nov_20_2
+dd.lircd.conf             irrecord-tmp-hEkHhy  nov_20_3
+[01;34mdemo1[0m                     irrecord-tmp-kGiB7t  panasonic2.lircd.conf
+[01;34mDesktop[0m                   irrecord-tmp-mHTxvK  panasonic_hex.lircd.conf
+[01;34mDevice_Drivers[0m            irrecord-tmp-nUKs12  panasonic.lircd.conf
+[01;34mDocuments[0m                 irrecord-tmp-oB4yha  [01;34mPictures[0m
+[01;34mDownloads[0m                 irrecord-tmp-P34miA  proj_casio.lircd.conf
+irrecord-tmp-36mZHn       irrecord-tmp-p3Zkqd  projector_casio.lircd.conf
+irrecord-tmp-4at6Dd       irrecord-tmp-P7xO2g  projector_casio_old.lircd.conf
+irrecord-tmp-5ulu0o       irrecord-tmp-pj66kW  projector_sanyo.lircd.conf
+irrecord-tmp-6A3GlY       irrecord-tmp-PwPE5U  [01;34mPublic[0m
+irrecord-tmp-6Hr8AE       irrecord-tmp-QR45rP  [01;34mpython_games[0m
+irrecord-tmp-7DtZ5r       irrecord-tmp-Rb8j3W  sachin.ko
+irrecord-tmp-7EHsOk       irrecord-tmp-T0xtc4  sanyo.lircd.conf
+irrecord-tmp-7v3psf       irrecord-tmp-UF03gL  sanyo_remote.lircd.conf
+irrecord-tmp-7XMHBZ       irrecord-tmp-uM6TvX  [01;31mscreen-v.4.4.0.tar.gz[0m
+irrecord-tmp-8CvXJK       irrecord-tmp-VPAFy2  [01;32ms.sh[0m
+irrecord-tmp-9RBjOj       irrecord-tmp-WV1vVc  [01;34mTemplates[0m
+irrecord-tmp-A31Ocs       irrecord-tmp-XIiJ3c  temp.txt
+irrecord-tmp-b5TDwh       irrecord-tmp-YDd65Y  [01;32mtest.sh[0m
+irrecord-tmp-BGm54S       irrecord-tmp-zBNA3N  tv_remote.lircd.conf
+irrecord-tmp-CmWzYI       k.lircd.conf         [01;34mVideos[0m
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cd -
+bash: cd: OLDPWD not set
+]0;pi@raspberrypi: ~[01;32mpi@raspberrypi[00m:[01;34m~ $[00m cd Device_Drivers/hdmi_final/
+]0;pi@raspberrypi: ~/Device_Drivers/hdmi_final[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/hdmi_final $[00m [H[2J]0;pi@raspberrypi: ~/Device_Drivers/hdmi_final[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/hdmi_final $[00m sudo insmod hdmi-rpi.ko [K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kudevadm monitor --env
+monitor will print the received events for:
+UDEV - the event which udev sends out after rule processing
+KERNEL - the kernel uevent
+
+KERNEL[11909.325702] add      /module/hdmi_rpi (module)
+ACTION=add
+DEVPATH=/module/hdmi_rpi
+SEQNUM=1089
+SUBSYSTEM=module
+
+UDEV  [11909.326236] add      /module/hdmi_rpi (module)
+ACTION=add
+DEVPATH=/module/hdmi_rpi
+SEQNUM=1089
+SUBSYSTEM=module
+USEC_INITIALIZED=11909323285
+
+^C]0;pi@raspberrypi: ~/Device_Drivers/hdmi_final[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/hdmi_final $[00m [H[2J]0;pi@raspberrypi: ~/Device_Drivers/hdmi_final[01;32mpi@raspberrypi[00m:[01;34m~/Device_Drivers/hdmi_final $[00m exit
+
+Script done on Mon 20 Nov 2017 17:46:52 UTC

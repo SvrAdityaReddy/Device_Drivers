@@ -23,6 +23,7 @@
 struct miscdevice;
 static int hdmi_pin;
 static unsigned int hdmi_gpio = 46;
+static int flag=0;
 
 
 struct edid_tag{
@@ -109,7 +110,6 @@ static int __init module_start(void)
 	gpio_export(hdmi_gpio,false);
 
 
-
 	setup_timer(&my_timer,my_timer_callback,0);
 	error = mod_timer(&my_timer,secs_to_jiffies(interval));
 	if(error)
@@ -143,15 +143,20 @@ static void __exit module_end(void)
 void my_timer_callback(unsigned long data){
 	printk(KERN_INFO "inside timer routine\n");
 	int error;
+	static int count=0;
+	//static int flag=1;
 	struct device *dev = hdmi_dev.this_device;
 	struct device_node *fwr = NULL;
 //	fw = of_find_compatible_node(NULL,);
 	struct rpi_firmware *fw = rpi_firmware_get(NULL);
+	count++;
 	printk(KERN_INFO "gpio46 val := %d\n",gpio_get_value(hdmi_gpio));
+	//if(count==interval) {
 	if(gpio_get_value(hdmi_gpio)){
 		printk(KERN_INFO "inside inner loop\n");
-		get_projector_id(fwr,fw);
-		if(1){
+		//get_projector_id(fwr,fw);
+		//flag=1;
+		if(flag==0){
 			printk("before event\n");
 			error = kobject_uevent_env(&dev->kobj,KOBJ_CHANGE,envp);
 			if (error){
@@ -160,8 +165,15 @@ void my_timer_callback(unsigned long data){
 			}
 			printk("after event");
 		}
+		flag=1;
+		//flag=0;
 	}
-	mod_timer(&my_timer,secs_to_jiffies((interval)));
+	else {
+		flag=0;
+	}
+	//count=0;
+	//}
+	mod_timer(&my_timer,jiffies+secs_to_jiffies((interval)));
 }
 module_init(module_start);
 module_exit(module_end);
