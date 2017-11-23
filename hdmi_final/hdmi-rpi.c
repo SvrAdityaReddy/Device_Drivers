@@ -23,8 +23,8 @@
 struct miscdevice;
 static int hdmi_pin;
 static unsigned int hdmi_gpio = 46;
-static int flag=0;
-
+static int flag=1;
+static int past_46=0;
 
 struct edid_tag{
 	u32 block_number;
@@ -33,23 +33,24 @@ struct edid_tag{
 }edid_tag1;
 
 static struct timer_list my_timer;
-void my_timer_callback(unsigned long data);
+static void my_timer_callback(unsigned long data);
 
 static void get_projector_id(struct device_node *fwr, struct rpi_firmware *fw){
 	
 	int error;
 	printk(KERN_INFO "init\n");
 	printk(KERN_INFO "rpi_firmware_get := %p",fw);
-	edid_tag1.block_number = 0;
+	/*edid_tag1.block_number = 0;
 	edid_tag1.status = 0;
 	for(error=0;error<128;error++)
-		edid_tag1.edid_block[error] = 0;
+		edid_tag1.edid_block[error] = 0;*/
 	error = rpi_firmware_property(fw,RPI_FIRMWARE_GET_EDID_BLOCK,&edid_tag1,sizeof(edid_tag1));
 	printk(KERN_INFO "Block No:%x, status:%x, error:%d\n",edid_tag1.block_number,edid_tag1.status,error);
-	for(error=0;error<128;error++){
+	/*for(error=0;error<128;error++){
 		printk("%c",edid_tag1.edid_block[error]);
 	}
-	printk("\n");
+	printk("\n");*/
+	printk("%c\n",edid_tag1.edid_block[99]);
 }
 
 
@@ -83,6 +84,10 @@ static struct miscdevice hdmi_dev = {
 };
 static char *envp[]={"SUBSYSTEM=HDMI",NULL};
 
+struct device_node *fwr = NULL;
+//	fw = of_find_compatible_node(NULL,);
+struct rpi_firmware *fw = NULL;
+
 static int __init module_start(void)
 {
 	int error = 0;
@@ -94,11 +99,11 @@ static int __init module_start(void)
 	
 	struct device *dev = hdmi_dev.this_device;
 
-	error = kobject_uevent_env(&dev->kobj,KOBJ_CHANGE,envp);
+	/*error = kobject_uevent_env(&dev->kobj,KOBJ_CHANGE,envp);
 	if (error){
 		kobject_put(&dev->kobj);
 		pr_err("No kobject_uevent %d\n", error);
-	}
+	}*/
 
 	if(!gpio_is_valid(hdmi_gpio)){
 		printk(KERN_INFO "hdmi hotplug gpio invalid");
@@ -108,8 +113,14 @@ static int __init module_start(void)
 	gpio_request(hdmi_gpio,"sysfs");
 	gpio_direction_input(hdmi_gpio);
 	gpio_export(hdmi_gpio,false);
-
-
+	past_46 = gpio_get_value(46);
+	edid_tag1.block_number = 0;
+	edid_tag1.status = 0;
+	for(error=0;error<128;error++)
+		edid_tag1.edid_block[error] = 0;
+	//get_projector_id(fwr,fw);
+	//get_projector_id(fwr,fw);
+	printk(KERN_INFO "detected device: %c\n",edid_tag1.edid_block[99]);
 	setup_timer(&my_timer,my_timer_callback,0);
 	error = mod_timer(&my_timer,secs_to_jiffies(interval));
 	if(error)
@@ -140,30 +151,33 @@ static void __exit module_end(void)
 }
 
 
-void my_timer_callback(unsigned long data){
+static void my_timer_callback(unsigned long data){
 	printk(KERN_INFO "inside timer routine\n");
-	int error;
+	 static int error;
 	static int count=0;
 	//static int flag=1;
 	struct device *dev = hdmi_dev.this_device;
-	struct device_node *fwr = NULL;
-//	fw = of_find_compatible_node(NULL,);
-	struct rpi_firmware *fw = rpi_firmware_get(NULL);
+	//struct device_node *fwr = NULL;
+	//	fw = of_find_compatible_node(NULL,);
+	//fw = rpi_firmware_get(NULL);
 	count++;
 	printk(KERN_INFO "gpio46 val := %d\n",gpio_get_value(hdmi_gpio));
 	//if(count==interval) {
-	if(gpio_get_value(hdmi_gpio)){
+	if(gpio_get_value(hdmi_gpio) == 1){ //&& gpio_get_value(hdmi_gpio) !=past_46 ){
 		printk(KERN_INFO "inside inner loop\n");
 		//get_projector_id(fwr,fw);
 		//flag=1;
 		if(flag==0){
 			printk("before event\n");
-			error = kobject_uevent_env(&dev->kobj,KOBJ_CHANGE,envp);
-			if (error){
-				kobject_put(&dev->kobj);
-				pr_err("No kobject_uevent %d\n", error);
+			if(!(edid_tag1.edid_block[99]=='P')) {
+
+				error = kobject_uevent_env(&dev->kobj,KOBJ_CHANGE,envp);
+				if (error){
+					kobject_put(&dev->kobj);
+					pr_err("No kobject_uevent %d\n", error);
+				}
+				printk("after event");
 			}
-			printk("after event");
 		}
 		flag=1;
 		//flag=0;

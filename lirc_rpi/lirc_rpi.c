@@ -77,10 +77,14 @@ static bool softcarrier = 1;
 /* 0 = do not invert output, 1 = invert output */
 static bool invert = 0;
 
-/*static unsigned long one_pulse=599;
-static unsigned long one_space=1657;
-static unsigned long zero_pulse=599;
-static unsigned long zero_space=535;*/
+static unsigned long header_pulse=3561;
+static unsigned long header_space=1680;
+static unsigned long one_pulse=499;
+static unsigned long one_space=1234;
+static unsigned long zero_pulse=499;
+static unsigned long zero_space=377;
+static unsigned long ptrail=500;
+static char l[64]="0000000001000000000001000000000100010010000000001011110010101111";
 
 struct gpio_chip *gpiochip;
 static int irq_num;
@@ -191,7 +195,7 @@ static struct attribute_group lirc_rpi_dev_basic_attributes = {
 static void send_raw_codes() {
 	int i=0;
 	long delta = 0;
-	unsigned long l[67]={9055,    4479,     588,     545,     588,     544,
+	/*unsigned long l[67]={9055,    4479,     588,     545,     588,     544,
               587,    1671,     590,     542,     591,     542,
               591,     544,     589,     551,     582,    1668,
               591,     543,     590,     543,     590,    1670,
@@ -202,7 +206,8 @@ static void send_raw_codes() {
               590,     544,     596,     536,     590,     542,
               592,    1668,     590,     544,     589,    1670,
               616,    1644,     622,    1636,     617,    1646,
-              617};      
+              617}; */
+    unsigned long l[115] = {3561,1680,499,377,499,1234,499,377,499,377,499,377,499,377,499,377,499,377,499,377,499,377,499,377,499,377,499,377,499,1234,499,377,499,377,499,377,499,377,499,377,499,377,499,377,499,377,499,377,499,1234,499,377,499,377,499,377,499,1234,499,377,499,377,499,1234,499,377,499,377,499,377,499,377,499,377,499,377,499,377,499,377,499,377,499,1234,499,377,499,1234,499,1234,499,1234,499,1234,499,377,499,377,499,1234,499,377,499,1234,499,377,499,1234,499,1234,499,1234,499,1234,500};     
     /*unsigned long l[115]={3525,    1744,     438,     444,     433,    1292,
               439,     438,     439,     439,     439,     438,
               439,     438,     439,     439,     439,     445,
@@ -238,7 +243,7 @@ static void send_raw_codes() {
               610,    1650,     611,    1632,     603,    1625,
               612};*/
     spin_lock_irqsave(&lock, flags);
-    for (i = 0; i < 67; i++) {
+    for (i = 0; i < 115; i++) {
 		if (i%2)
 			send_space(l[i] - delta);
 		else
@@ -256,15 +261,22 @@ static void send_hex_code(char *val)
 	long i=0;
 	kstrtol(val, 16, &newval);
 	printk(KERN_INFO LIRC_DRIVER_NAME ": hex string %s decimal value is %ld\n", val, newval);
-	i=newval;
-	for(i>0;;i<<1) {
-		if(i&&1) {
-			printk(KERN_INFO LIRC_DRIVER_NAME ": bit is %d\n", 1);
+	long delta = 0;
+	// send header
+	delta=send_pulse(header_pulse);
+	send_space(header_space-delta);
+	for(i=0;i<64;i++) {
+		if(l[i]=='0') {
+			delta=send_pulse(zero_pulse);
+			send_space(zero_space-delta);
 		}
 		else {
-			printk(KERN_INFO LIRC_DRIVER_NAME ": bit is %d\n", 0);
+			delta=send_pulse(one_pulse);
+			send_space(one_space-delta);
 		}
 	}
+	// send trail
+	send_pulse(ptrail); 
 	return;
 }
 

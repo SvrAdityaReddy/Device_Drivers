@@ -1,0 +1,1 @@
+cmd_/home/pi/Device_Drivers/mailbox/mailbox.ko := ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /home/pi/Device_Drivers/mailbox/mailbox.ko /home/pi/Device_Drivers/mailbox/mailbox.o /home/pi/Device_Drivers/mailbox/mailbox.mod.o ;  true
