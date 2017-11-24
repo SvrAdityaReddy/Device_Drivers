@@ -1,0 +1,1 @@
+cmd_/home/pi/Device_Drivers/lirc_rpi/lirc_rpi.ko := ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /home/pi/Device_Drivers/lirc_rpi/lirc_rpi.ko /home/pi/Device_Drivers/lirc_rpi/lirc_rpi.o /home/pi/Device_Drivers/lirc_rpi/lirc_rpi.mod.o ;  true

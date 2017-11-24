@@ -1,3 +1,0 @@
-ACTION=="change", SUBSYSTEM=="HDMI", KERNEL=="hdmi_device", RUN+="/usr/bin/sudo /home/pi/Device_Drivers/hdmi_uevent/s.sh"
-
-

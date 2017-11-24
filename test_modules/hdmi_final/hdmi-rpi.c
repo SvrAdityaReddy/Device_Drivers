@@ -169,7 +169,7 @@ static void my_timer_callback(unsigned long data){
 		//flag=1;
 		if(flag==0){
 			printk("before event\n");
-			if(!(edid_tag1.edid_block[99]=='P')) {
+			if(!(edid_tag1.edid_block[99]=='p')) {
 
 				error = kobject_uevent_env(&dev->kobj,KOBJ_CHANGE,envp);
 				if (error){
